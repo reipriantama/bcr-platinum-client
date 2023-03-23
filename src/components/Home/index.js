@@ -1,8 +1,13 @@
 import React from 'react'
+import './index.scss'
 
 function Home() {
   return (
-    <div>This is Home</div>
+    <>
+    <div className='container'>
+      {/* for the home page */}
+    </div>
+    </>
   )
 }
 

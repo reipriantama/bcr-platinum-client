@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from '../Home'
 import NavbarComponent from '../NavbarComponent'
 
 const Layout = () => {
@@ -6,7 +7,7 @@ const Layout = () => {
     <>
     <div>
       <NavbarComponent />
-      <p>This is from Layout</p>
+      <Home />
     </div>
     </>
   )
