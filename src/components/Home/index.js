@@ -6,12 +6,14 @@ import serviceBla from '../img/img_service.png'
 function Home() {
   return (
     <>
+    <div className="container-main">
+
     <div className='container pt-5'>
       <div className='container text-center first'>
         <section id='first-section'>
-
-        <div className='row'>
-          <div className='col-6 first'>
+        <div className="container pt-5">
+        <div className='row first'>
+              <div className='col-6 first'>
             <h1 className='first-tagline'>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
             <div className="tagline-description">
             Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas 
@@ -19,18 +21,20 @@ function Home() {
             </div>
             <button type="button" class="btn btn-success first">Mulai Sewa Mobil</button>
             </div>
-          <div className='col-6'>
+          <div className='col-6 second'>
             <div className="blue-rounded-square">
             <img src={MerC} alt='Mobil Illustration' className='mobil-illustration' />
             </div>
           </div>
         </div>
+        </div>
         </section>
 
         <section id='second-section'>
+        <div className="container pt-5">
             <div className="row second">
               <div className="col-6 third">
-                <img src={serviceBla} alt="Service" />
+                <img src={serviceBla} className="girl-model" alt="Service" />
               </div>
               <div className="col-6 fourth">
                 <div className="second-tagline">Best Car Rental for any kind of trip in (Lokasimu)!</div>
@@ -38,15 +42,17 @@ function Home() {
                 kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
                  </div>
               </div>
-
+              </div>
             </div>
         </section>
 
         <section id='third-section'>
           <div className="container pt-5 third">
-            asdsa
+            <div className="row">
+              <div className="col-12">
+              </div>
+            </div>
             
-
           </div>
 
 
@@ -57,6 +63,11 @@ function Home() {
 
       </div>
     </div>
+    </div>
+
+
+
+
     </>
   )
 }
