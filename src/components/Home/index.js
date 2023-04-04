@@ -10,6 +10,13 @@ import ThumbsIcon from '../img/Icons/icon_thumbs.png'
 import TwentyForHour from '../img/Icons/icon_24hrs.png'
 import PriceIcon from '../img/Icons/icon_price.png'
 import ProfessionalIcon from '../img/Icons/icon_professional.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+
+//import testi person 
+
+import TestiOne from '../img/testi/testi_one.png'
+// import TestiTwo from '../img/testi/testi_two.png'
 
 
 function Home() {
@@ -54,6 +61,15 @@ function Home() {
             murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan 
             terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
             </div>
+          
+              <ul className='fa-ul'>
+                <li><span className='fa-li'><FontAwesomeIcon icon={faCircleCheck} style={{"--fa-primary-color": "#666100", "--fa-secondary-color": "#666100",}} /></span>Sewa Mobil Dengan Supir di Bali 12 Jam</li>
+                <li><span className='fa-li'><FontAwesomeIcon icon={faCircleCheck} style={{"--fa-primary-color": "#666100", "--fa-secondary-color": "#666100",}} /></span>Sewa Mobil Lepas Kunci di Bali 24 Jam</li>
+                <li><span className='fa-li'><FontAwesomeIcon icon={faCircleCheck} style={{"--fa-primary-color": "#666100", "--fa-secondary-color": "#666100",}} /></span>Sewa Mobil Jangka Panjang Bulanan</li>
+                <li><span className='fa-li'><FontAwesomeIcon icon={faCircleCheck} style={{"--fa-primary-color": "#666100", "--fa-secondary-color": "#666100",}} /></span>Gratis Antar - Jemput Mobil di Bandara</li>
+                <li><span className='fa-li'><FontAwesomeIcon icon={faCircleCheck} style={{"--fa-primary-color": "#666100", "--fa-secondary-color": "#666100",}} /></span>Layanan Airport Transfer / Drop In Out</li>
+              </ul>
+          
           </div>
         </div>
       </div>
@@ -61,6 +77,8 @@ function Home() {
 
 
     {/* end of second section */}
+
+    {/* start of third section */}
 
     <section id="why-us">
       <div className="container">
@@ -104,6 +122,44 @@ function Home() {
         </div>
       </div>
     </section>
+
+    {/* end of third section */}
+
+
+    {/* start of fourth section */}
+
+    <section id='testiomonial-section'>
+      <div className="container">
+        <div className="row fourth">
+
+          <div className="testimonial-tagline">Testimonial</div>
+          <div className="testimonial-description">Berbagai review positif dari pelanggan kami</div>
+
+          <div className="swiper">
+            <div className="swiper-wrapper">
+              <div className="swiper-slide">
+                <div className="presentation">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-2 testimonial-slide"><img src={TestiOne} alt="Testi One" /></div>
+                      <div className="col-10 testimonial-slide"><div className="text-testi-slide">“Lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit, sed do eiusmod”</div>
+                        <div className="name-testi">John Dee 32, Bromo</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {/* end of fourth section */}
+
 
     </div>
     </>
