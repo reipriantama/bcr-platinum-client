@@ -220,3 +220,90 @@ ul, li {
     color: #000000;
 }
 
+.row.fifth {
+    background-color: #0D28A6;
+    height: 326px;
+    border-radius: 18px;
+    margin-bottom: 100px;
+    display: grid;
+}
+
+.first-blue-text {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    color: white;
+}
+
+.second-blue-text {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    // width: 500px;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+}
+
+.text-second {
+    width: 468px;
+    margin-bottom: 52px;
+}
+
+.blue-container {
+    margin-top: 64px;
+    // margin-bottom: 64px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn-success.second {
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+}
+
+.col.fourth {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+// end for fourth section
+
+//start of sixth section
+.faq-highlight {
+    // position: absolute;
+    height: 36px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.faq-point {
+    width: 368px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    position: static;
+}
+
+.row.sixth {
+    margin-bottom: 100px;
+}
+
+.accordion-group {
+    display: grid;
+    row-gap: 16px;
+}
