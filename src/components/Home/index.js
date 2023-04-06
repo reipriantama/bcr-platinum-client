@@ -202,7 +202,10 @@ function Home() {
       <div className="container">
         <div className="row sixth">
           <div className="col">
-            <div className="faq-highlight">Frequently Asked Question</div>
+            <div className="faq-highlight">Frequently Asked Question 
+            {/* <p className='faq-point'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> */}
+            </div>
+      
             <div className="faq-point">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
           </div>
           <div className="col">

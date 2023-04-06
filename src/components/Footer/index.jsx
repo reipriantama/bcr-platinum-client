@@ -2,6 +2,9 @@ import React from 'react'
 import '../Footer/index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faInstagram, faTwitch, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+// import { faFacebook } from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
   return (
@@ -20,10 +23,16 @@ function Footer() {
                 <div className="footer-two">FAQ</div>
             
             </div>
-            <div className="col">
+            <div className="col icon">
                 <div className="footer-one">Connect With Us</div>
                 <div className="social-icons">
-                {/* <FontAwesomeIcon icon={faFacebook} /> */}
+                    <ul className="social">
+                        <li><FontAwesomeIcon icon={faFacebook} /></li>
+                        <li><FontAwesomeIcon icon={faTwitter} /></li>
+                        <li><FontAwesomeIcon icon={faInstagram} /></li>
+                        <li><FontAwesomeIcon icon={faEnvelope} /></li>
+                        <li><FontAwesomeIcon icon={faTwitch} /></li>
+                    </ul>
                 </div>
                 </div>
             <div className="col">

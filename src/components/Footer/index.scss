@@ -10,6 +10,27 @@
 .col {
     display: grid;
     row-gap: 16px;
+
+}
+
+.social {
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    display: inline;
+}
+
+li {
+    list-style-type: none;
+    margin-right: 16px;
+    width: 32px;
+    height: 32px;
+}
+
+.social-icons {
+    // border: 1px solid red;
 }
 
 .container {
