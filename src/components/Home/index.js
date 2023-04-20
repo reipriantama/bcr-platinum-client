@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.scss'
-import MerC from '../img/img_car.png'
+// import MerC from '../img/img_car.png'
 import serviceBla from '../img/img_service.png'
 
 // import component
@@ -16,16 +16,12 @@ import ProfessionalIcon from '../img/Icons/icon_professional.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
-//import testi person 
-
-import TestiOne from '../img/testi/testi_one.png'
-// import TestiTwo from '../img/testi/testi_two.png'
-import StarRating from '../img/Icons/Rate.png'
-
-
-
 //import page
 import Footer from '../Footer'
+import Testimonial from '../Testimonial'
+import Hero from '../Hero'
+
+
 
 
 function Home() {
@@ -34,23 +30,7 @@ function Home() {
     <div>
 
     {/* first section */}
-
-    <section id='hero'>
-      <div className="container">
-        <div className="row first" >
-          <div className="col" >
-            <div className="first-tagline">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</div>
-            <div className="first-tagline-description">Selamat datang di Binar Car Rental. 
-            Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap 
-            melayani kebutuhanmu untuk sewa mobil selama 24 jam.</div>
-            <button type="button" class="btn btn-success second">Mulai Sewa Mobil</button>
-          </div>
-          <div className="col">
-            <img src={MerC} alt='Car Mantap' className='img-car-merc' />
-          </div>
-        </div>
-      </div>
-    </section>
+    <Hero />
 
     {/* end of first section */}
 
@@ -133,46 +113,7 @@ function Home() {
     </section>
 
     {/* end of third section */}
-
-
-    {/* start of fourth section */}
-
-    <section id='testiomonial-section'>
-      <div className="container">
-        <div className="row fourth">
-
-          <div className="testimonial-tagline">Testimonial</div>
-          <div className="testimonial-description">Berbagai review positif dari pelanggan kami</div>
-          
-
-          <div className="swiper">
-            <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="presentation">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-2 testimonial-slide"><img src={TestiOne} alt="Testi One" /></div>
-                      <div className="col-10 testimonial-slide">
-                        
-                        <div className="starating"><img src={StarRating} alt="Star Rating" /></div>
-                        <div className="text-testi-slide">“Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit, sed do eiusmod”</div>
-                        <div className="name-testi">John Dee 32, Bromo</div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-
-    {/* end of fourth section */}
+      <Testimonial />
 
 
     {/* start of fifth section */}

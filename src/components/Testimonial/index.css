@@ -1,0 +1,74 @@
+/* // start of fourth section */
+
+.row.fourth {
+    margin-bottom: 100px;
+}
+
+
+.testimonial-tagline {
+    text-align: center;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.testimonial-description {
+    text-align: center;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+
+.presentation {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 619px;
+    height: 270px;
+    /* // border: 1px solid red; */
+    background-color: #F1F3FF;
+    border-radius: 8px;
+}
+
+.col-2.testimonial-slide{ 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: 1px solid red; */
+}
+
+.swiper-slide {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.text-testi-slide {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    width: 415px;
+    height: 80px;
+}
+
+.col-10.testimonial-slide {
+    /* border: 1px solid red; */
+}
+
+.name-testi {
+    width: 415px;
+    height: 20px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+}

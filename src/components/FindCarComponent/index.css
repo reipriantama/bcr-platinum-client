@@ -1,0 +1,16 @@
+.container.form {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    /* border: 1px solid red; */
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.col-last {
+    display: flex;
+    column-gap: 16px;
+}
+
+.line-boxes {
+    /* background-color: black; */
+}
