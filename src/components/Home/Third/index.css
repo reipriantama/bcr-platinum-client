@@ -1,0 +1,34 @@
+.row.third {
+    margin-top: 100px;
+    
+}
+
+.tag-why-us {
+    /* position: absolute; */
+    height: 36px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 40px;
+    
+}
+
+.why-us-desc {
+    /* // position: absolute; */
+    width: 468px;
+    height: 20px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    
+}
+
+.card-container {
+    margin-bottom: 100px;
+
+}

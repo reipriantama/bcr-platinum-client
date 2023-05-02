@@ -1,7 +1,7 @@
 import React from 'react'
 import FindCarComponent from '../../FindCarComponent'
-import Footer from '../../Footer'
-import Hero from '../../Hero'
+import Footer from '../../Home/Footer'
+import Hero from '../../Home/Hero'
 import NavbarComponent from '../../NavbarComponent'
 import './index.css'
 

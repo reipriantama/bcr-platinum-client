@@ -1,6 +1,6 @@
 import React from 'react'
-import TestiOne from '../img/testi/testi_one.png'
-import StarRating from '../img/Icons/Rate.png'
+import TestiOne from '../../img/testi/testi_one.png'
+import StarRating from '../../img/Icons/Rate.png'
 import './index.css'
 
 function Testimonial() {
@@ -34,6 +34,9 @@ function Testimonial() {
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </>
