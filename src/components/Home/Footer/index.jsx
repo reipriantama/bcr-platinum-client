@@ -13,7 +13,7 @@ function Footer() {
         <div className="row">
             <div className="col">
                 <div className="footer-one">Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</div>
-                <div className="footer-one">Jbinarcarrental@gmail.com</div>
+                <div className="footer-one">binarcarrental@gmail.com</div>
                 <div className="footer-one">081-233-334-808</div>
             </div>
             <div className="col">
