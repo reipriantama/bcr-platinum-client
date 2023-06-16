@@ -3,10 +3,7 @@ import WhyUsCard from '../WhyUsCardComponent'
 import './index.css'
 
 //import icon
-import ThumbsIcon from '../../img/Icons/icon_thumbs.png'
-import TwentyForHour from '../../img/Icons/icon_24hrs.png'
-import PriceIcon from '../../img/Icons/icon_price.png'
-import ProfessionalIcon from '../../img/Icons/icon_professional.png'
+import { ThirdSection } from '../../../data/Homepage'
 
 function Third() {
   return (
@@ -18,34 +15,17 @@ function Third() {
           <div className="card-container">
             <div className="container text-center" style={{padding: "0", margin: "0"}}>
               <div className="row">
-                <div className="col">
-                    <WhyUsCard
-                    cardIcon={ThumbsIcon}
-                    cardTitle='Mobil Lengkap'
-                    cardText='Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan terawat'
-                    />
-                </div>
-                <div className="col">
-                <WhyUsCard
-                    cardIcon={PriceIcon}
-                    cardTitle='Harga Murah'
-                    cardText='Harga murah dan bersaing, bisa bandingkan harga kami dengan rental mobil lain'
-                    />
-                </div>
-                <div className="col">
-                <WhyUsCard
-                    cardIcon={TwentyForHour}
-                    cardTitle='Layanan 24 Jam'
-                    cardText='Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga tersedia di akhir minggu'
-                    />
-                </div>
-                <div className="col">
-                <WhyUsCard
-                    cardIcon={ProfessionalIcon}
-                    cardTitle='Sopir Profesional'
-                    cardText='Sopir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu'
-                    />
-                </div>
+                {ThirdSection.length ? 
+                ThirdSection.map((item) => (
+                  <div className="col">
+                  <WhyUsCard
+                  cardIcon={item.icon}
+                  cardTitle={item.HighTagline}
+                  cardText={item.SecondTagline}
+                  />
+                  </div>
+                ))
+                : null}
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ function WhyUsCard({cardIcon, cardTitle, cardText}) {
     <>
     <div class="card">
         <div class="card-body">
-            <img src={cardIcon} alt=". ." className='card-icon' />
+            <img src={cardIcon} alt=".." className='card-icon' />
             <div class="card-title">{cardTitle}</div>
             <div  class="card-text">{cardText}</div>
         </div>

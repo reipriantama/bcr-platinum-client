@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { createSearchParams, useNavigate } from 'react-router-dom';
+// import { } from 'react-router-dom';
 import './index.css'
+
 
 
 
@@ -16,6 +19,8 @@ function FindCarComponent() {
     const [category, setCategory] = useState();
     const [price, setPrice] = useState();
     const [status, setStatus] = useState();
+
+    //for redirect with url parameters
 
     const showData = () => (
         <div>
@@ -37,6 +42,14 @@ function FindCarComponent() {
             status
         })
     }
+
+    const navigate = useNavigate();
+
+    const goToSearch = () => 
+        navigate({
+            pathname: '/result',
+            search: `?${createSearchParams({name : name, category : category, price : price, status : status})}`,
+        });
 
   return (
     <>
@@ -78,7 +91,11 @@ function FindCarComponent() {
                     </div>
                     <div className="col">
                     <label></label>
-                    <button type="submit" className="btn btn-success">Cari Mobil</button>
+
+
+                    <button className="btn btn-success" onClick={goToSearch}>Cari Mobil</button>
+
+
                     </div>
                 </div>
             </div>

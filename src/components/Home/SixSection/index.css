@@ -1,0 +1,27 @@
+.faq-highlight {
+    height: 36px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.faq-point {
+    width: 368px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    position: static;
+}
+
+.row.sixth {
+    margin-bottom: 100px;
+}
+
+.accordion-group {
+    display: grid;
+    row-gap: 16px;
+}

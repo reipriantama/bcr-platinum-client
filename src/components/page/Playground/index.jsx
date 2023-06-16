@@ -1,25 +1,45 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
 
 function Playground() {
+  let data = [{
+    brand: 'toyota',
+    carName: 'agya'
+  },
+  {
+    brand: 'daihatsu',
+    carName: 'xenia'
+  },
+  {
+    brand: 'honda',
+    carName: 'brio'
+  },
+]
 
-  let [count, setCount] = useState(0);
-  if (count <= 0) {
-    count = 0;
-  } 
+  const [list, setList] = useState([]);
 
+  const handleGetToyota = () => {
+    const newData = data.filter((item) => {
+      return item.brand === 'toyota'
+    });
+    setList(newData);
+    console.log(newData);
+  }
   return (
+    <>
     <div>
-        <header>
-            <h2>Mall Counter</h2>
-            <h1>Jumlah Pengunjung: {count}</h1>
-            <button onClick={() => setCount(count+1)}>Tambah Pengunjung</button>
-            <button onClick={() => setCount(count-1)}>Kurang Pengunjung</button>
-        </header>
-        <footer>
-            Aufa Asensio
-        </footer>
+      <button onClick={handleGetToyota}>Get Toyota</button>
+      {list.length ? 
+      list.map((item) =>  (
+        <div>
+          <h1>{item.brand}</h1>
+          <h1>{item.carName}</h1>
+          </div>
+      ))
+        : 
+        null}
     </div>
+    </>
   )
 }
 

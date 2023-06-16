@@ -35,8 +35,7 @@ function Testimonial() {
             </div>
           </div>
 
-
-
+          
         </div>
       </div>
     </>
