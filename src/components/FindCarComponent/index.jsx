@@ -1,11 +1,10 @@
+import axios from 'axios';
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom';
 // import { } from 'react-router-dom';
 import './index.css'
-
-
-
 
 
 function FindCarComponent() {
@@ -20,17 +19,32 @@ function FindCarComponent() {
     const [price, setPrice] = useState();
     const [status, setStatus] = useState();
 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData();
+    },[]);
+
+    const getData = () => {
+        const api = `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${name}`;
+        axios.get(api).then(
+            (res) => setData(res.data.cars))
+            .catch((err) => console.log(err));
+    
+    };
+    console.log(data);
+
     //for redirect with url parameters
 
-    const showData = () => (
-        <div>
-            <h2>Form Data</h2>
-            <p>Nama Mobil: {name}</p>
-            <p>Kategori: {category}</p>
-            <p>Price: {price}</p>
-            <p>Status: {status}</p>
-        </div>
-    )
+    // const showData = () => (
+    //     <div>
+    //         <h2>Form Data</h2>
+    //         <p>Nama Mobil: {name}</p>
+    //         <p>Kategori: {category}</p>
+    //         <p>Price: {price}</p>
+    //         <p>Status: {status}</p>
+    //     </div>
+    // )
 
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
@@ -43,13 +57,12 @@ function FindCarComponent() {
         })
     }
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const goToSearch = () => 
-        navigate({
-            pathname: '/result',
-            search: `?${createSearchParams({name : name, category : category, price : price, status : status})}`,
-        });
+    // const goToSearch = () => 
+    //     navigate({
+    //         search: `?${createSearchParams({name : name, category : category, price : price, status : status})}`,
+    //     });
 
   return (
     <>
@@ -65,9 +78,9 @@ function FindCarComponent() {
                 <label>Kategori</label>
                     <select id="inputState" className="form-select" onChange={(e) => setCategory(e.target.value)}>
                         <option selected value=''>Masukan Kapasitas Mobil</option>
-                        <option value='1'>2 - 4 Orang</option>
-                        <option value='2'>4 - 6 Orang</option>
-                        <option value='3'>6 - 8 Orang</option>
+                        <option value='small'>2 - 4 Orang</option>
+                        <option value='medium'>4 - 6 Orang</option>
+                        <option value='large'>6 - 8 Orang</option>
                     </select>
             </div>
             <div className="col">
@@ -85,23 +98,25 @@ function FindCarComponent() {
                         <label>Status</label>
                         <select id="inputState" className="form-select" onChange={(e) => setStatus(e.target.value)}>
                         <option selected value=''>Pilih Status</option>
-                        <option value='2'>Disewakan</option>
-                        <option value='2'>Tidak Disewa</option>
+                        <option value='true'>Disewakan</option>
+                        <option value='false'>Tidak Disewa</option>
                     </select>
                     </div>
                     <div className="col">
                     <label></label>
-
-
-                    <button className="btn btn-success" onClick={goToSearch}>Cari Mobil</button>
-
-
+                    <button className="btn btn-success" onClick={getData}>Cari Mobil</button>
                     </div>
                 </div>
             </div>
         </div>
         </form>
-        {showData()}
+        {data.length ? 
+        data.map((item) => (
+            <div className="carname">
+                {item.name}
+            </div>
+        ))
+        : null}
     </div>
     </>
   )

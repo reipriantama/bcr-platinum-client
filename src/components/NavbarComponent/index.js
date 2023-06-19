@@ -2,6 +2,7 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import './index.scss'
 
 const NavbarComponent = () => {
@@ -9,7 +10,9 @@ const NavbarComponent = () => {
         <>
         <Navbar collapseOnSelect expand="lg" className="navbar-main">
             <Container>
-              <Navbar.Brand href="#home">Logo</Navbar.Brand>
+              <Link style={{ textDecoration: 'none' }} to={'/'}>
+              <Navbar.Brand>Logo</Navbar.Brand>
+              </Link>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

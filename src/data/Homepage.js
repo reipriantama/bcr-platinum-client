@@ -82,3 +82,14 @@ export const SixSectionData = [
         secondTagline : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales volutpat nisi sit amet faucibus. Proin tellus tellus, volutpat a hendrerit eget, cursus porttitor felis. Donec vulputate tincidunt tellus, nec consequat lectus viverra et. Curabitur consequat gravida odio, id mollis."
     }
 ]
+
+export const TestimonialSectionData = [
+    {
+        personImage : 'img/Testi/person/testi_one.png',
+        ratingCount: 4, 
+        descriptionText: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”', 
+        nametester: "Jhon Dee",
+        agetester: '32',
+        locationtester: 'Bromo'
+    }
+]

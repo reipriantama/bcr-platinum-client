@@ -13,7 +13,7 @@ function Home() {
   return (
     <>
     <div>
-      <Hero />
+      <Hero displayButton={"initial"} />
       <Second />
       <Third />
       <Testimonial />
