@@ -16,7 +16,7 @@ function App() {
       <Route path="/" element={<Layout />} />
         <Route path='find' element={<Search />} />
         <Route path='playground' element={<Playground />} />
-        <Route path='result' element={<Result />} />
+        <Route path='result/:id' element={<Result />} />
     </Routes>
     </>
   );

@@ -2,7 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
-import { createSearchParams, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import CarCard from '../CarCard';
 // import { } from 'react-router-dom';
 import './index.css'
 
@@ -23,7 +24,7 @@ function FindCarComponent() {
 
     useEffect(() => {
         getData();
-    },[]);
+    }, []);
 
     const getData = () => {
         const api = `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${name}`;
@@ -33,18 +34,6 @@ function FindCarComponent() {
     
     };
     console.log(data);
-
-    //for redirect with url parameters
-
-    // const showData = () => (
-    //     <div>
-    //         <h2>Form Data</h2>
-    //         <p>Nama Mobil: {name}</p>
-    //         <p>Kategori: {category}</p>
-    //         <p>Price: {price}</p>
-    //         <p>Status: {status}</p>
-    //     </div>
-    // )
 
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
@@ -57,12 +46,11 @@ function FindCarComponent() {
         })
     }
 
-    // const navigate = useNavigate();
 
-    // const goToSearch = () => 
-    //     navigate({
-    //         search: `?${createSearchParams({name : name, category : category, price : price, status : status})}`,
-    //     });
+    const navigate = useNavigate();
+
+    const goToSearch = (id) => 
+        navigate(`/result/${id}`)
 
   return (
     <>
@@ -110,13 +98,15 @@ function FindCarComponent() {
             </div>
         </div>
         </form>
+        <div className="row result">
         {data.length ? 
         data.map((item) => (
-            <div className="carname">
-                {item.name}
+            <div className="col car">
+                <CarCard carname={item.name} carcategory={item.category} carprice={item.price} carimage={item.image} cardetail={() => goToSearch(item.id)} />
             </div>
         ))
         : null}
+        </div>
     </div>
     </>
   )
