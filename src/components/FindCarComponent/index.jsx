@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import {  useNavigate } from 'react-router-dom';
 import CarCard from '../CarCard';
-// import { } from 'react-router-dom';
 import './index.css'
 
 
@@ -15,19 +14,14 @@ function FindCarComponent() {
 
 // e punya property target yang merupakan inputan, value adalah hasil dari inputan dari input form kita, untuk yang option kita letak di select agar bisa dibaca valuenya
 
-    const [name, setName] = useState();
-    const [category, setCategory] = useState();
-    const [price, setPrice] = useState();
-    const [status, setStatus] = useState();
-
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
+    const [price, setPrice] = useState("");
+    const [status, setStatus] = useState("");
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        getData();
-    }, []);
-
     const getData = () => {
-        const api = `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${name}`;
+        const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}`;
         axios.get(api).then(
             (res) => setData(res.data.cars))
             .catch((err) => console.log(err));
@@ -35,29 +29,24 @@ function FindCarComponent() {
     };
     console.log(data);
 
+    useEffect(() => {
+        getData();
+    }, []);
+
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
         e.preventDefault();
-        console.log("form data: ", {
-            name, 
-            category, 
-            price, 
-            status
-        })
     }
-
-
     const navigate = useNavigate();
 
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
-
+        
   return (
     <>
     <div className="container form">
     <form onSubmit={(e) => onSubmit(e)}>
         <div className="row">
-            
             <div className="col">
             <label>Nama Mobil</label>
             <input type="string" className="form-control" id="inputEmail4" placeholder="Ketik nama/tipe mobil" onChange={(e) => setName(e.target.value)} />

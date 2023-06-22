@@ -1,8 +1,6 @@
 .row.third {
     margin-top: 100px;
-    
 }
-
 .tag-why-us {
     /* position: absolute; */
     height: 36px;
@@ -31,4 +29,14 @@
 .card-container {
     margin-bottom: 100px;
 
+}
+
+@media screen and (max-width: 720px)  {
+    .col.whyus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
 }
