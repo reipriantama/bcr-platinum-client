@@ -16,12 +16,12 @@ function FindCarComponent() {
 
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState();
     const [status, setStatus] = useState("");
     const [data, setData] = useState([]);
 
     const getData = () => {
-        const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}`;
+        const api = `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
         axios.get(api).then(
             (res) => setData(res.data.cars))
             .catch((err) => console.log(err));
@@ -44,6 +44,7 @@ function FindCarComponent() {
         
   return (
     <>
+    <div className="container">
     <div className="container form">
     <form onSubmit={(e) => onSubmit(e)}>
         <div className="row">
@@ -62,12 +63,7 @@ function FindCarComponent() {
             </div>
             <div className="col">
                 <label>Harga</label>
-                <select id="inputState" className="form-select" onChange={(e) => setPrice(e.target.value)}>
-                        <option selected value=''>Masukan Harga Sewa per Hari</option>
-                        <option value='1'>&lt; Rp. 400.000</option>
-                        <option value='2'>Rp. 400.000 - Rp. 600.000</option>
-                        <option value='3'>&gt; Rp. 600.000</option>
-                    </select>
+                <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" onChange={(e) => setPrice(e.target.value)} />
             </div>
             <div className="col">
                 <div className="row">
@@ -87,7 +83,8 @@ function FindCarComponent() {
             </div>
         </div>
         </form>
-        <div className="row result">
+    </div>
+    <div className="row justify-content-start result">
         {data.length ? 
         data.map((item) => (
             <div className="col car">

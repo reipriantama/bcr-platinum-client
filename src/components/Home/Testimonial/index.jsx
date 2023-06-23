@@ -1,6 +1,5 @@
 import React from "react";
 // import TestiOne from '../../img/testi/testi_one.png'
-import StarRating from '../../img/Icons/Rate.png'
 import './index.css'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +15,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 //import data
 import { TestimonialSectionData } from "../../../data/Homepage";
+import StarRatings from "react-star-ratings";
 
 function Testimonial() {
 
@@ -36,9 +36,10 @@ function Testimonial() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        
         {TestimonialSectionData.length ? 
         TestimonialSectionData.map((item) => (
+          <SwiperSlide>
           <div className="container testimonial">
           <div className="row fourth">
             <div className="col-3">
@@ -49,7 +50,16 @@ function Testimonial() {
             <div className="col-9">
               <div className="description-tester">
                 <div className="starrating">
-                  
+                <StarRatings
+                  rating={item.ratingCount}
+                  starRatedColor="#F9CC00"
+                  // changeRating={this.changeRating}
+                  numberOfStars={5}
+                  name='rating'
+                  starDimension="16px"
+                  starSpacing="0px"
+
+                />
                 </div>
                 <div className="description-text">
                 {item.descriptionText}
@@ -61,9 +71,10 @@ function Testimonial() {
             </div>
           </div>
         </div>
+        </SwiperSlide>
         ))
         : null}
-          </SwiperSlide>
+          
       </Swiper>
         
           

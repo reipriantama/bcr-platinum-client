@@ -4,7 +4,7 @@
 }
 
 ul, li {
-    list-style-type: none;
+    /* list-style-type: none; */
     margin: 0;
     padding: 0;
     width: 270px;
@@ -32,6 +32,7 @@ ul, li {
     
 }
 
+
 .second-tagline-description {
     width: 468px;
     height: 80px;
@@ -43,4 +44,29 @@ ul, li {
     margin-top: 24px;
     margin-bottom: 18px;
     
+}
+
+@media only screen and (max-width: 800px) {
+    .feature-ill {
+        width: 252px;
+        height: 228px;
+    }
+
+    .col.imageill {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .col.pointssecond {
+
+    }
+    .second-tagline {
+        margin-top: 24px;
+        width: 328px;
+    }
+    .second-tagline-description {
+        width: 328px;
+    }
 }

@@ -75,3 +75,40 @@
     display: flex;
     
 }
+
+@media screen and (max-width: 720px) {
+    .container.testimonial {
+        display: grid;
+        align-items: center;
+        text-align: center;
+        padding-top: 60px;
+        background-color: #F1F3FF;
+        width: 328px;
+        border-radius: 8px;
+        height: 392px;
+    }
+    .row.fourth {
+        margin-bottom: 100px;
+        display: grid;
+    }
+    .image-testimonial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .description-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 280px;
+        font-size: 14px;
+    }
+    .person-testimoner {
+        /* padding-left: 10px;
+        padding-right: 10px;
+        width: 280px;
+        font-size: 14px; */
+    }
+    .person-testi {
+        left: 50%;
+    }
+}

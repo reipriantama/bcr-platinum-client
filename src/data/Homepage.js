@@ -91,5 +91,13 @@ export const TestimonialSectionData = [
         nametester: "Jhon Dee",
         agetester: '32',
         locationtester: 'Bromo'
+    },
+    {
+        personImage : 'img/Testi/person/testi_two.png',
+        ratingCount: 5, 
+        descriptionText: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”', 
+        nametester: "Rahmanisa Rizqi",
+        agetester: '20',
+        locationtester: 'Parit Demang'
     }
 ]

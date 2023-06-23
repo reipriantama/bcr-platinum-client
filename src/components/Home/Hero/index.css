@@ -1,6 +1,5 @@
 .row.first {
     margin-top: 53px;
-    
 }
 
 .container {
@@ -46,4 +45,14 @@
 
 #hero {
     background-color: F1F3FF;
+}
+
+@media only screen and (max-width: 800px) {
+    .first-tagline {
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
 }

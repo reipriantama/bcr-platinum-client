@@ -39,4 +39,10 @@
         margin-bottom: 16px;
         margin-top: 16px;
     }
+    .tag-why-us {
+        text-align: center;
+    }
+    .why-us-desc { 
+        text-align: center;
+    }
 }

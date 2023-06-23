@@ -11,10 +11,10 @@ function Second() {
     <>
     <div className="container">
         <div className="row second">
-          <div className="col">
+          <div className="col imageill">
           <img src={serviceBla} alt='Feature Ill' className='feature-ill' />
           </div>
-          <div className="col" style={{paddingLeft: "100px"}}>
+          <div className="col pointssecond">
             <div className="second-tagline">
             Best Car Rental for any kind of trip in (Lokasimu)!
             </div>

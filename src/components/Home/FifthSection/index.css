@@ -51,3 +51,24 @@
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 720px) {
+    .row.fifth {
+    background-color: #0D28A6;
+    height: 326px;
+    border-radius: 18px;
+    margin-bottom: 100px;
+    display: grid;
+    margin-left: 2px;
+    margin-right: 2px;
+    }
+    .first-blue-text {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    line-height: 150%;
+    color: white;
+}
+}
