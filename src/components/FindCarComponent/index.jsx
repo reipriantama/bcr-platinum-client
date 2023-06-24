@@ -25,9 +25,13 @@ function FindCarComponent() {
         axios.get(api).then(
             (res) => setData(res.data.cars))
             .catch((err) => console.log(err));
-    
     };
     console.log(data);
+
+    function getFilteredData() {
+        getData();
+        handlePrice();
+    }
 
     useEffect(() => {
         getData();
@@ -41,6 +45,13 @@ function FindCarComponent() {
 
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
+
+    const handlePrice = () => {
+        const maxPrice = data.filter((item) => {
+            return item.price < price
+        });
+        setData(maxPrice);
+    }
         
   return (
     <>
@@ -63,13 +74,15 @@ function FindCarComponent() {
             </div>
             <div className="col">
                 <label>Harga</label>
-                <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" onChange={(e) => setPrice(e.target.value)} />
+                <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" 
+                onChange={(e) => setPrice(e.target.value)} />
             </div>
             <div className="col">
                 <div className="row">
                     <div className="col">
                         <label>Status</label>
-                        <select id="inputState" className="form-select" onChange={(e) => setStatus(e.target.value)}>
+                        <select id="inputState" className="form-select" 
+                        onChange={(e) => setStatus(e.target.value)}>
                         <option selected value=''>Pilih Status</option>
                         <option value='true'>Disewakan</option>
                         <option value='false'>Tidak Disewa</option>
@@ -77,7 +90,7 @@ function FindCarComponent() {
                     </div>
                     <div className="col">
                     <label></label>
-                    <button className="btn btn-success" onClick={getData}>Cari Mobil</button>
+                    <button className="btn btn-success" onClick={getFilteredData}>Cari Mobil</button>
                     </div>
                 </div>
             </div>
