@@ -63,7 +63,7 @@ function Login() {
                     <label forHtml="formGroupExampleInput" className="form-label">Email</label>
                     <input onChange={handleChange} type="email" name='email' className="form-control email" id="formGroupExampleInput" placeholder="Contoh: johndee@gmail.com"></input>
                     <label forHtml="formGroupExampleInput" className="form-label">Password</label>
-                    <input onChange={handleChange} name='password' type="text" className="form-control password" id="formGroupExampleInput" placeholder="6+ karakter"></input>
+                    <input onChange={handleChange} name='password' type="password" className="form-control password" id="formGroupExampleInput" placeholder="6+ karakter"></input>
                     <button  type="button" onClick={handleSubmit} className="btn btn-primary">{load ? "Loading" : "Sign In"}</button>
                 </div>
             </div>
