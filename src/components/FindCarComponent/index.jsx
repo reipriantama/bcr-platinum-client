@@ -17,7 +17,7 @@ function FindCarComponent() {
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState();
-    const [status, setStatus] = useState("");
+    const [status, setStatus] = useState();
     const [data, setData] = useState([]);
 
     const getData = () => {
@@ -28,10 +28,6 @@ function FindCarComponent() {
     };
     console.log(data);
 
-    function getFilteredData() {
-        getData();
-        handlePrice();
-    }
 
     useEffect(() => {
         getData();
@@ -46,12 +42,6 @@ function FindCarComponent() {
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
 
-    const handlePrice = () => {
-        const maxPrice = data.filter((item) => {
-            return item.price < price
-        });
-        setData(maxPrice);
-    }
         
   return (
     <>
@@ -90,7 +80,7 @@ function FindCarComponent() {
                     </div>
                     <div className="col">
                     <label></label>
-                    <button className="btn btn-success" onClick={getFilteredData}>Cari Mobil</button>
+                    <button className="btn btn-success" onClick={getData}>Cari Mobil</button>
                     </div>
                 </div>
             </div>
@@ -98,13 +88,11 @@ function FindCarComponent() {
         </form>
     </div>
     <div className="row justify-content-start result">
-        {data.length ? 
-        data.map((item) => (
+        {data.map((item) => (
             <div className="col car">
                 <CarCard carname={item.name} carcategory={item.category} carprice={item.price} carimage={item.image} cardetail={() => goToSearch(item.id)} />
             </div>
-        ))
-        : null}
+        ))}
         </div>
     </div>
     </>
