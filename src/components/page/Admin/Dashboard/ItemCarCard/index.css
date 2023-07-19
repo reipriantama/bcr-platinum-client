@@ -1,0 +1,34 @@
+.btn.btn-success.select-car {
+    margin: 24px;
+}
+
+.card.car {
+    width: 333px;
+    height: 478px;
+    border-color: lightgrey;
+    box-shadow: 0 0 9px lightgrey;
+}
+
+.card-img-top {
+    width: 270px;
+    height: 160px;
+    background-size: cover;
+    border-radius: 16px;
+}
+
+.carimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 31px 17px 31px 16px;
+}
+
+.desc {
+    width: 301px;
+    height: 60px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}

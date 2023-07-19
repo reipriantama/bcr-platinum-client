@@ -23,22 +23,31 @@ function Login() {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         setLoad(true)
-        const api = 'https://api-car-rental.binaracademy.org/customer/auth/login'
+        const api = 'https://api-car-rental.binaracademy.org/admin/auth/login'
         const data = {
           // ini ambil dari handleChange
           email: form.email,
           password: form.password
         }
-        console.log(data)
-        axios.post(api, data).then((res) => {
+        const headersAPI = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'admin_token': localStorage.getItem('admin_token')
+        }
+    }
+        axios.post(api, data, headersAPI).then((res) => {
+            localStorage.setItem("admin_token", res.data.access_token);
+            localStorage.setItem("roles", res.data.role);
             console.log(res.data)
             if (res.status === 201) {
+                console.log(headersAPI)
                 setSuccess("Berhasil Login")
                 setLoad(false)
 
                 setTimeout(() => {
-                    navigate('/')
+                    navigate('/dashboard')
                 }, 3000)
             }
         }).catch((err) => {
@@ -58,13 +67,15 @@ function Login() {
             <div className="col-5 form">
                 <div className="form-fill">
                     <div className="box-logo" />
+                    <form>
                     <p>Welcome, Admin BCR</p>
                     {error && <div class="alert alert-danger" role="alert">{error}</div>}
-                    <label forHtml="formGroupExampleInput" className="form-label">Email</label>
+                    <label htmlFor="formGroupExampleInput" className="form-label">Email</label>
                     <input onChange={handleChange} type="email" name='email' className="form-control email" id="formGroupExampleInput" placeholder="Contoh: johndee@gmail.com"></input>
-                    <label forHtml="formGroupExampleInput" className="form-label">Password</label>
+                    <label htmlFor="formGroupExampleInput" className="form-label">Password</label>
                     <input onChange={handleChange} name='password' type="password" className="form-control password" id="formGroupExampleInput" placeholder="6+ karakter"></input>
-                    <button  type="button" onClick={handleSubmit} className="btn btn-primary">{load ? "Loading" : "Sign In"}</button>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-primary">{load ? "Loading" : "Sign In"}</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ import ResultCarCard from './ResultCarCard'
 
 
 function Result() {
-
+  
   // useState for put the object into data variable
   const [data, setData] = useState({})
   //using useParams for get the id from the parameter

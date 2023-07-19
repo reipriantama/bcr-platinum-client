@@ -42,7 +42,6 @@ function FindCarComponent() {
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
 
-        
   return (
     <>
     <div className="container">
