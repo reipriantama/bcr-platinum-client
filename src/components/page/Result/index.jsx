@@ -18,7 +18,7 @@ function Result() {
 
   //fetching API then put the ID so we can get the details
   const getDetailedData = () => {
-    const api = `https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`;
+    const api = `https://api-car-rental.binaracademy.org/customer/car/${id}`;
     axios.get(api).then(
         (res) => {
           console.log(res)
