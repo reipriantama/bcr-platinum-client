@@ -21,7 +21,7 @@ function FindCarComponent() {
     const [data, setData] = useState([]);
 
     const getData = () => {
-        const api = `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
+        const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
         axios.get(api).then(
             (res) => setData(res.data.cars))
             .catch((err) => console.log(err));
