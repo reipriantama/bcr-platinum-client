@@ -8,7 +8,7 @@ import { ThirdSection } from '../../../data/Homepage'
 function Third() {
   return (
     <>
-    <div className="container">
+    <div className="container" id='whyus'>
         <div className="row third">
           <div className="tag-why-us">Why Us?</div>
           <div className="why-us-desc">Mengapa harus pilih Binar Car Rental?</div>
@@ -17,7 +17,7 @@ function Third() {
               <div className="row">
                 {ThirdSection.length ? 
                 ThirdSection.map((item) => (
-                  <div className="col whyus">
+                  <div className="col-md-auto whyus">
                   <WhyUsCard
                   cardIcon={item.icon}
                   cardTitle={item.HighTagline}

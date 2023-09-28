@@ -5,6 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faTwitch, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons'
+import facebook from '../../../data/icon_facebook.png'
+import instagram from '../../../data/icon_instagram.png'
+import twitter from '../../../data/icon_twitter.png'
+import email from '../../../data/icon_mail.png'
+import twitch from '../../../data/icon_twitch.png'
 
 function Footer() {
   return (
@@ -26,19 +31,17 @@ function Footer() {
             <div className="col icon">
                 <div className="footer-one">Connect With Us</div>
                 <div className="social-icons">
-                    <ul className="social">
-                        <li><FontAwesomeIcon icon={faFacebook} /></li>
-                        <li><FontAwesomeIcon icon={faTwitter} /></li>
-                        <li><FontAwesomeIcon icon={faInstagram} /></li>
-                        <li><FontAwesomeIcon icon={faEnvelope} /></li>
-                        <li><FontAwesomeIcon icon={faTwitch} /></li>
-                    </ul>
+                        <img src={facebook} className='img-fluid'/>
+                        <img src={instagram} className='img-fluid'/>
+                        <img src={twitter} className='img-fluid'/>
+                        <img src={email} className='img-fluid'/>
+                        <img src={twitch} className='img-fluid'/>
                 </div>
                 </div>
             <div className="col">
                 <div className="footer-one">Copyright Binar 2022</div>
                 <div className="blue-box"></div>
-                </div>
+            </div>
         </div>
     </div>
     

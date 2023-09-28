@@ -11,6 +11,7 @@ import DashboardAdmin from './components/page/Admin/Dashboard';
 import AddCar from './components/page/Admin/AddCar';
 import EditCar from './components/page/Admin/EditCar';
 import ProtectedRouteAdmin from './components/page/Admin/ProtectedRouteAdmin';
+import Register from './components/page/Admin/Registration/';
 
 // Protected Route
 
@@ -22,6 +23,7 @@ function App() {
     { path: "find", element:<Search />},
     { path: "playground", element:<Playground />},
     { path: "result/:id", element:<Result />},
+    { path: "register", element:<Register />},
 
 
     // for admin role
