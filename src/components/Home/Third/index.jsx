@@ -17,7 +17,7 @@ function Third() {
               <div className="row">
                 {ThirdSection.length ? 
                 ThirdSection.map((item) => (
-                  <div className="col-md-auto whyus">
+                  <div className="col-md-3 whyus">
                   <WhyUsCard
                   cardIcon={item.icon}
                   cardTitle={item.HighTagline}
