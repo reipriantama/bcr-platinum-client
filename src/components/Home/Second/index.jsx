@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import serviceBla from '../../img/img_service.png'
 import { SecondSection } from '../../../data/Homepage'
+import check from '../../../data/checkicon.png'
 
 function Second() {
 
   return (
     <>
-    <div className="container">
+    <div className="container" id='ourservices'>
         <div className="row second">
           <div className="col imageill">
           <img src={serviceBla} alt='Feature Ill' className='feature-ill' />

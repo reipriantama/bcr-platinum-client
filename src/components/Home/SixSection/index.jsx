@@ -6,7 +6,7 @@ import { SixSectionData } from '../../../data/Homepage'
 function SixSection() {
   return (
     <>
-          <div className="container">
+          <div className="container" id='faq'>
             <div className="row sixth">
                 <div className="col">
                      <div className="faq-highlight">Frequently Asked Question </div>
