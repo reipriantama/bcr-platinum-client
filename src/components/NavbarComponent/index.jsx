@@ -22,7 +22,7 @@ const NavbarComponent = () => {
                   <Nav.Link href="#whyus">Why Us</Nav.Link>
                   <Nav.Link href="#testimonial">Testimonial</Nav.Link>
                   <Nav.Link href="#faq">FAQ</Nav.Link>
-                  <Link to="/register"> <button type="button" class="btn btn-success reg">Register</button></Link>
+                  <Link to="/signin"> <button type="button" class="btn btn-success reg">Register</button></Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>

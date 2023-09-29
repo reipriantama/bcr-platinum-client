@@ -1,0 +1,41 @@
+.font_style_1 {
+    color: rgba(255, 255, 255, 0.6)
+}
+
+@media only screen and (max-width: 576px) {
+    .content_hide_1 {
+       display: none;
+       width: 1px;
+       height: 1px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .main_size {
+        width: 50vw;
+        height: 100vh;
+        background-color: #0D28A6;
+        right: 0;
+        top: 0;
+        position: fixed;
+    
+    }
+
+  
+
+    .title_position_1 {
+        margin-left: 8vw;
+        margin-top: 10vh;
+    }
+    
+    .img_size_1 {
+        width: 65vw; 
+        height: 85vh;
+    }
+    
+    .img_position_1 {
+        margin-left: 1vw;
+        margin-top: 7vh;
+    }
+    
+  }
