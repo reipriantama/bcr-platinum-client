@@ -9,7 +9,8 @@ function Hero({displayButton}) {
     <>
     <div className="container">
         <div className="row first" >
-          <div className="col">
+          <div className="col-sm-6">
+            <div className="row">
             <div className="first-tagline">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</div>
             <div className="first-tagline-description">Selamat datang di Binar Car Rental. 
             Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap 
@@ -18,7 +19,8 @@ function Hero({displayButton}) {
             <button style={{display : {displayButton}}} type="button" class="btn btn-success second">
              Mulai Sewa Mobil</button></Link>
           </div>
-          <div className="col">
+          </div>
+          <div className="col-sm-6">
             <img src={MerC} alt='Car Mantap' className='img-car-merc' />
           </div>
         </div>
