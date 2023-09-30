@@ -7,6 +7,7 @@ import NavbarComponent from '../../NavbarComponent'
 import './index.css'
 import ResultCarCard from './ResultCarCard'
 import Footer from '../../Home/Footer'
+import Hero from '../../Home/Hero'
 
 
 
@@ -36,6 +37,7 @@ function Result() {
   return (
     <>
     <NavbarComponent />
+    <Hero displayButton={"hidden"} displayText={"hidden"}/>
     <div className="container" style={{marginBottom: 200}}>
         <div className="row result">
           <div className="col-8">

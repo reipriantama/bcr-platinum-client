@@ -5,6 +5,7 @@ label, input {
 
 .container.form {
     position: absolute;
+    margin-top: -50px;
     top: 480px;
     background-color: #FFF;
     border-radius: 8px;
@@ -14,7 +15,7 @@ label, input {
 }
 
 .col.car {
-    margin-top: 70px;
+    margin-top: 100px;
     margin-bottom: 40px;
     display: flex;
 }
