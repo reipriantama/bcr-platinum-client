@@ -14,7 +14,7 @@ function Home() {
     <>
     <div>
       <main>
-      <Hero displayButton={"initial"} />
+      <Hero displayButton={"visible"} displayText={"visible"} />
       <Second />
       <Third />
       <Testimonial />

@@ -4,8 +4,6 @@ import React from 'react'
 import './index.css'
 import { DateRangePicker } from 'rsuite';
 
-
-
 function ResultCarCard({imagecarresult, categorycarresult, carresultname, carresultprice}) {
   return (
     <>
