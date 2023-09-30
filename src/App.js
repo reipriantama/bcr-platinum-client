@@ -11,7 +11,6 @@ import DashboardAdmin from './components/page/Admin/Dashboard';
 import AddCar from './components/page/Admin/AddCar';
 import EditCar from './components/page/Admin/EditCar';
 import ProtectedRouteAdmin from './components/page/Admin/ProtectedRouteAdmin';
-import Register from './components/page/Admin/Registration/';
 import SignInPage from './components/page/Client/SignIn';
 
 // Protected Route
