@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 function Hero({displayButton}) {
   return (
     <>
+    <section className="block about-block" style={{paddingBottom:2 ,backgroundColor:'#F1F3FF', justifyContent:'center'}}>
     <div className="container">
         <div className="row first" >
           <div className="col-sm-6">
@@ -25,6 +26,7 @@ function Hero({displayButton}) {
           </div>
         </div>
       </div>
+      </section>
     </>
   )
 }

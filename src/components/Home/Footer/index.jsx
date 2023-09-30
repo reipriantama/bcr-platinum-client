@@ -15,7 +15,7 @@ function Footer() {
   return (
     <>
     <div className="container">
-        <div className="row">
+        <div className="row" style={{marginBottom: 50}}>
             <div className="col">
                 <div className="footer-one">Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</div>
                 <div className="footer-one">binarcarrental@gmail.com</div>

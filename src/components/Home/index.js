@@ -13,6 +13,7 @@ function Home() {
   return (
     <>
     <div>
+      <main>
       <Hero displayButton={"initial"} />
       <Second />
       <Third />
@@ -20,6 +21,7 @@ function Home() {
       <FifthSection />
       <SixSection />
       <Footer />
+      </main>
     </div>
     </>
   )
