@@ -1,5 +1,3 @@
-
-
 .font_size_1 {
     font-size: 0.8rem;
 }
@@ -11,25 +9,69 @@
 
 @media screen and (max-width: 576px) { 
     .container_size_1 {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 
     .flex_size_1 {
          width: 85vw;
     }
+
+    .flex_position_1 {
+        margin-top: 10%;
+    }
  }
 
-
-@media screen and (min-width: 1200px) { 
-    .container_size_1 {
+ @media screen and (min-width: 768px) and (max-width: 991px) {
+    /* .container_size_1 {
         width: 50vw;
         height: 100vh;
         left: 0;
+    } */
+
+    .flex_size_1 {
+        width: 50%;
+        margin-top: 20%;
+   }
+
+   .btn_close_size {
+        width: 35px;
+        height: 35px
+   }
+ } 
+
+ @media screen and (min-width: 992px) and (max-width: 1199px) {
+    .container_size_1 {
+        width: 50%;
+        height: 100%;
+        
     }
 
     .flex_size_1 {
         width: 50%;
+   }
+
+   .flex_position_1 {
+        margin-top: 20%;
+    }
+ } 
+
+@media screen and (min-width: 1200px) { 
+    .container_size_1 {
+        width: 50%;
+        height: 100%;
+    }
+
+    .flex_size_1 {
+        width: 50%;
+   }
+
+   .flex_position_1 {
+        margin-top: 20%;
+    }
+
+   .flex_gap_1 {
+     gap: 0 50px;
    }
 }
 
