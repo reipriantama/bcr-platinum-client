@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import './index.css'
 import { DateRangePicker } from 'rsuite';
-import 'rsuite/dist/rsuite-rtl.css';
+
 
 
 function ResultCarCard({imagecarresult, categorycarresult, carresultname, carresultprice}) {
