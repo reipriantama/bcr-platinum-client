@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import api from "../../../../../api"
-import HeroImage from "../HeroImage";
+// import HeroImage from "../HeroImage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from "./index.module.css";
 import logo from "../../../../img/Logo_1.png";
+import close from "../../../../img/btn-close.png";
+import { Link } from 'react-router-dom';
 
 
 
@@ -45,7 +47,7 @@ const Form = () => {
 
             localStorage.setItem("token", response.data.access_token);
             setErrorMessage("");
-            console.log("responsenya: ", response);
+            //console.log("responsenya: ", response);
             navigateToLandingPage();
         } catch (error) {
             console.log("errornya: ", error);
@@ -63,11 +65,11 @@ const Form = () => {
 
 
     return (
-        <div className={`${style.container_size_1} d-flex flex-column flex-lg-row flex-xl-row justify-content-center align-items-center`}>
-            <div>
-                <HeroImage />
+        <div className={`${style.container_size_1} ${style.flex_gap_1}  d-flex flex-column flex-shrink-0  justify-content-center align-items-center`}>
+            <div className={`d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100`}>
+                <Link to="/"><img className={`${style.btn_close_size}`} src={close} /></Link>
             </div>
-            <div className={`d-flex flex-column gap-4 ${style.flex_size_1}`}>
+            <div className={`d-flex flex-column gap-4 ${style.flex_size_1} ${style.flex_position_1}`}>    
                 <div className="d-flex flex-column gap-4">
                     <div>
                         <img src={logo}></img>
