@@ -8,7 +8,7 @@ function SixSection() {
     <>
           <div className="container" id='faq'>
             <div className="row sixth">
-                <div className="col">
+                <div className="col-sm-6">
                      <div className="faq-highlight">Frequently Asked Question </div>
                     <div className="faq-point">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
                 </div>
