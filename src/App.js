@@ -13,6 +13,7 @@ import EditCar from './components/page/Admin/EditCar';
 import ProtectedRouteAdmin from './components/page/Admin/ProtectedRouteAdmin';
 import SignInPage from './components/page/Client/SignIn';
 import SignUpPage from './components/page/Client/SignUp';
+import ChooseCar from  './components/ChooseCar';
 
 // Protected Route
 
@@ -26,6 +27,7 @@ function App() {
     { path: "result/:id", element:<Result />},
     { path: "sign-in", element:<SignInPage />},
     { path: "sign-up", element:<SignUpPage />},
+    { path: "choose", element:<ChooseCar />},
 
 
     // for admin role

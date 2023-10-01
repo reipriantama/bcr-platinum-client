@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import {  useNavigate } from 'react-router-dom';
 import CarCard from '../CarCard';
-import './index.css'
+import './index.css';
 
 
 function FindCarComponent() {
@@ -79,7 +79,7 @@ function FindCarComponent() {
                     </div>
                     <div className="col">
                     <label></label>
-                    <button className="btn btn-success" onClick={getData}>Cari Mobil</button>
+                    <button className="btn btn-primary" onClick={getData}>Edit</button>
                     </div>
                 </div>
             </div>
