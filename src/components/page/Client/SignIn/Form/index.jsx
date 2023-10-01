@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { useNavigate } from 'react-router';
 import api from "../../../../../api"
-// import HeroImage from "../HeroImage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from "./index.module.css";
 import logo from "../../../../img/Logo_1.png";
@@ -10,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Form = () => {
+const FormSignIn = () => {
 
     // State untuk handle input email dan password
     let [inputEmail, setInputEmail] = useState("");
@@ -47,15 +46,15 @@ const Form = () => {
 
             localStorage.setItem("token", response.data.access_token);
             setErrorMessage("");
-            //console.log("responsenya: ", response);
+            // console.log("responsenya: ", response);
             navigateToLandingPage();
         } catch (error) {
             console.log("errornya: ", error);
             if(error.response.data.message === "Email not found.") {
-                setErrorMessage("The email you entered is incorrect!");
+                setErrorMessage("Email tidak ditemukan.");
             }
             else if(error.response.data.message === "Password was Wrong.") {
-                setErrorMessage("The password you entered is incorrect!");
+                setErrorMessage("Password salah.");
             }
 
 
@@ -98,7 +97,7 @@ const Form = () => {
                             <button type="button" className={`${style.font_size_1} btn btn-primary w-100 fw-bold rounded-1`} style={{backgroundColor: "#0D28A6"}} onClick={loginProcess}>Sign In</button>
                         </div>
                     <div className="d-flex justify-content-center align-items-center" >
-                            <p className={`${style.font_size_1} fw-bold`}>Don't have an account? <span className="" style={{color: "#0D28A6", borderBottom: "1px solid #0D28A6"}}>Sign Up for free</span></p>
+                            <p className={`${style.font_size_1} fw-bold`}>Don't have an account? <Link to="/sign-up"><span className="" style={{color: "#0D28A6", borderBottom: "1px solid #0D28A6"}}>Sign Up for free</span></Link></p>
                         </div>
                     </form>
                     
@@ -110,4 +109,4 @@ const Form = () => {
 };
 
 
-export default Form;
+export default FormSignIn;
