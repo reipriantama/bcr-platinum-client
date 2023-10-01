@@ -11,42 +11,48 @@ import { Link } from 'react-router-dom';
 
 const FormSignIn = () => {
 
-    // State untuk handle input email dan password
-    let [inputEmail, setInputEmail] = useState("");
-    let [inputPassword, setInputPassword] = useState("");
+    // State untuk menampung input email dan passwod dari Customer
+    let [inputCustomer, setInputCustomer] = useState({
+        email: "",
+        password: "",
+    });
+
 
     // State untuk menangkap pesan error
     let [errorMessage, setErrorMessage] = useState("");
     
-
+    // Fungsi untuk menangkap input email dari Customer
     const handleInputEmail = (e) => {
-        setInputEmail(e.target.value);
+        setInputCustomer({...inputCustomer, email: e.target.value.trim()});
     };
 
+    // Fungsi untuk menangkap input password dari Customer
     const handleInputPassword = (e) => {
-        setInputPassword(e.target.value);
+        setInputCustomer({...inputCustomer, password: e.target.value.trim()});
     };
 
     
     const navigateTo = useNavigate();
 
+    // Fungsi untuk melakukan navigasi ke Landing Page
     const navigateToLandingPage = () => {
         navigateTo("/");
         //console.log("berhasil");
     };
 
 
-
-    const loginProcess = async () => {
+    // Fungsi untuk menjalankan proses Sign in
+    const signInProcess = async () => {
         try {
             const response = await api.loginAdmin({
-                "email": inputEmail,
-                "password": inputPassword,
+                "email": inputCustomer.email,
+                "password": inputCustomer.password,
             });
 
             localStorage.setItem("token", response.data.access_token);
             setErrorMessage("");
-            // console.log("responsenya: ", response);
+
+            // Navigasi ke halaman Landing Page
             navigateToLandingPage();
         } catch (error) {
             console.log("errornya: ", error);
@@ -87,14 +93,14 @@ const FormSignIn = () => {
                     <form>
                         <div className="mb-3">
                             <label for="inputEmail1" className="form-label">Email</label>
-                            <input type="email" className="form-control rounded-1" id="inputEmail1" value={inputEmail} onChange={handleInputEmail} placeholder="Contoh: johndee@gmail.com"></input>
+                            <input type="email" className="form-control rounded-1" id="inputEmail1" value={inputCustomer.email} onChange={handleInputEmail} placeholder="Contoh: johndee@gmail.com"></input>
                         </div>
                         <div className="mb-3">
                             <label for="inputPassword1" className="form-label">Password</label>
-                            <input type="password" className="form-control rounded-1" id="inputPassword1" value={inputPassword} onChange={handleInputPassword} placeholder="6+ karakter"></input>
+                            <input type="password" className="form-control rounded-1" id="inputPassword1" value={inputCustomer.password} onChange={handleInputPassword} placeholder="6+ karakter"></input>
                         </div>
                         <div className="mt-4 mb-4">
-                            <button type="button" className={`${style.font_size_1} btn btn-primary w-100 fw-bold rounded-1`} style={{backgroundColor: "#0D28A6"}} onClick={loginProcess}>Sign In</button>
+                            <button type="button" className={`${style.font_size_1} btn btn-primary w-100 fw-bold rounded-1`} style={{backgroundColor: "#0D28A6"}} onClick={signInProcess}>Sign In</button>
                         </div>
                     <div className="d-flex justify-content-center align-items-center" >
                             <p className={`${style.font_size_1} fw-bold`}>Don't have an account? <Link to="/sign-up"><span className="" style={{color: "#0D28A6", borderBottom: "1px solid #0D28A6"}}>Sign Up for free</span></Link></p>
