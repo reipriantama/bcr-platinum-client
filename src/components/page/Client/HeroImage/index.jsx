@@ -1,5 +1,5 @@
-import style from "./index.module.css"
-import heroimage from "../../../../img/Hero_Landing_Page.svg"
+import style from "./index.module.css";
+import image from "../../../img/Hero_Landing_Page.svg";
 
 const HeroImage = () => {
     return(
@@ -9,7 +9,7 @@ const HeroImage = () => {
                 <h3 className={`${style.font_style_1 } ${style.title_position_1}`}>Binar Car Rental</h3>
             </div>
             <div className="d-flex justify-content-end">
-                <img className={`${style.img_size_1} ${style.img_position_1}`} src={heroimage}></img>
+                <img className={`${style.img_size_1} ${style.img_position_1}`} src={image}></img>
             </div>         
         </div>
     );
