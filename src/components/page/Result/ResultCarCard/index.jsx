@@ -7,7 +7,7 @@ import { DateRangePicker } from 'rsuite';
 function ResultCarCard({imagecarresult, categorycarresult, carresultname, carresultprice}) {
   return (
     <>
-    <div class="card car">
+    <div class="card car result">
       <div className="carimage">
       <img src={imagecarresult} class="card-img-top" alt="car" />
       </div>
@@ -16,7 +16,7 @@ function ResultCarCard({imagecarresult, categorycarresult, carresultname, carres
             <div className="card-text car-price"><FontAwesomeIcon icon={faUserGroup} style={{color: "#8A8A8A", width: "16px", height:"12px", marginRight: "3px"}} />{categorycarresult}</div>
             <div className="datepicker">
               <span>Tentukan lama sewa mobil (max. 7 hari)</span>
-              <DateRangePicker placeholder="Pilih tanggal mulai dan tanggal akhir sewa" className="daterange" showOneCalendar block />
+              <DateRangePicker placeholder="Pilih tanggal mulai dan tanggal akhir sewa" className="daterange" ranges={[]} showOneCalendar block />
             </div>
             <div className="price-car">
                 <div className="amount-price">Total</div>

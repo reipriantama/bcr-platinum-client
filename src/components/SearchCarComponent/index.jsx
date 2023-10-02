@@ -35,6 +35,12 @@ function SearchCarComponent() {
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
 
+    const hargaMobil=[
+        {labelHarga:'< Rp. 400.000'},
+        {labelHarga:'Rp. 400.000 - Rp. 600.000'},
+        {labelHarga:'< Rp. 400.000'}
+    ]
+
     return (
         <>
         <div className="container">
@@ -57,8 +63,15 @@ function SearchCarComponent() {
                 </div>
                 <div className="col">
                     <label>Harga</label>
-                    <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" 
-                    onChange={(e) => setPrice(e.target.value)} />
+                    {/* <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" 
+                    onChange={(e) => setPrice(e.target.value)} /> */}
+                    <select id="inputState" className="form-select">
+                            <option selected value=''>Masukan Harga Sewa per Hari</option>
+                            { hargaMobil.map((item) => (
+                                <option>{item.labelHarga}</option>
+                                ))
+                            }
+                    </select>
                 </div>
                 <div className="col">
                     <div className="row">
