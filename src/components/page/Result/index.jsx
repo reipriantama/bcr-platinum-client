@@ -8,7 +8,7 @@ import './index.css'
 import ResultCarCard from './ResultCarCard'
 import Footer from '../../Home/Footer'
 import Hero from '../../Home/Hero'
-
+import SearchCarComponent from '../../SearchCarComponent'
 
 
 function Result() {
@@ -38,6 +38,7 @@ function Result() {
     <>
     <NavbarComponent />
     <Hero displayButton={"hidden"} displayText={"hidden"}/>
+    <SearchCarComponent />
     <div className="container" style={{marginBottom: 200}}>
         <div className="row result">
           <div className="col-8">

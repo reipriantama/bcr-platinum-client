@@ -8,14 +8,17 @@
     width: 100%;
 }
 
-.card.car {
-    height: 478px;
+.card.car.result {
+    height: 500px;
     border-color: lightgrey;
     box-shadow: 0 0 9px lightgrey;
+    padding-bottom: 20px;
 }
 .price-car {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .card-img-top {
@@ -48,4 +51,18 @@
     padding-right: 0;
     border-radius: 21px;
     display: inline-block;
+}
+
+.rs-btn.rs-btn-primary.rs-btn-sm { 
+    text-align: center; 
+    cursor: pointer;
+    outline: 0 ; 
+    border: none; 
+    align-self: center;
+    padding: 8px 12px; 
+    font-size: 14px; 
+    border-radius: 1px;
+    color: #fff;
+    background-color: #35B0A7;
+    width: 240px;
 }
