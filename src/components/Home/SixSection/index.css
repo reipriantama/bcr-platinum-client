@@ -25,3 +25,10 @@
     display: grid;
     row-gap: 16px;
 }
+
+@media screen and (max-width: 360px) {
+    .faq-point{
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+}

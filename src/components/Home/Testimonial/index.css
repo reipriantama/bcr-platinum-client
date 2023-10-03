@@ -1,114 +1,122 @@
 .row.fourth {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
+}
+
+.col-3 {
+  width: unset !important;
 }
 
 .container.testimonial {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+  background-color: #f1f3ff;
+  width: 619px;
+  border-radius: 8px;
+}
+
+.testimonial-tagline {
+  text-align: center;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.image-testimonial {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.person-testi {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.description-tester {
+  /* border: 1px solid red; */
+  display: grid;
+  align-items: center;
+}
+
+.description-text {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 415px;
+}
+
+.person-testimoner {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.testimonial-description {
+  text-align: center;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+.starrating {
+  display: flex;
+}
+
+@media screen and (max-width: 720px) {
+  .container.testimonial {
     display: grid;
     align-items: center;
     text-align: center;
     padding-top: 60px;
-    background-color: #F1F3FF;
-    width: 619px;
+    background-color: #f1f3ff;
+    width: 328px;
     border-radius: 8px;
-}
-
-.testimonial-tagline {
-    text-align: center;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-}
-
-.image-testimonial {
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.person-testi {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.description-tester {
-    /* border: 1px solid red; */
+    height: 392px;
+  }
+  .row.fourth {
+    margin-bottom: 100px;
     display: grid;
+  }
+  .image-testimonial {
+    display: flex;
     align-items: center;
-}
-
-.description-text {
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
+    justify-content: center;
+  }
+  .description-text {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 280px;
     font-size: 14px;
-    text-align: justify;
-    text-justify: inter-word;
-    width: 415px;
-}
-
-.person-testimoner {
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    display: flex;
-    align-items: flex-start;
-    margin-top: 8px;
-}
-
-
-.testimonial-description {
-    text-align: center;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 40px;
-}
-
-.starrating {
-    display: flex;
-    
-}
-
-@media screen and (max-width: 720px) {
-    .container.testimonial {
-        display: grid;
-        align-items: center;
-        text-align: center;
-        padding-top: 60px;
-        background-color: #F1F3FF;
-        width: 328px;
-        border-radius: 8px;
-        height: 392px;
-    }
-    .row.fourth {
-        margin-bottom: 100px;
-        display: grid;
-    }
-    .image-testimonial {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .description-text {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 280px;
-        font-size: 14px;
-    }
-    .person-testimoner {
-        /* padding-left: 10px;
+  }
+  .person-testimoner {
+    /* padding-left: 10px;
         padding-right: 10px;
         width: 280px;
         font-size: 14px; */
-    }
-    .person-testi {
-        left: 50%;
-    }
+  }
+  .person-testi {
+    left: 50%;
+  }
 }
+
+/* @media screen and (max-width: 360px) {
+  .col-3{
+    width: 0%;
+  }
+} */
