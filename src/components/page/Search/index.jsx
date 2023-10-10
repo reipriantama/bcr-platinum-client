@@ -11,7 +11,7 @@ function Search() {
   return (
     <>
     <NavbarComponent />
-    <Hero displayButton={"hidden"} displayText={"visible"}/>
+    <Hero displayButton={"none"} displayText={"inline"}/>
     {/* <FindCarComponent /> */}
     <SearchCarComponent />
     <Footer/>
