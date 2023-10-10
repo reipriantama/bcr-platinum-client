@@ -37,7 +37,7 @@ function Result() {
   return (
     <>
     <NavbarComponent />
-    <Hero displayButton={"hidden"} displayText={"hidden"}/>
+    <Hero displayButton={"none"} displayText={"none"} padTop={170}/>
     <SearchCarComponent />
     <div className="container" style={{marginBottom: 200}}>
         <div className="row result">
