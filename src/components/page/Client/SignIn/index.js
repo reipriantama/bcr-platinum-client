@@ -1,10 +1,10 @@
-import Form from "./Form";
-import HeroImage from "./HeroImage";
+import FormSignIn from "./Form";
+import HeroImage from "../HeroImage";
 
 const SignInPage = () => {
         return(
             <div className="d-flex flex-column flex-lg-row flex-xl-row">
-                <Form />
+                <FormSignIn />
                 <HeroImage />
             </div>
         );
