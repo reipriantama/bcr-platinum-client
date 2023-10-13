@@ -8,13 +8,14 @@ import Third from './Third'
 import Second from './Second'
 import FifthSection from './FifthSection'
 import SixSection from './SixSection'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Home() {
   return (
     <>
     <div>
       <main>
-      <Hero displayButton={"visible"} displayText={"visible"} />
+      <Hero displayButton={"inline"} displayText={"inline"} />
       <Second />
       <Third />
       <Testimonial />

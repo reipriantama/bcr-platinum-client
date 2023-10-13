@@ -9,7 +9,7 @@ function Search() {
   return (
     <>
     <NavbarComponent />
-    <Hero displayButton={"hidden"} displayText={"hidden"} />
+    <Hero displayButton={"none"} displayText={"none"} padTop={200} />
     <FindCarComponent />
     <Footer/>
     </>
