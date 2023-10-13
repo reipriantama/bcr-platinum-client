@@ -14,6 +14,8 @@ import ProtectedRouteAdmin from './components/page/Admin/ProtectedRouteAdmin';
 import SignInPage from './components/page/Client/SignIn';
 import SignUpPage from './components/page/Client/SignUp';
 import ChooseCar from  './components/ChooseCar';
+import Pembayaran from './components/page/Client/Pembayaran/PilihMetode';
+import SelesaikanPembayaran from './components/page/Client/Pembayaran/SelesaikanPembayaran';
 
 // Protected Route
 
@@ -28,6 +30,8 @@ function App() {
     { path: "sign-in", element:<SignInPage />},
     { path: "sign-up", element:<SignUpPage />},
     { path: "choose", element:<ChooseCar />},
+    { path: "pembayaran/:id", element:<Pembayaran />},
+    { path: "selesaikan-pembayaran", element:<SelesaikanPembayaran />},
 
 
     // for admin role
