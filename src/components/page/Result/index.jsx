@@ -88,6 +88,7 @@ function Result() {
           </div>
           <div className="col-4">
             <ResultCarCard
+              idcar={id}
               carresultname={data?.name}
               categorycarresult={data?.category}
               imagecarresult={data?.image}

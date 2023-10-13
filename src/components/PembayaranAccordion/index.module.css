@@ -1,0 +1,9 @@
+.arrow-down:before {
+    content: '▼';
+    margin-left: 10px;
+}
+
+.arrow-up:before {
+    content: '▲';
+    margin-left: 10px;
+}
