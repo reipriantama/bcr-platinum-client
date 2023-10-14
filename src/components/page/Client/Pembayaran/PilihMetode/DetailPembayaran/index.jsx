@@ -73,7 +73,7 @@ const DetailPembayaran = ({selectedBank, chosenBank}) => {
    };
 
     return(
-        <div className={`d-flex flex-lg-column flex-xl-column card p-4 gap-4 ${style.container_size_1} `}>
+        <div className={`d-flex flex-lg-column flex-xl-column card p-4 gap-4 col`}>
             <div className={``}>
                 <h6>{data.name}</h6>
             </div>

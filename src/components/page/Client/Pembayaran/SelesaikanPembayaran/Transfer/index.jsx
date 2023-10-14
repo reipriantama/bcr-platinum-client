@@ -23,15 +23,15 @@ const Transfer = () => {
     }, [theChosenBank, totalPrice]);
 
     return(
-        <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 ${style.container_style_1}`}>
+        <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 col-md-7`} style={{marginLeft: -2}}>
             <div className={``}>
                 <h6>Lakukan Transfer Ke</h6>
             </div>
-            <div className={`d-flex flex-lg-row flex-xl-row w-100`}>
+            <div className={`d-flex flex-lg-row flex-xl-row w-100`} style={{marginTop:10}}>
                 <div className={``}>
-                    <span className={`pt-1 pb-1 ps-3 pe-3 ${style.btn_style_1}`}>{theBank}</span>
+                    <span className={`ps-3 pe-3 ${style.btn_style_1}`}>{theBank}</span>
                 </div>
-                <div className={`d-flex flex-lg-column flex-xl-column`}>
+                <div className={`d-flex flex-lg-column flex-xl-column`} style={{marginTop:-10}}>
                     <div className={``}>
                         <span>{theBank} Transfer</span>
                     </div>
