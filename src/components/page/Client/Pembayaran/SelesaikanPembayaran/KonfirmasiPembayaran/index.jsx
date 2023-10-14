@@ -5,8 +5,8 @@ import style from "./index.module.css";
 
 const KonfirmasiPembayaran = () => {
     return(
-        <div className={`d-flex flex-lg-column flex-xl-column card p-3 ${style.container_size_1}`}>
-            <div className={``}>
+        <div className={`d-flex flex-lg-column flex-xl-column card p-3 col`}>
+            <div className={``} style={{marginBottom:30}}>
                 <h6>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</h6>
             </div>
             <div className={``}>

@@ -1,9 +1,10 @@
 .container_1 {
-    padding: 1rem 0.9rem 1rem;   
+    padding: 1rem 0.9rem 1rem; 
+    margin-left: -2px;  
 }
 
 .container_size_1 {
-    width: 70%;
+    width: 100%;
     height: auto;
 }
 

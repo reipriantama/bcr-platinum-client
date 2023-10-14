@@ -76,7 +76,7 @@ const PilihBank = ({setSelectedBank, setChosenBank}) => {
 
     return(
         
-            <div className={`d-flex flex-lg-column flex-xl-column card gap-4 ${style.container_size_1} ${style.container_space_1}`}>
+            <div className={`d-flex flex-lg-column flex-xl-column card gap-4 col-md-7 ${style.container_space_1}`}>
                 <div className={``}>
                     <h6>Pilih Bank Transfer</h6>
                 </div>
