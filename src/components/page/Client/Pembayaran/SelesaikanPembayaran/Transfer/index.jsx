@@ -1,26 +1,41 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 
 const Transfer = () => {
     const location = useLocation();
-    const theChosenBank = location.state?.chosenBank || [];
+    const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
+    // const theChosenBank = location.state?.chosenBank || [];
     const totalPrice = location.state?.formattedTotalPrice || [];
     let [theBank, setTheBank] = useState(null);
 
     useEffect(() => {
-        if(theChosenBank == 1) {
-            setTheBank("BCA");
-        }
-        else if(theChosenBank == 2) {
-            setTheBank("BNI");
-        }
-        else if(theChosenBank == 3) {
-            setTheBank("Mandiri");
-        }
+       switch(bankName) {
+            case 1:
+                setTheBank("BCA");
+                break;
+            case 2:
+                setTheBank("BNI");
+                break;
+            case 3:
+                setTheBank("Mandiri");
+                break;
+            default:
+                setTheBank(null);
+       }
+        // if(theChosenBank == 1) {
+        //     setTheBank("BCA");
+        // }
+        // else if(theChosenBank == 2) {
+        //     setTheBank("BNI");
+        // }
+        // else if(theChosenBank == 3) {
+        //     setTheBank("Mandiri");
+        // }
        
-    }, [theChosenBank, totalPrice]);
+    }, [/*theChosenBank,*/bankName, totalPrice]);
 
     return(
         <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 col-md-7`} style={{marginLeft: -2}}>
