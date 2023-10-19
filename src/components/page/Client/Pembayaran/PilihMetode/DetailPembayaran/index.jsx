@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  style from "./index.module.css";
@@ -7,13 +8,14 @@ import  style from "./index.module.css";
 
 
 
-const DetailPembayaran = ({selectedBank, chosenBank}) => {
+const DetailPembayaran = ({/*selectedBank,*/ chosenBank}) => {
    const [data, setData] = useState({});
    let [itemPrice, setItemPrice] = useState(null);
    let [formattedItemPrice, setFormattedItemPrice] = useState(null);
    let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
    let [categoryCar, setCategoryCar] = useState(null);
    const { id } = useParams();
+   const selectedBank = useSelector((state) => state.storePembayaran.selectedBank);
 
    const getDetailedData = () => {
         const api = `https://api-car-rental.binaracademy.org/customer/car/${id}`;

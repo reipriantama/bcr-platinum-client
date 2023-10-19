@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateSelectedBank, updateChosenBankName } from "../../../../../../store/SlicePembayaran";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  style from "./index.module.css";
 
 
-const PilihBank = ({setSelectedBank, setChosenBank}) => {
+const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
+    const dispatch = useDispatch();
+
     let [bankChecked, setBankChecked] = useState({
         bcaChecked: false,
         bniChecked: false,
@@ -21,7 +25,9 @@ const PilihBank = ({setSelectedBank, setChosenBank}) => {
             mandiriChecked: false
         });
 
-        setSelectedBank(!updatedBCAChecked);
+        //setSelectedBank(!updatedBCAChecked);
+        dispatch(updateSelectedBank(!updatedBCAChecked));
+        
 
        
     };
@@ -36,7 +42,8 @@ const PilihBank = ({setSelectedBank, setChosenBank}) => {
             mandiriChecked: false
         });
 
-        setSelectedBank(!updatedBNIChecked);
+        dispatch(updateSelectedBank(!updatedBNIChecked));
+        // setSelectedBank(!updatedBNIChecked);
 
       
     };
@@ -51,24 +58,29 @@ const PilihBank = ({setSelectedBank, setChosenBank}) => {
             mandiriChecked: updatedMandiriChecked
         });
 
-        setSelectedBank(!updatedMandiriChecked);
+        dispatch(updateSelectedBank(!updatedMandiriChecked));
+
+        //setSelectedBank(!updatedMandiriChecked);
 
        
     };
 
     const setCheckedBCA = () => {
-        setSelectedBank(bankChecked.bcaChecked);
+        // setSelectedBank(bankChecked.bcaChecked);
     };
 
     useEffect(() => {
         if(bankChecked.bcaChecked) {
-            setChosenBank(1);
+            // setChosenBank(1);
+            dispatch(updateChosenBankName(1));
         }
         else if(bankChecked.bniChecked) {
-            setChosenBank(2);
+            // setChosenBank(2);
+            dispatch(updateChosenBankName(2));
         }
         else if(bankChecked.mandiriChecked) {
-            setChosenBank(3);
+            // setChosenBank(3);
+            dispatch(updateChosenBankName(3));
         }
     }, [bankChecked]);
 
@@ -84,7 +96,7 @@ const PilihBank = ({setSelectedBank, setChosenBank}) => {
                     <p>Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
                 </div>
                 <div className={`d-flex flex-lg-column flex-xl-column `}>  
-                    <div className={`d-flex flex-lg-row flex-xl-row ps-3 pt-4 pb-4 rounded-3 ${style.container_style_1}`} onClick={() => { handleBCAChecked();}}>
+                    <div className={`d-flex flex-lg-row flex-xl-row ps-3 pt-4 pb-4 rounded-3 ${style.container_style_1}`} onClick={() =>{handleBCAChecked();}}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start ${style.container_size_2 }`}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-center fw-bold ${style.btn_style_1}` }>
                                 <span style={{fontSize: "1rem"}}>BCA</span>
