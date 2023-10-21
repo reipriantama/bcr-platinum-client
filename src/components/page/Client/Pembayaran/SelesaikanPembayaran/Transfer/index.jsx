@@ -7,8 +7,11 @@ import style from "./index.module.css";
 const Transfer = () => {
     const location = useLocation();
     const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
+    let [totalPrice, setTotalPrice] = useState(sessionStorage.getItem("totalPrice"));
+    let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
+    // const totalPrice = useSelector((state) => state.storePembayaran.totalPrice);
     // const theChosenBank = location.state?.chosenBank || [];
-    const totalPrice = location.state?.formattedTotalPrice || [];
+    // const totalPrice = location.state?.formattedTotalPrice || [];
     let [theBank, setTheBank] = useState(null);
 
     useEffect(() => {
@@ -25,17 +28,13 @@ const Transfer = () => {
             default:
                 setTheBank(null);
        }
-        // if(theChosenBank == 1) {
-        //     setTheBank("BCA");
-        // }
-        // else if(theChosenBank == 2) {
-        //     setTheBank("BNI");
-        // }
-        // else if(theChosenBank == 3) {
-        //     setTheBank("Mandiri");
-        // }
+
+       if(totalPrice) {
+            const formattedPrice = new Intl.NumberFormat('id-ID').format(parseInt(totalPrice));
+            setFormattedTotalPrice(formattedPrice);
+       }
        
-    }, [/*theChosenBank,*/bankName, totalPrice]);
+    }, [bankName, totalPrice]);
 
     return(
         <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 col-md-7`} style={{marginLeft: -2}}>
@@ -65,7 +64,7 @@ const Transfer = () => {
                 <span>Total Bayar</span>
             </div>
             <div className={``}>
-                <span>Rp. {totalPrice}</span>
+                <span>Rp. {formattedTotalPrice}</span>
             </div>
 
         </div>
