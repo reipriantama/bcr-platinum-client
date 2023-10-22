@@ -1,21 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateTotalPrice } from "../../../../../../store/SlicePembayaran";
+import { format, add } from "date-fns";
+import { id as localeID } from "date-fns/locale";
 import axios from "axios";
+import api from "../../../../../../api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  style from "./index.module.css";
 
 
 
 
-const DetailPembayaran = ({/*selectedBank,*/ chosenBank}) => {
+const DetailPembayaran = () => {
    const [data, setData] = useState({});
    let [itemPrice, setItemPrice] = useState(null);
    let [formattedItemPrice, setFormattedItemPrice] = useState(null);
+   let [totalPrice, setTotalPrice] = useState(null);
    let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
    let [categoryCar, setCategoryCar] = useState(null);
    const { id } = useParams();
    const selectedBank = useSelector((state) => state.storePembayaran.selectedBank);
+
+
+    const convertDate = (date) => {
+        const dateObject = new Date(date);
+        const formattedDate = format(dateObject, 'yyyy-MM-dd');
+        return formattedDate;
+    };
+
+   let [startDateRent] = useState(sessionStorage.getItem("startDate"));
+   let [endDateRent] = useState(sessionStorage.getItem("endDate"));
+   let [formattedStartDateRent] = useState(convertDate(startDateRent));
+   let [formattedEndDateRent] = useState(convertDate(endDateRent));
+  
+   
+   const dispatch = useDispatch();
+   dispatch(updateTotalPrice(formattedTotalPrice));
+
 
    const getDetailedData = () => {
         const api = `https://api-car-rental.binaracademy.org/customer/car/${id}`;
@@ -26,8 +48,8 @@ const DetailPembayaran = ({/*selectedBank,*/ chosenBank}) => {
             console.log("hasil data:", res.data);
             setData(res.data);
             setItemPrice(res.data.price);
-            setFormattedItemPrice(itemPrice.toLocaleString('id-ID'));
-            setFormattedTotalPrice((countDays(receivedDates[0], receivedDates[1]) * itemPrice).toLocaleString('id-ID'));
+            // setFormattedTotalPrice((countDays(receivedDates[0], receivedDates[1]) * itemPrice).toLocaleString('id-ID'));
+            // dispatch(updateTotalPrice((countDays(receivedDates[0], receivedDates[1]) * itemPrice).toLocaleString('id-ID')));
 
             let category = res.data.category;
 
@@ -45,33 +67,79 @@ const DetailPembayaran = ({/*selectedBank,*/ chosenBank}) => {
 
    };
 
+   
+
+   const getDetailedOrder = async () => {
+       try {
+            const response = await api.createOrder({
+                start_rent_at: formattedStartDateRent,
+                finish_rent_at: formattedEndDateRent,
+                car_id: id
+            }); 
+
+            setTotalPrice(response.data.total_price);
+            sessionStorage.setItem("totalPrice", response.data.total_price);
+            // setFormattedTotalPrice(response);
+            console.log("totalprice", response.data.total_price);
+            console.log("tgggl", startDateRent);
+            console.log("asil", response);
+
+       } catch(err) {
+            console.log(err);
+       }
+   };
+
    const location = useLocation();
-   const receivedDates = location.state?.dates || [];
+   //const receivedDates = location.state?.dates || [];
 
    const countDays = (startDate, endDate) => {
-        const oneDayInMs = 24 * 60 * 60 * 1000;
-        const differentTime = Math.abs(endDate - startDate);
-        return Math.ceil(differentTime/oneDayInMs);
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        const range = end.getTime() - start.getTime();
+        const realRange = range / (1000 * 3600 * 24);
+        
+        return realRange;
    };
 
    let [resultDays, setResultDays] = useState(null);
    
-
+   useEffect(() => {
+    getDetailedOrder();
+   }, []);
 
 
    useEffect(() => {
     getDetailedData();
-    setResultDays(countDays(receivedDates[0], receivedDates[1]));
+    
+    setResultDays(countDays(startDateRent, endDateRent));
    }, [itemPrice, categoryCar]);
 
+   useEffect(() => {
+        if(totalPrice) {
+            setFormattedTotalPrice(totalPrice.toLocaleString('id-ID'));
+        }
+        
+        if(itemPrice) {
+            setFormattedItemPrice(itemPrice.toLocaleString('id-ID'));
+        }
+        console.log("TOOOTTAL", formattedTotalPrice);
+
+   }, [totalPrice, itemPrice]);
+
+
+   const deadlineTime = () => {
+        const now = new Date();
+        const tomorrow = add(now, {days: 1});
+        const formattedTime = format(tomorrow, "EEEE, d MMMM yyyy 'jam' HH:mm 'WIB'", { locale: localeID });
+        sessionStorage.setItem("tomorrow", tomorrow);
+        sessionStorage.setItem("deadlineTime", formattedTime);
+   };
 
    const navigate = useNavigate();
 
    const goToSelesaikanPembayaran = () => {
-        navigate("/selesaikan-pembayaran", {state: {
-            chosenBank: chosenBank,
-            formattedTotalPrice: formattedTotalPrice
-        }});
+        navigate("/selesaikan-pembayaran");
    };
 
     return(
@@ -149,7 +217,7 @@ const DetailPembayaran = ({/*selectedBank,*/ chosenBank}) => {
                 </div>
             </div>
             <div className={`w-100 fw-bold`}>
-                <button className={`w-100 pt-2 pb-2 ${selectedBank ? style.btn_style_2 : style.btn_style_1}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} onClick={goToSelesaikanPembayaran} disabled={selectedBank}>Bayar</button>
+                <button className={`w-100 pt-2 pb-2 ${selectedBank ? style.btn_style_2 : style.btn_style_1}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} onClick={() => {goToSelesaikanPembayaran(); deadlineTime();}} disabled={selectedBank}>Bayar</button>
             </div>
         </div>
     );
@@ -161,17 +229,5 @@ export default DetailPembayaran;
 
 
 
-                // <div className={`accordion`} id="accordionExample">
-                //     <div className="accordion-item">
-                //         <h2 className="accordion-header">
-                //             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                //                 Accordion Item #1
-                //             </button>
-                //         </h2>
-                //         <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                //             <div class="accordion-body">
-                //                 <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                //             </div>
-                //         </div>
-                //     </div>
-                // </div>
+            
+        

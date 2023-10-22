@@ -6,10 +6,10 @@ import style from "./index.module.css";
 
 const BatasWaktu = () => {
     //Tanggal saat halaman pertama kali dimuat
-    const [now] = useState(new Date());
-    const [tomorrow] = useState(add(now, {days : 1}));
+    // const [now] = useState(new Date());
+    const [tomorrow] = useState(new Date(sessionStorage.getItem("tomorrow")));
 
-    const formattedDate = format(tomorrow, "EEEE, d MMMM yyyy 'jam' HH:mm 'WIB'", { locale: id });
+    const formattedDate = sessionStorage.getItem("deadlineTime");
 
     //Timer
     const targetTime = tomorrow.getTime();
@@ -18,8 +18,8 @@ const BatasWaktu = () => {
     const [timeLeft, setTimeLeft] = useState(targetTime - new Date().getTime());
 
     useEffect(() => {
-        // Update timer setiap detik
-        const interval = setInterval(() => {
+          // Update timer setiap detik
+          const interval = setInterval(() => {
           const now = new Date().getTime();
           const distance = targetTime - now;
 
