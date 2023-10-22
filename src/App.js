@@ -16,6 +16,7 @@ import SignUpPage from './components/page/Client/SignUp';
 import ChooseCar from  './components/ChooseCar';
 import Pembayaran from './components/page/Client/Pembayaran/PilihMetode';
 import SelesaikanPembayaran from './components/page/Client/Pembayaran/SelesaikanPembayaran';
+import Ticket from './components/page/Client/eTicket';
 
 // Protected Route
 
@@ -32,6 +33,7 @@ function App() {
     { path: "choose", element:<ChooseCar />},
     { path: "pembayaran/:id", element:<Pembayaran />},
     { path: "selesaikan-pembayaran", element:<SelesaikanPembayaran />},
+    { path: "eticket", element:<Ticket />},
 
 
     // for admin role
