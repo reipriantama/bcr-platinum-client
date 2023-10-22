@@ -4,6 +4,11 @@ import KonfirmasiPembayaran from "./KonfirmasiPembayaran";
 import Hero from '../../../../Home/Hero';
 import NavbarComponent from "../../../../NavbarComponent";
 import Footer from '../../../../Home/Footer';
+import satup from '../../../../../data/Group 13.png';
+import duap from '../../../../../data/Group 20.png';
+import tigap from '../../../../../data/Group 18.png';
+import linep from '../../../../../data/Rectangle 36.png';
+import backp from '../../../../../data/fi_arrow-left.png';
 
 const SelesaikanPembayaran = () => {
     return(
@@ -13,21 +18,21 @@ const SelesaikanPembayaran = () => {
             <div className="container" style={{marginBottom:200, marginTop:-60}}>
                     <div className="row" style={{marginBottom:30}}>
                         <div className="col">
-                            <span>Pembayaran</span>
+                            <span><img src={backp} style={{marginRight:10}}/>Pembayaran</span>
                             <span>Order ID :</span>
                         </div>
                         <div className="col">
-                            <div className="row">
-                                <div className="col">
-                                    <span style={{}}>Pilih Metode</span>
-                                </div>
-                                <div className="col">
-                                    <span style={{}}>Bayar</span>
-                                </div>
-                                <div className="col">
-                                    <span style={{}}>Tiket</span>
-                                </div>
+                        <div className="row">
+                            <div className="col-md-4">
+                                <span><img src={satup} style={{marginRight:5}}/>Pilih Metode <img src={linep} style={{marginLeft:30}}/></span>
                             </div>
+                            <div className="col-sm-4">
+                                <span><img src={duap} style={{marginRight:5}}/> Bayar <img src={linep} style={{marginLeft:30}}/></span>
+                            </div>
+                            <div className="col-md-3">
+                                <span><img src={tigap} style={{marginLeft:-40,marginRight:5}}/>Tiket</span>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <div className="row">
