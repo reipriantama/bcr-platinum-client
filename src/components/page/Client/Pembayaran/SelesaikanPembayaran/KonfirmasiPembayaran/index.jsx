@@ -32,6 +32,7 @@ const KonfirmasiPembayaran = () => {
           // Jika waktu sudah habis, hentikan interval
           if (distance < 0) {
             clearInterval(interval);
+            dispatch(updateTimerNow(0));
             dispatch(updateKonfirmasi(true));
             setTimeLeft(0);
           } else {
