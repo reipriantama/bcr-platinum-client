@@ -5,8 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 
 const Transfer = () => {
-    const location = useLocation();
-    const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
+    // const location = useLocation();
+    // const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
+    const [selectedBank] = useState(Number(sessionStorage.getItem("selectedBank")));
     let [totalPrice, setTotalPrice] = useState(sessionStorage.getItem("totalPrice"));
     let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
     // const totalPrice = useSelector((state) => state.storePembayaran.totalPrice);
@@ -15,7 +16,7 @@ const Transfer = () => {
     let [theBank, setTheBank] = useState(null);
 
     useEffect(() => {
-       switch(bankName) {
+       switch(selectedBank) {
             case 1:
                 setTheBank("BCA");
                 break;
@@ -33,8 +34,9 @@ const Transfer = () => {
             const formattedPrice = new Intl.NumberFormat('id-ID').format(parseInt(totalPrice));
             setFormattedTotalPrice(formattedPrice);
        }
+
        
-    }, [bankName, totalPrice]);
+    }, []);
 
     return(
         <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 col-md-7`} style={{marginLeft: -2}}>
