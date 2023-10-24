@@ -21,6 +21,10 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
       console.log("Mulai:", dateArray[0]);
       console.log("Akhir:", dateArray[1]);
   };
+
+  const sessionCheckedBank = () => {
+    sessionStorage.setItem("selectedBank", 0);
+  };
   
   const navigate = useNavigate();
 
@@ -45,7 +49,7 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
                 <div className="amount-price">Total</div>
                 <div className="amount-price">Rp. {carresultprice}</div>
             </div>
-            <button type="button" class="btn btn-success pembayaran" onClick={() =>{goToPembayaran();}} block>Lanjutkan Pembayaran</button>
+            <button type="button" class="btn btn-success pembayaran" onClick={() =>{goToPembayaran(); sessionCheckedBank();}} block>Lanjutkan Pembayaran</button>
           </div>
       </div>
     </>
