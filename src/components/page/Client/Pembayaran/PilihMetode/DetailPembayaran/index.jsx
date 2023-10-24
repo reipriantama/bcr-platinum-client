@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateTotalPrice } from "../../../../../../store/SlicePembayaran";
+import { updateKonfirmasi } from "../../../../../../store/SlicePembayaran";
 import { format, add } from "date-fns";
 import { id as localeID } from "date-fns/locale";
 import axios from "axios";
 import api from "../../../../../../api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  style from "./index.module.css";
+import { update } from "lodash";
 
 
 
@@ -136,6 +138,11 @@ const DetailPembayaran = () => {
         sessionStorage.setItem("deadlineTime", formattedTime);
    };
 
+   const setConfirmation = () => {
+        // sessionStorage.setItem("confirm", true);
+        dispatch(updateKonfirmasi(true));
+   };
+
    const navigate = useNavigate();
 
    const goToSelesaikanPembayaran = () => {
@@ -217,7 +224,7 @@ const DetailPembayaran = () => {
                 </div>
             </div>
             <div className={`w-100 fw-bold`}>
-                <button className={`w-100 pt-2 pb-2 ${selectedBank ? style.btn_style_2 : style.btn_style_1}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} onClick={() => {goToSelesaikanPembayaran(); deadlineTime();}} disabled={selectedBank}>Bayar</button>
+                <button className={`w-100 pt-2 pb-2 ${selectedBank ? style.btn_style_2 : style.btn_style_1}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} onClick={() => {goToSelesaikanPembayaran(); deadlineTime(); setConfirmation();}} disabled={selectedBank}>Bayar</button>
             </div>
         </div>
     );

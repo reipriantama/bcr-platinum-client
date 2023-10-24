@@ -1,3 +1,14 @@
 .container_size_1 {
     width: 25%;
 }
+
+.container_display {
+    display: none;
+}
+
+.item_style_1 {
+    background-color: #FA2C5A;
+    color: white;
+    padding: 3px 2px 3px;
+    margin: 0px 5px;
+}

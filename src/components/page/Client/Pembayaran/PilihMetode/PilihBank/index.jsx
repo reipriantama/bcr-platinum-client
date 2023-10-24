@@ -8,12 +8,54 @@ import  style from "./index.module.css";
 const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
     const dispatch = useDispatch();
 
+    
+
+    let [selectedBank, setSelectedBank] = useState(null);
+
     let [bankChecked, setBankChecked] = useState({
         bcaChecked: false,
         bniChecked: false,
         mandiriChecked: false
     });
 
+    const setCheckedBank = (number) => {
+        sessionStorage.setItem("selectedBank", number);
+    };
+
+    const getCheckedBank = () => {
+        const number = Number(sessionStorage.getItem("selectedBank"));
+
+        if(number > 0) {
+            if(number == 1) {
+                setBankChecked({
+                    bankChecked, 
+                    bcaChecked: true,
+                    bniChecked: false,
+                    mandiriChecked: false
+                })
+            }
+            else if(number == 2) {
+                setBankChecked({
+                    bankChecked, 
+                    bcaChecked: false,
+                    bniChecked: true,
+                    mandiriChecked: false
+                })
+            }
+            else if(number == 3) {
+                setBankChecked({
+                    bankChecked, 
+                    bcaChecked: false,
+                    bniChecked: false,
+                    mandiriChecked: true
+                })
+            }
+
+            dispatch(updateSelectedBank(false));
+        }
+
+        return;
+    };
     
     const handleBCAChecked = () => {
         let updatedBCAChecked = !bankChecked.bcaChecked;
@@ -25,6 +67,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
             mandiriChecked: false
         });
 
+        updatedBCAChecked ? setCheckedBank(1) : setCheckedBank(0);
         //setSelectedBank(!updatedBCAChecked);
         dispatch(updateSelectedBank(!updatedBCAChecked));
         
@@ -42,6 +85,8 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
             mandiriChecked: false
         });
 
+        updatedBNIChecked ? setCheckedBank(2) : setCheckedBank(0);
+
         dispatch(updateSelectedBank(!updatedBNIChecked));
         // setSelectedBank(!updatedBNIChecked);
 
@@ -58,6 +103,8 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
             mandiriChecked: updatedMandiriChecked
         });
 
+        updatedMandiriChecked ? setCheckedBank(3) : setCheckedBank(0);
+
         dispatch(updateSelectedBank(!updatedMandiriChecked));
 
         //setSelectedBank(!updatedMandiriChecked);
@@ -65,9 +112,20 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
        
     };
 
-    const setCheckedBCA = () => {
-        // setSelectedBank(bankChecked.bcaChecked);
-    };
+    
+
+    useEffect(() => {
+        getCheckedBank();
+
+        
+
+       
+    }, []);
+
+    // useEffect(() => {
+    //     setCheckedBank();
+        
+    // },[selectedBank]);
 
     useEffect(() => {
         if(bankChecked.bcaChecked) {

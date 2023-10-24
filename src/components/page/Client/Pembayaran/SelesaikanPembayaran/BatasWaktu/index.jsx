@@ -6,10 +6,10 @@ import style from "./index.module.css";
 
 const BatasWaktu = () => {
     //Tanggal saat halaman pertama kali dimuat
+    const formattedDate = sessionStorage.getItem("deadlineTime");
+
     // const [now] = useState(new Date());
     const [tomorrow] = useState(new Date(sessionStorage.getItem("tomorrow")));
-
-    const formattedDate = sessionStorage.getItem("deadlineTime");
 
     //Timer
     const targetTime = tomorrow.getTime();
@@ -20,25 +20,29 @@ const BatasWaktu = () => {
     useEffect(() => {
           // Update timer setiap detik
           const interval = setInterval(() => {
-          const now = new Date().getTime();
-          const distance = targetTime - now;
+            const now = new Date().getTime();
+            const distance = targetTime - now;
 
-          // Jika waktu sudah habis, hentikan interval
-          if (distance < 0) {
-            clearInterval(interval);
-            setTimeLeft(0);
-          } else {
-            setTimeLeft(distance);
-          }
+            // Jika waktu sudah habis, hentikan interval
+            if (distance < 0) {
+              clearInterval(interval);
+              setTimeLeft(0);
+            } else {
+              setTimeLeft(distance);
+            }
         }, 1000);
 
         // Bersihkan interval ketika komponen dilepaskan
         return () => clearInterval(interval);
       }, [targetTime]);
 
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      const formatNumber = (number) => {
+        return (number < 10) ? `0${number}` : number;
+    };
+
+    const hours = formatNumber(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    const minutes = formatNumber(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)));
+    const seconds = formatNumber(Math.floor((timeLeft % (1000 * 60)) / 1000));
 
     return (
         <div className={`d-flex flex-lg-row flex-xl-row card col-md-7 ${style.container_space_1}`}>
