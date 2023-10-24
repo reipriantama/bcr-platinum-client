@@ -66,7 +66,17 @@ const KonfirmasiPembayaran = () => {
                     </div>
                 </div>
                 <div>
+                    <p>Terima kasih......</p>
 
+                </div>
+                <div>
+                    <h6>Upload Bukti Bayar</h6>
+                </div>
+                <div>
+                    <p>Untuk membantu kamu....</p>
+                </div>
+                <div>
+                    <Link to="/eticket"><button className="w-100 pt-1 pb-1 " style={{backgroundColor: "#5CB85F", color: "#FFF"}}>Upload</button></Link>
                 </div>
             </div>
 
