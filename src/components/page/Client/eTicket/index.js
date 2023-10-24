@@ -4,7 +4,7 @@ import NavbarComponent from "../../../NavbarComponent";
 import Footer from '../../../Home/Footer';
 import Berhasil from '../eTicket/pembayaranBerhasil'
 import Invoice from '../eTicket/invoice';
-
+import { Link } from 'react-router-dom';
 import check from '../../../../data/Group 13.png';
 import back from '../../../../data/fi_arrow-left.png';
 import line from '../../../../data/Rectangle 36.png';
@@ -20,7 +20,7 @@ const tiket = () => {
             <div className="col">
                 <div className="row" style={{marginBottom:30}}>
                     <div className="col">
-                        <span><img src={back} style={{marginRight:10}}/>Tiket</span>
+                        <span><Link to="/selesaikan-pembayaran" className='col-md-2'> <img src={back} style={{marginRight:10}}/></Link>Tiket</span>
                         <span style={{marginLeft:30}}>Order ID : xxxxx</span>
                     </div>
                     <div className="col">
