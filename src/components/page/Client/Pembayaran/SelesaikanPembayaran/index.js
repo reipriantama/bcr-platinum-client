@@ -21,7 +21,7 @@ const SelesaikanPembayaran = () => {
     const [confirm, setConfirm] = useState(status);
 
     useEffect(() => {
-        console.log("vcvcvc", confirm);
+        // console.log("vcvcvc", confirm);
 
         sessionStorage.setItem("confirm", status);
     }, [status]);

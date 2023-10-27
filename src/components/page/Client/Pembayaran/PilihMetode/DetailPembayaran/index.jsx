@@ -24,6 +24,8 @@ const DetailPembayaran = () => {
    const { id } = useParams();
    const selectedBank = useSelector((state) => state.storePembayaran.selectedBank);
 
+   sessionStorage.setItem("id", id);
+
 
     const convertDate = (date) => {
         const dateObject = new Date(date);
