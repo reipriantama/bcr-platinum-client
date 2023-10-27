@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateKonfirmasi, updateTimerNow } from "../../../../../../store/SlicePembayaran";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 import { Link } from 'react-router-dom';
 import { set } from "lodash";
+import api from "../../../../../../api";
+import defaultPicture from "../../../../../img/img_car.png";
+import "./index1.css";
 
 
 
 
 const KonfirmasiPembayaran = () => { 
     const dispatch = useDispatch();
+
+    const id = parseInt(sessionStorage.getItem("id"));
 
     const confirm = useSelector((state) => state.storePembayaran.konfirmasi);
     const [confirmState, setConfirmState] = useState(true);
@@ -19,6 +25,10 @@ const KonfirmasiPembayaran = () => {
     const targetTime = useSelector((state) => state.storePembayaran.timerNow);
 
     const [timeLeft, setTimeLeft] = useState(targetTime - new Date().getTime());
+
+    // const uploadImage = (image) => {
+
+    // };
 
     useEffect(() => {
         setConfirmState(confirm);
@@ -52,6 +62,40 @@ const KonfirmasiPembayaran = () => {
     const minutes = formatNumber(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)));
     const seconds = formatNumber(Math.floor((timeLeft % (1000 * 60)) / 1000));
 
+    const [image, setImage] = useState(null);
+
+    const imageUpload = async (file) => {
+        try {
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const response = await api.uploadImage(id, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log("puuut res", response);
+            
+        } catch(error) {
+            console.log("puuut error", error)
+        }
+    };
+
+  // Fungsi untuk menangani event upload gambar
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];  // Dapatkan file dari event
+        if (file) {
+            const reader = new FileReader();  // Buat instance FileReader
+            reader.onloadend = () => {
+                setImage(reader.result);  // Tetapkan data gambar ke state
+            };
+            reader.readAsDataURL(file);  // Baca file sebagai Data URL
+
+            imageUpload(file);
+        }
+
+    
+    };
 
     return(
         <div className={`${confirmState && style.container_display}`}>
@@ -76,7 +120,34 @@ const KonfirmasiPembayaran = () => {
                     <p>Untuk membantu kamu....</p>
                 </div>
                 <div>
-                    <Link to="/eticket"><button className="w-100 pt-1 pb-1 " style={{backgroundColor: "#5CB85F", color: "#FFF"}}>Upload</button></Link>
+                    <div className="image-preview">
+                        {
+                            image ? (
+                                <img src={image} alt="Uploaded" />
+                            ) : (
+                                <img src="/path/to/default-image.png" alt="Default" />
+                                )}
+                    </div>
+                    <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center">
+                        {
+                            image ? (
+                                <Link to="/eticket">
+                                    <label htmlFor="file-upload" className="w-100 pt-1 pb-1 d-flex justify-content-center align-items-center" style={{backgroundColor: "#5CB85F", color: "#FFF"}}>
+                                        Konfirmasi
+                                    </label>
+                                </Link>
+                            ): (
+                                <label htmlFor="file-upload" className="w-100 pt-1 pb-1 d-flex justify-content-center align-items-center" style={{backgroundColor: "#5CB85F", color: "#FFF"}}>
+                                    Upload Image
+                                </label>
+                            
+                            )
+                        }
+                
+                        <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
+                    
+                    </div>    
+                    
                 </div>
             </div>
 

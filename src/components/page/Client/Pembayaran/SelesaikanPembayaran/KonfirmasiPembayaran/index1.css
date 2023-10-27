@@ -1,0 +1,17 @@
+input[type="file"] {
+    display: none;
+}
+
+/* Gaya untuk tombol upload kustom */
+.custom-file-upload-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #008CBA; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none;
+    border-radius: 5px; /* Pembulatan sudut */
+}
+
+.custom-file-upload-button:hover {
+    background-color: #005f5f; /* Warna latar belakang saat di-hover */
+}
