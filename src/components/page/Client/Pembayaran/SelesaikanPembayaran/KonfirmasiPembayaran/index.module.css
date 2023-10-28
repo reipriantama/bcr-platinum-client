@@ -12,3 +12,11 @@
     padding: 3px 2px 3px;
     margin: 0px 5px;
 }
+
+.imageS{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Menyembunyikan input file */
