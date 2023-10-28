@@ -38,9 +38,9 @@ function App() {
 
     // for admin role
     { path: "login-admin", element:<Login />},
-    { path: "dashboard", element:<ProtectedRouteAdmin> <DashboardAdmin /> </ProtectedRouteAdmin> },
-    { path: "add-car", element:<ProtectedRouteAdmin> <AddCar /> </ProtectedRouteAdmin>},
-    { path: `edit-car/:id`, element:<ProtectedRouteAdmin> <EditCar /> </ProtectedRouteAdmin>},
+    /*{ path: "dashboard", element:<ProtectedRouteAdmin> <DashboardAdmin /> </ProtectedRouteAdmin> },
+    { path: "add-car", element:<ProtectedRouteAdmin> <AddCar /> </ProtectedRouteAdmin>},*/
+    // { path: `edit-car/:id`, element:<ProtectedRouteAdmin> <EditCar /> </ProtectedRouteAdmin>},
   ])
 
   return element;

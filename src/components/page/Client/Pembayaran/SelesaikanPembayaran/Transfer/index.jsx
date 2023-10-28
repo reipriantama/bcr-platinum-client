@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
+import copypaste from "../../../../../img/copypaste.png";
 import style from "./index.module.css";
+
 
 const Transfer = () => {
     // const location = useLocation();
@@ -39,7 +41,7 @@ const Transfer = () => {
     }, []);
 
     return(
-        <div className={`d-flex flex-lg-column flex-xl-column card p-2 gap-2 col-md-7`} style={{marginLeft: -2}}>
+        <div className={`d-flex flex-lg-column flex-xl-column card gap-2 col-md-7 ${style.container_style_1}`} >
             <div className={``}>
                 <h6>Lakukan Transfer Ke</h6>
             </div>
@@ -59,15 +61,32 @@ const Transfer = () => {
             <div className={``}>
                 <span>Nomor Rekening</span>
             </div>
-            <div className={`w-100`}>
-                <span className={`w-100 ${style.item_style_1}`}>12345678</span>
+            <div className={`d-flex flex-lg-row flex-xl-row w-100 ${style.item_container_1}`}>
+                <div>
+                    <span className={``}>12345678</span>
+                </div>
+                <div className={`d-flex justify-content-end align-items-end w-100`}>
+                    <img src={copypaste} />
+                </div>
             </div>
             <div className={``}>
                 <span>Total Bayar</span>
             </div>
+            <div className={`d-flex flex-lg-row flex-xl-row w-100 ${style.item_container_1}`}>
+                <div className="w-50">
+                    <span className={`fw-bold`}>Rp. {formattedTotalPrice}</span>
+                </div>
+                <div className={`d-flex justify-content-end align-items-end w-100`}>
+                    <img src={copypaste} />
+                </div>
+            </div>
+            
+            {/* <div className={``}>
+                <span>Total Bayar</span>
+            </div>
             <div className={``}>
                 <span>Rp. {formattedTotalPrice}</span>
-            </div>
+            </div> */}
 
         </div>
     );

@@ -46,17 +46,19 @@ const BatasWaktu = () => {
 
     return (
         <div className={`d-flex flex-lg-row flex-xl-row card col-md-7 ${style.container_space_1}`}>
-            <div className={`d-flex flex-lg-column flex-xl-column`}>
+            <div className={`d-flex flex-lg-column flex-xl-column gap-3 justify-content-start w-100`}>
                 <div className={``}>
                     <h6>Selesaikan Pembayaran Sebelum</h6>
                 </div>
-                <div className={``}>
+                <div className={``}> 
                     <span>{formattedDate}</span>
                 </div>
             </div>
-            <div className={``}>
-                <span className={`${style.item_style_1}`}>{hours}</span>:
-                <span className={`${style.item_style_1}`}>{minutes}</span>:
+            <div className={`d-flex justify-content-end align-items-center w-100`}>
+                <span className={`${style.item_style_1}`}>{hours}</span>
+                <span className="ms-1 me-1">:</span>
+                <span className={`${style.item_style_1}`}>{minutes}</span>
+                <span className="ms-1 me-1">:</span>
                 <span className={`${style.item_style_1}`}>{seconds}</span>
             </div>
         </div>

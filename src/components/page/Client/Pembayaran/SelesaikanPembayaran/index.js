@@ -56,10 +56,11 @@ const SelesaikanPembayaran = () => {
                     </div>
                     <div className="row">
                         <BatasWaktu />
-                        <Konfirmasi />
-                       
                     </div>
-                    <KonfirmasiPembayaran />
+                    <div className={`d-flex flex-lg-row flex-xl-row justify-content-end`}>
+                        <Konfirmasi />
+                        <KonfirmasiPembayaran />
+                    </div>
                 <Transfer />
             </div>
             <Footer />

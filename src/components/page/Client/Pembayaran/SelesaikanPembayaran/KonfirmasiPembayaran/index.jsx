@@ -69,10 +69,10 @@ const KonfirmasiPembayaran = () => {
             const formData = new FormData();
             formData.append("file", file);
 
-            const response = await api.uploadImage(id, formData, {
+            const response = await api.uploadImage(1, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
-                }
+                  }
             });
             console.log("puuut res", response);
             
@@ -91,10 +91,21 @@ const KonfirmasiPembayaran = () => {
             };
             reader.readAsDataURL(file);  // Baca file sebagai Data URL
 
-            imageUpload(file);
+            imageUpload(reader.result);
         }
 
     
+    };
+
+    const getcar = async () =>  {
+        //const api = `https://api-car-rental.binaracademy.org/customer/order/${id}`;
+        try {
+            const response = await api.getCar(id);
+            console.log("get res", response);
+        }catch(error) {
+            console.log("get err")
+        }
+
     };
 
     return(
@@ -146,7 +157,8 @@ const KonfirmasiPembayaran = () => {
                 
                         <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
                     
-                    </div>    
+                    </div>  
+                    <button onClick={getcar}>getItem</button>  
                     
                 </div>
             </div>

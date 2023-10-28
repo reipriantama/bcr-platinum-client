@@ -1,10 +1,14 @@
 .container_style_1 {
-    width: 25%;
+    width: 55%;
+    padding: 30px;
 }
 
-.item_style_1 {
+.item_container_1 {
     border: 1px solid black;
+    padding: 9px;
 }
+
+
 
 .btn_style_1{
     border: 1px solid rgb(188, 188, 188);
