@@ -45,7 +45,7 @@ const BatasWaktu = () => {
     const seconds = formatNumber(Math.floor((timeLeft % (1000 * 60)) / 1000));
 
     return (
-        <div className={`d-flex flex-lg-row flex-xl-row card col-md-7 ${style.container_space_1}`}>
+        <div className={`d-flex flex-lg-row flex-xl-row card col-md-7 ${style.container_space_1} ${style.container_size_1}`}>
             <div className={`d-flex flex-lg-column flex-xl-column gap-3 justify-content-start w-100`}>
                 <div className={``}>
                     <h6>Selesaikan Pembayaran Sebelum</h6>

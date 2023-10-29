@@ -1,11 +1,11 @@
 .container_size_1 {
     width: 100%;
-    max-width: 42%;
+    max-width: 100%;
 }
 
 
 
 .container_display {
     display: none;
-    max-width: 45%;
+    
 }

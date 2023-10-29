@@ -167,7 +167,7 @@ const DetailPembayaran = () => {
                 <div className={`${style.item_size_1}`}>
                    <span className={`${style.item_style_1}`}>Total</span>
                 </div>
-                <div className={``}>
+                <div className={`d-flex justify-content-end w-50`}>
                     <span>Rp. {formattedTotalPrice}</span>
                 </div>
             </div>
@@ -198,7 +198,7 @@ const DetailPembayaran = () => {
                         </ul>
                     </div>
                     <div className={`${style.item_size_4}`}>
-                        <ul >
+                        <ul style={{listStyle: "none", color: "#5CB85F"}}>
                             <li>
                                 Termasuk
                             </li>

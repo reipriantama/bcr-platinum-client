@@ -9,8 +9,9 @@ import style from "./index.module.css";
 const Transfer = () => {
     // const location = useLocation();
     // const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
+    const newOrder = JSON.parse(sessionStorage.getItem("newOrder"));
     const [selectedBank] = useState(Number(sessionStorage.getItem("selectedBank")));
-    let [totalPrice, setTotalPrice] = useState(sessionStorage.getItem("totalPrice"));
+    let [totalPrice, setTotalPrice] = useState(newOrder.total_price);
     let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
     // const totalPrice = useSelector((state) => state.storePembayaran.totalPrice);
     // const theChosenBank = location.state?.chosenBank || [];

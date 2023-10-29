@@ -56,17 +56,27 @@ const SelesaikanPembayaran = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="">
-                        <BatasWaktu />
+                    <div className="d-flex flex-lg-row flex-xl-row gap-4" style={{width: "100%"}}>
+                        <div className="d-flex flex-lg-column flex-xl-column w-100">
+                            <div className="w-100">
+                                 <BatasWaktu />
+                            </div>
+                            <div>
+                                <Transfer />
+                            </div>
+                            <div>
+                                <InstruksiPembayaran />
+                            </div>
+                            
+                        </div>
+                        <div className="d-flex justify-content-end" style={{width: "70%", maxWidth: "70%"}}>
+                            <Konfirmasi />
+                            <KonfirmasiPembayaran />
+                        </div>
+                        
                     </div>
-                    <div >
-                        <Konfirmasi />
-                        <KonfirmasiPembayaran />
-                    </div>
-                <Transfer />
-               
             </div>
-            <InstruksiPembayaran />
+            
             <Footer />
         </>
     );

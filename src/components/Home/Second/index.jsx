@@ -24,7 +24,7 @@ function Second() {
             murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan 
             terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
             </div>
-            <div>
+            <div className='list-1'>
               <ul className='fa-ul'>
                 {SecondSection.length ? 
                 SecondSection.map((item) => (

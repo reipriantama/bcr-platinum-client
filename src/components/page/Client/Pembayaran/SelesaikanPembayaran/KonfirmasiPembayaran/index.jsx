@@ -124,7 +124,7 @@ const KonfirmasiPembayaran = () => {
                         <div className="image-preview">
                              {image ? (
                             <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center gap-4">
-                                <img src={image} alt="Uploaded" style={{maxWidth: "25rem", maxHeight: "25rem"}} />
+                                <img src={image} alt="Uploaded" style={{maxWidth: "20rem", maxHeight: "20rem"}} />
                                 <Link className="w-100" to="/eticket"><button className="w-100 pt-2 pb-2 fw-bold" style={{backgroundColor: "#5CB85F", color: "#FFF", fontSize: "1rem"}}>Konfirmasi</button></Link>
                             </div>
                             
