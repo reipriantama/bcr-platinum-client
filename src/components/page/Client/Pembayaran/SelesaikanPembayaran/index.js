@@ -2,6 +2,7 @@ import BatasWaktu from "./BatasWaktu";
 import Transfer from "./Transfer";
 import Konfirmasi from "./Konfirmasi";
 import KonfirmasiPembayaran from "./KonfirmasiPembayaran";
+import InstruksiPembayaran from "./InstruksiPembayaran";
 import Hero from '../../../../Home/Hero';
 import NavbarComponent from "../../../../NavbarComponent";
 import Footer from '../../../../Home/Footer';
@@ -13,6 +14,7 @@ import backp from '../../../../../data/fi_arrow-left.png';
 import { useDispatch, useSelector } from "react-redux";
 import { updateKonfirmasi } from "../../../../../store/SlicePembayaran";
 import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const SelesaikanPembayaran = () => {
     const status = useSelector((state) => state.storePembayaran.konfirmasi);
@@ -54,15 +56,17 @@ const SelesaikanPembayaran = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="">
                         <BatasWaktu />
                     </div>
-                    <div className={`d-flex flex-lg-row flex-xl-row justify-content-end`}>
+                    <div >
                         <Konfirmasi />
                         <KonfirmasiPembayaran />
                     </div>
                 <Transfer />
+               
             </div>
+            <InstruksiPembayaran />
             <Footer />
         </>
     );
