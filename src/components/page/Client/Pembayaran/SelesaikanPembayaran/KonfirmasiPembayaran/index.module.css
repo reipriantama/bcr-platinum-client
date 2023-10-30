@@ -1,5 +1,6 @@
 .container_size_1 {
-    width: 25%;
+    width: 100%;
+    max-width: 100%;
 }
 
 .container_display {
@@ -11,6 +12,14 @@
     color: white;
     padding: 3px 2px 3px;
     margin: 0px 5px;
+    font-size: 1rem;
+}
+
+.upload_button {
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 /* Menyembunyikan input file */

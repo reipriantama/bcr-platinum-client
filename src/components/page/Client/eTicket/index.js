@@ -11,6 +11,8 @@ import line from '../../../../data/Rectangle 36.png';
 import number from '../../../../data/Group 19.png';
 
 
+
+
 const tiket = () => {
     return(
         <>
@@ -20,7 +22,7 @@ const tiket = () => {
             <div className="col">
                 <div className="row" style={{marginBottom:30}}>
                     <div className="col">
-                        <span><Link to="/selesaikan-pembayaran" className='col-md-2'> <img src={back} style={{marginRight:10}}/></Link>Tiket</span>
+                        <span><Link to="/selesaikan-pembayaran"><img src={back} style={{marginRight:10}}/></Link>Tiket</span>
                         <span style={{marginLeft:30}}>Order ID : xxxxx</span>
                     </div>
                     <div className="col">

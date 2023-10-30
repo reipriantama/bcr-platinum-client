@@ -19,9 +19,6 @@ export const SlicePembayaran = createSlice({
         updateChosenBankName: (state, action) => {
             state.chosenBankName = action.payload;
         },
-        // updateDateRent: (state, action) => {
-        //     state.dateRent = action.payload;
-        // },
         updateTotalPrice: (state, action) => {
             state.totalPrice = action.payload;
         },

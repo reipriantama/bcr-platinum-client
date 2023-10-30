@@ -24,19 +24,19 @@ const DetailPembayaran = () => {
    const { id } = useParams();
    const selectedBank = useSelector((state) => state.storePembayaran.selectedBank);
 
-   sessionStorage.setItem("id", id);
+   sessionStorage.setItem("carID", id);
 
 
-    const convertDate = (date) => {
-        const dateObject = new Date(date);
-        const formattedDate = format(dateObject, 'yyyy-MM-dd');
-        return formattedDate;
-    };
+    // const convertDate = (date) => {
+    //     const dateObject = new Date(date);
+    //     const formattedDate = format(dateObject, 'yyyy-MM-dd');
+    //     return formattedDate;
+    // };
 
    let [startDateRent] = useState(sessionStorage.getItem("startDate"));
    let [endDateRent] = useState(sessionStorage.getItem("endDate"));
-   let [formattedStartDateRent] = useState(convertDate(startDateRent));
-   let [formattedEndDateRent] = useState(convertDate(endDateRent));
+//    let [formattedStartDateRent] = useState(convertDate(startDateRent));
+//    let [formattedEndDateRent] = useState(convertDate(endDateRent));
   
    
    const dispatch = useDispatch();
@@ -71,27 +71,31 @@ const DetailPembayaran = () => {
 
    };
 
-   
-
-   const getDetailedOrder = async () => {
-       try {
-            const response = await api.createOrder({
-                start_rent_at: formattedStartDateRent,
-                finish_rent_at: formattedEndDateRent,
-                car_id: id
-            }); 
-
-            setTotalPrice(response.data.total_price);
-            sessionStorage.setItem("totalPrice", response.data.total_price);
-            // setFormattedTotalPrice(response);
-            console.log("totalprice", response.data.total_price);
-            console.log("tgggl", startDateRent);
-            console.log("asil", response);
-
-       } catch(err) {
-            console.log(err);
-       }
+   const getDetailedOrder = () => {
+        const detailedOrder = JSON.parse(sessionStorage.getItem("newOrder"));
+        setTotalPrice(detailedOrder.total_price);
    };
+
+//    const getDetailedOrder = async () => {
+//        try {
+//             const response = await api.createOrder({
+//                 start_rent_at: formattedStartDateRent,
+//                 finish_rent_at: formattedEndDateRent,
+//                 car_id: id
+//             }); 
+
+//             setTotalPrice(response.data.total_price);
+//             console.log("order", response);
+//             sessionStorage.setItem("totalPrice", response.data.total_price);
+//             // setFormattedTotalPrice(response);
+//             console.log("totalprice", response.data.total_price);
+//             console.log("tgggl", startDateRent);
+//             console.log("asil", response);
+
+//        } catch(err) {
+//             console.log(err);
+//        }
+//    };
 
    const location = useLocation();
    //const receivedDates = location.state?.dates || [];
@@ -163,7 +167,7 @@ const DetailPembayaran = () => {
                 <div className={`${style.item_size_1}`}>
                    <span className={`${style.item_style_1}`}>Total</span>
                 </div>
-                <div className={``}>
+                <div className={`d-flex justify-content-end w-50`}>
                     <span>Rp. {formattedTotalPrice}</span>
                 </div>
             </div>
@@ -194,7 +198,7 @@ const DetailPembayaran = () => {
                         </ul>
                     </div>
                     <div className={`${style.item_size_4}`}>
-                        <ul >
+                        <ul style={{listStyle: "none", color: "#5CB85F"}}>
                             <li>
                                 Termasuk
                             </li>

@@ -1,25 +1,45 @@
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 // import { updateDateRent } from '../../../../store/SlicePembayaran';
 import React from 'react'
 import './index.css'
 import { DateRangePicker } from 'rsuite';
 import { Link } from 'react-router-dom';
+import api from '../../../../api';
 
 function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname, carresultprice}) {
   // const [dates, setDates] = useState([]);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const { id } = useParams();
+  const [dateOrder, setDateOrder] = useState(null);
 
   const handleDateChange = (dateArray) => {
       //setDates(dateArray);
+      setDateOrder(dateArray);
       sessionStorage.setItem("startDate", dateArray[0]);
       sessionStorage.setItem("endDate", dateArray[1]);
       // dispatch(updateDateRent(dateArray));
       console.log("Mulai:", dateArray[0]);
       console.log("Akhir:", dateArray[1]);
+  };
+
+  const createNewOrder = async () => {
+    try {
+       const response = await api.createOrder({
+          "start_rent_at": dateOrder[0],
+          "finish_rent_at": dateOrder[1],
+          "car_id": parseInt(id)
+       });
+
+       sessionStorage.setItem("newOrder", JSON.stringify(response.data));
+       console.log("createorder", response);
+
+    } catch(error) {
+        console.log("createorder", error);
+    }
   };
 
   const sessionCheckedBank = () => {
@@ -49,7 +69,7 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
                 <div className="amount-price">Total</div>
                 <div className="amount-price">Rp. {carresultprice}</div>
             </div>
-            <button type="button" class="btn btn-success pembayaran" onClick={() =>{goToPembayaran(); sessionCheckedBank();}} block>Lanjutkan Pembayaran</button>
+            <button type="button" class="btn btn-success pembayaran" onClick={() =>{createNewOrder(); goToPembayaran(); sessionCheckedBank();}} block>Lanjutkan Pembayaran</button>
           </div>
       </div>
     </>

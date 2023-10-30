@@ -2,7 +2,7 @@ import ceklis from '../../../../../data/success.png';
 import "./index.css"
 
 
-const berhasil = () => {
+const Berhasil = () => {
     return(
         <>
         <div className="container">
@@ -18,4 +18,4 @@ const berhasil = () => {
     )
 }
 
-export default berhasil;
+export default Berhasil;

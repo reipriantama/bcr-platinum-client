@@ -38,7 +38,7 @@ function Result() {
     <NavbarComponent />
     <Hero displayButton={"none"} displayText={"none"} padTop={170}/>
     <SearchCarComponent />
-    <div className="container" style={{marginBottom: 200}}>
+    <div className="container list_1" style={{marginBottom: 200}}>
         <div className="row result">
           <div className="col-8">
             <div className="colwrapper">

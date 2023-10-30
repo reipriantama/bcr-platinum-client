@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateKonfirmasi, updateTimerNow } from "../../../../../../store/SlicePembayaran";
-import axios from "axios";
+// import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 import { Link } from 'react-router-dom';
-import { set } from "lodash";
+// import { set } from "lodash";
 import api from "../../../../../../api";
-import defaultPicture from "../../../../../img/img_car.png";
-import "./index1.css";
+import image1 from "../../../../../img/default_frame.png";
 
 
 
@@ -16,7 +15,8 @@ import "./index1.css";
 const KonfirmasiPembayaran = () => { 
     const dispatch = useDispatch();
 
-    const id = parseInt(sessionStorage.getItem("id"));
+    const newOrder = JSON.parse(sessionStorage.getItem("newOrder"));
+    const orderId = parseInt(newOrder.id);
 
     const confirm = useSelector((state) => state.storePembayaran.konfirmasi);
     const [confirmState, setConfirmState] = useState(true);
@@ -62,94 +62,89 @@ const KonfirmasiPembayaran = () => {
     const minutes = formatNumber(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)));
     const seconds = formatNumber(Math.floor((timeLeft % (1000 * 60)) / 1000));
 
+
     const [image, setImage] = useState(null);
+    const [fileName, setFileName] = useState("No file chosen");
 
-    const imageUpload = async (file) => {
+    const uploadBuktiBayar = async (body) => {
         try {
-            const formData = new FormData();
-            formData.append("file", file);
+            const response = await api.uploadImage(orderId, body);
 
-            const response = await api.uploadImage(id, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            console.log("puuut res", response);
-            
+            sessionStorage.setItem("orderConfirmation", JSON.stringify(response.data));
+            console.log("hasil PUT", response);
         } catch(error) {
-            console.log("puuut error", error)
+            console.log(error);
         }
     };
 
-  // Fungsi untuk menangani event upload gambar
     const handleImageUpload = (e) => {
-        const file = e.target.files[0];  // Dapatkan file dari event
+        const file = e.target.files[0];
+
         if (file) {
-            const reader = new FileReader();  // Buat instance FileReader
+            const formData = new FormData();
+            formData.append("slip", file);
+
+            const reader = new FileReader();
             reader.onloadend = () => {
-                setImage(reader.result);  // Tetapkan data gambar ke state
+                setImage(reader.result);
             };
-            reader.readAsDataURL(file);  // Baca file sebagai Data URL
+            reader.readAsDataURL(file);
+            setFileName(file.name);
 
-            imageUpload(file);
+            uploadBuktiBayar(formData);
         }
-
-    
     };
+
 
     return(
         <div className={`${confirmState && style.container_display}`}>
-            <div className={`d-flex flex-lg-column flex-xl-column card ${style.container_size_1} ${style.container_display}`}>
-                <div className={`d-flex flex-lg-row flex-xl-row card `}>
-                    <div>
+            <div className={`d-flex flex-lg-column flex-xl-column card p-4 gap-2 w-100 col ${style.container_size_1}`}>
+                <div className={`d-flex flex-lg-row flex-xl-row `}>
+                    <div className={`w-100`}>
                         <h6>Konfirmasi Pembayaran</h6>
                     </div>
-                    <div>
-                        <span className={`${style.item_style_1}`}>{minutes}</span>:
-                        <span className={`${style.item_style_1}`}>{seconds}</span>
+                    <div className={`d-flex flex-lg-row flex-xl-row w-50 justify-content-end align-items-end`}>
+                            <span className={`${style.item_style_1}`}>{minutes}</span>:
+                            <span className={`${style.item_style_1}`}>{seconds}</span>
                     </div>
                 </div>
-                <div>
-                    <p>Terima kasih......</p>
+                <div className={`d-flex flex-lg-column flex-xl-column gap-3`}>
+                    <div className="mb-3">
+                        <p>Terima kasih telah melakukan konfirmasi pembayaran.
+                            Pembayaranmu akan segera kamu cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi</p>
 
-                </div>
-                <div>
-                    <h6>Upload Bukti Bayar</h6>
-                </div>
-                <div>
-                    <p>Untuk membantu kamu....</p>
-                </div>
-                <div>
-                    <div className="image-preview">
-                        {
-                            image ? (
-                                <img src={image} alt="Uploaded" />
-                            ) : (
-                                <img src="/path/to/default-image.png" alt="Default" />
-                                )}
                     </div>
-                    <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center">
-                        {
-                            image ? (
-                                <Link to="/eticket">
-                                    <label htmlFor="file-upload" className="w-100 pt-1 pb-1 d-flex justify-content-center align-items-center" style={{backgroundColor: "#5CB85F", color: "#FFF"}}>
-                                        Konfirmasi
-                                    </label>
-                                </Link>
-                            ): (
-                                <label htmlFor="file-upload" className="w-100 pt-1 pb-1 d-flex justify-content-center align-items-center" style={{backgroundColor: "#5CB85F", color: "#FFF"}}>
-                                    Upload Image
-                                </label>
+                    <div>
+                        <h6>Upload Bukti Bayar</h6>
+                    </div>
+                    <div>
+                        <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
+                    </div>
+                    <div className={`d-flex flex-lg-column flex-xl-column`}>
+                        <div className="image-preview">
+                             {image ? (
+                            <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center gap-4">
+                                <img src={image} alt="Uploaded" style={{maxWidth: "20rem", maxHeight: "20rem"}} />
+                                <Link className="w-100" to="/eticket"><button className="w-100 pt-2 pb-2 fw-bold" style={{backgroundColor: "#5CB85F", color: "#FFF", fontSize: "1rem"}}>Konfirmasi</button></Link>
+                            </div>
                             
-                            )
-                        }
-                
-                        <input id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
+                            ) : (
+                            <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center gap-4">
+                                <img src={image1} alt="Default" style={{maxWidth: "25rem", maxHeight: "25rem"}} />
+                                <label  className={`d-flex w-100 pt-2 pb-2 fw-bold ${style.upload_button}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} htmlFor="file-upload">
+                                Upload Image
+                                </label>
+                                <input className="" id="file-upload" type="file" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
+                            </div>
+                            )}
+                        </div>
                     
-                    </div>    
-                    
+                    </div>
                 </div>
+                
+               
             </div>
+                
 
         </div>
        
@@ -165,53 +160,3 @@ export default KonfirmasiPembayaran;
 
 
 
-
-
-
-// const confirm = useSelector((state) => state.storePembayaran.konfirmasi);
-// const [confirmState, setConfirmState] = useState(true);
-// const startTime1 = useSelector((state) => state.storePembayaran.timerNow );
-// const st = new Date(startTime1);
-// const INITIAL_DURATION = 10 * 60 * 1000;
-
-// const getRemainingTime = () => {
-//     // const startTime = parseInt(sessionStorage.getItem('timerNow'), 10);
-
-//     const startTime = st;
-//     if (!startTime) return INITIAL_DURATION;
-
-//     const elapsed = Date.now() - startTime;
-//     return INITIAL_DURATION - elapsed;
-// };
-
-// const [timeLeft, setTimeLeft] = useState(getRemainingTime);
-// const [isTimerStarted, setIsTimerStarted] = useState(timeLeft < INITIAL_DURATION);
-
-// useEffect(() => {
-//     //setConfirmState(JSON.parse(sessionStorage.getItem("confirm")));
-//     setConfirmState(confirm);
-//     console.log("cxxx", st );
-//     console.log("ssss", confirm);
-// }, [confirm]);
-
-// useEffect(() => {
-//     let interval;
-
-//     if (isTimerStarted) {
-//         interval = setInterval(() => {
-//             setTimeLeft(prevTimeLeft => {
-//                 if (prevTimeLeft <= 0) {
-//                     clearInterval(interval);
-//                     dispatch(updateKonfirmasi(true));
-//                     return 0;
-//                 }
-//                 return prevTimeLeft - 1000;
-//             });
-//         }, 1000);
-//     }
-
-//     return () => clearInterval(interval);
-// }, [isTimerStarted]);
-
-// const minutes = Math.floor(timeLeft / (60 * 1000));
-// const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);

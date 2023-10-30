@@ -1,14 +1,16 @@
 .container_size_1 {
-    width: 40%;
+    width: 100%;
 }
 
 .container_space_1 {
-    padding: 10px;
+    padding: 30px;
+    /* gap: 300px; */
 }
 
 .item_style_1 {
     background-color: #FA2C5A;
     color: white;
     padding: 3px 2px 3px;
-    margin: 0px 5px;
+    font-size: 1rem;
 }
+
