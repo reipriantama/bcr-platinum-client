@@ -71,10 +71,20 @@ const DetailPembayaran = () => {
 
    };
 
-   const getDetailedOrder = () => {
-        const detailedOrder = JSON.parse(sessionStorage.getItem("newOrder"));
-        setTotalPrice(detailedOrder.total_price);
+   const getDetailedOrder = async () => {
+        try {
+            const detailedOrder = await JSON.parse(sessionStorage.getItem("newOrder"));
+            setTotalPrice(detailedOrder.total_price);
+        
+        }catch(error) {
+            console.log("otalprice", error);
+        }
+        
    };
+
+   useEffect(() => {
+    getDetailedOrder();
+   });
 
 //    const getDetailedOrder = async () => {
 //        try {
@@ -113,7 +123,7 @@ const DetailPembayaran = () => {
    let [resultDays, setResultDays] = useState(null);
    
    useEffect(() => {
-    getDetailedOrder();
+    
    }, []);
 
 

@@ -15,18 +15,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateKonfirmasi } from "../../../../../store/SlicePembayaran";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { json } from "react-router-dom";
 
 const SelesaikanPembayaran = () => {
     const status = useSelector((state) => state.storePembayaran.konfirmasi);
     const timerState = useSelector((state) => state.storePembayaran.timerNow);
 
     const [confirm, setConfirm] = useState(status);
+    const [newOrder, setNewOrder] = useState(JSON.parse(sessionStorage.getItem("newOrder")));
 
     useEffect(() => {
         // console.log("vcvcvc", confirm);
 
         sessionStorage.setItem("confirm", status);
     }, [status]);
+
+    useEffect(() => {
+        setNewOrder(JSON.parse(sessionStorage.getItem("newOrder")));
+    }, []);
 
     useEffect(() => {
         sessionStorage.setItem("timerNow", timerState);
@@ -40,7 +46,7 @@ const SelesaikanPembayaran = () => {
                     <div className="row" style={{marginBottom:30}}>
                         <div className="col">
                             <span><img src={backp} style={{marginRight:10}}/>Pembayaran</span>
-                            <span>Order ID :</span>
+                            <span>Order ID : {newOrder.id ? newOrder.id : ""}</span>
                         </div>
                         <div className="col">
                         <div className="row">

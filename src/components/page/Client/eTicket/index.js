@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Hero from '../../../Home/Hero';
 import NavbarComponent from "../../../NavbarComponent";
 import Footer from '../../../Home/Footer';
@@ -13,7 +13,13 @@ import number from '../../../../data/Group 19.png';
 
 
 
-const tiket = () => {
+const Tiket = () => {
+    const [newOrder, setNewOrder] = useState(JSON.parse(sessionStorage.getItem("newOrder")));
+
+    useEffect(() => {
+        setNewOrder(JSON.parse(sessionStorage.getItem("newOrder")));
+    });
+
     return(
         <>
         <NavbarComponent />
@@ -23,7 +29,7 @@ const tiket = () => {
                 <div className="row" style={{marginBottom:30}}>
                     <div className="col">
                         <span><Link to="/selesaikan-pembayaran"><img src={back} style={{marginRight:10}}/></Link>Tiket</span>
-                        <span style={{marginLeft:30}}>Order ID : xxxxx</span>
+                        <span style={{marginLeft:30}}>Order ID : {newOrder.id ? newOrder.id : ""}</span>
                     </div>
                     <div className="col">
                         <div className="row">
@@ -53,4 +59,4 @@ const tiket = () => {
 };
 
 
-export default tiket;
+export default Tiket;
