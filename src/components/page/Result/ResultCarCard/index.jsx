@@ -3,25 +3,19 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import { updateDateRent } from '../../../../store/SlicePembayaran';
 import React from 'react'
 import './index.css'
 import { DateRangePicker } from 'rsuite';
-import { Link } from 'react-router-dom';
 import api from '../../../../api';
 
 function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname, carresultprice}) {
-  // const [dates, setDates] = useState([]);
-  // const dispatch = useDispatch();
   const { id } = useParams();
   const [dateOrder, setDateOrder] = useState(null);
 
   const handleDateChange = (dateArray) => {
-      //setDates(dateArray);
       setDateOrder(dateArray);
       sessionStorage.setItem("startDate", dateArray[0]);
       sessionStorage.setItem("endDate", dateArray[1]);
-      // dispatch(updateDateRent(dateArray));
       console.log("Mulai:", dateArray[0]);
       console.log("Akhir:", dateArray[1]);
   };
@@ -49,7 +43,7 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
   const navigate = useNavigate();
 
   const goToPembayaran = () => {
-    navigate(`/pembayaran/${idcar}`/*, {state: {dates}}*/);
+    navigate(`/pembayaran/${idcar}`);
   };
 
   return (
