@@ -8,7 +8,7 @@ import "./index.css";
 import ResultCarCard from "./ResultCarCard";
 import Footer from "../../Home/Footer";
 import Hero from "../../Home/Hero";
-import SearchCarComponent from "../../SearchCarComponent";
+import SearchCarComponent2 from "../../SearchCarComponent2";
 
 function Result() {
   // useState for put the object into data variable
@@ -37,7 +37,7 @@ function Result() {
     <>
     <NavbarComponent />
     <Hero displayButton={"none"} displayText={"none"} padTop={170}/>
-    <SearchCarComponent />
+    <SearchCarComponent2 />
     <div className="container list_1" style={{marginBottom: 200}}>
         <div className="row result">
           <div className="col-8">
