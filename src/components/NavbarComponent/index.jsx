@@ -2,7 +2,7 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './index.scss'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState, useEffect } from 'react';
@@ -15,6 +15,8 @@ const NavbarComponent = () => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
 
+    const navigate = useNavigate();
+
     useEffect(() => {
       setIsAuthenticated(!!localStorage.getItem("token"));
     });
@@ -23,6 +25,8 @@ const NavbarComponent = () => {
         sessionStorage.clear();
         localStorage.clear();
         setIsAuthenticated(false);
+        navigate("/");
+        window.location.reload();
     };
 
 
