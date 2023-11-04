@@ -12,18 +12,57 @@ function SearchCarComponent() {
     const [price, setPrice] = useState();
     const [status, setStatus] = useState();
     const [data, setData] = useState([]);
+    
 
-    const getData = () => {
-        const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
-        axios.get(api).then(
-            (res) => setData(res.data.cars))
-            .catch((err) => console.log(err));
+    const [selectedCar, setSelectedCar] = useState({
+        name: "",
+        category: "",
+        price: "",
+        minPrice: "",
+        maxPrice: "",
+        status: "",
+    });
+
+    // const getData = () => {
+    //     const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
+    //     axios.get(api).then(
+    //         (res) => setData(res.data.cars))
+    //         .catch((err) => console.log(err));
+    // };
+    // console.log(data);
+
+    const handleSetName = (e) => {
+        setSelectedCar({ ...selectedCar, name: e.target.value});
     };
-    console.log(data);
 
+    const handleSetCategory = (e) => {
+        setSelectedCar({ ...selectedCar, category: e.target.value});
+    };
+
+    const handleSetPrice = (e) => {
+        // setSelectedCar({ ...selectedCar, price: e.target.value});
+        if(e.target.value === "small") {
+            setSelectedCar({ ...selectedCar, price: "small", minPrice: 0, maxPrice: 400000});
+        }
+        else if(e.target.value === "medium") {
+            setSelectedCar({ ...selectedCar,  price: "medium", minPrice: 400000, maxPrice: 600000});
+        }
+        else if(e.target.value === "large") {
+            setSelectedCar({ ...selectedCar,  price: "large", minPrice: 600000, maxPrice: 1000000});
+        }
+    };
+
+    
+    const handleSetStatus = (e) => {
+        setSelectedCar({ ...selectedCar, status: e.target.value});
+    };
 
     useEffect(() => {
-        getData();
+        sessionStorage.setItem("selectedCar", JSON.stringify(selectedCar));
+    }, [selectedCar]);
+
+    useEffect(() => {
+        // getData();
     }, []);
 
     const onSubmit = (e) => {
@@ -35,11 +74,7 @@ function SearchCarComponent() {
     const goToSearch = (id) => 
         navigate(`/result/${id}`)
 
-    const hargaMobil=[
-        {labelHarga:'< Rp. 400.000'},
-        {labelHarga:'Rp. 400.000 - Rp. 600.000'},
-        {labelHarga:'< Rp. 400.000'}
-    ]
+   
 
     return (
         <>
@@ -50,36 +85,33 @@ function SearchCarComponent() {
             <div className="row">
                 <div className="col">
                 <label>Nama Mobil</label>
-                <input type="string" className="form-control" id="inputEmail4" placeholder="Ketik nama/tipe mobil" onChange={(e) => setName(e.target.value)} />
+                <input type="string" className="form-control" id="inputEmail4" placeholder="Ketik nama/tipe mobil" onChange={(e) => {handleSetName(e);}} />
                 </div>
                 <div className="col">
-                    <label>Kategori</label>
-                        <select id="inputState" className="form-select" onChange={(e) => setCategory(e.target.value)}>
-                            <option selected value=''>Masukan Kapasitas Mobil</option>
+                    <label for="inputCategory">Kategori</label>
+                        <select id="inputCategory" className="form-select" onChange={(e) => { handleSetCategory(e); }}>
+                            <option selected value='default'>Masukan Kapasitas Mobil</option>
                             <option value='small'>2 - 4 Orang</option>
                             <option value='medium'>4 - 6 Orang</option>
                             <option value='large'>6 - 8 Orang</option>
                         </select>
                 </div>
                 <div className="col">
-                    <label>Harga</label>
-                    {/* <input type="string" className="form-control" id="inputEmail4" placeholder="Harga" 
-                    onChange={(e) => setPrice(e.target.value)} /> */}
-                    <select id="inputState" className="form-select">
-                            <option selected value=''>Masukan Harga Sewa per Hari</option>
-                            { hargaMobil.map((item) => (
-                                <option>{item.labelHarga}</option>
-                                ))
-                            }
+                    <label for="inputPrice">Harga</label>
+                    <select id="inputPrice" className="form-select" onChange={(e) => { handleSetPrice(e); }}>
+                            <option selected value='default'>Masukan Harga Sewa per Hari</option>
+                            <option value="small">&lt; Rp. 400.000</option>
+                            <option value="medium">Rp.400.000 - Rp. 600.000</option>
+                            <option value="large">&gt; Rp. 600.000</option>
                     </select>
                 </div>
                 <div className="col">
                     <div className="row">
                         <div className="col">
-                            <label>Status</label>
+                            <label for="inputState">Status</label>
                             <select id="inputState" className="form-select" 
-                            onChange={(e) => setStatus(e.target.value)}>
-                            <option selected value=''>Pilih Status</option>
+                            onChange={(e) => { handleSetStatus(e); }}>
+                            <option selected value='default'>Pilih Status</option>
                             <option value='true'>Disewakan</option>
                             <option value='false'>Tidak Disewa</option>
                         </select>
