@@ -7,13 +7,6 @@ import './index.css';
 import { Link } from 'react-router-dom';
 
 function SearchCarComponent() {
-    const [name, setName] = useState("");
-    const [category, setCategory] = useState("");
-    const [price, setPrice] = useState();
-    const [status, setStatus] = useState();
-    const [data, setData] = useState([]);
-    
-
     const [selectedCar, setSelectedCar] = useState({
         name: "",
         category: "",
@@ -22,14 +15,6 @@ function SearchCarComponent() {
         maxPrice: "",
         status: "",
     });
-
-    // const getData = () => {
-    //     const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}&price=${price}&status=${status}&category=${category}`;
-    //     axios.get(api).then(
-    //         (res) => setData(res.data.cars))
-    //         .catch((err) => console.log(err));
-    // };
-    // console.log(data);
 
     const handleSetName = (e) => {
         setSelectedCar({ ...selectedCar, name: e.target.value});
