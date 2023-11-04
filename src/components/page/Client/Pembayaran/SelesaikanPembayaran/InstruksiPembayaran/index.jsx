@@ -1,6 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './index.module.css';
 
 const InstruksiPembayaran = () => {
     return(
@@ -10,13 +11,13 @@ const InstruksiPembayaran = () => {
             <h6 className='mb-3'>Instruksi Pembayaran</h6>
             <ul className="nav nav-tabs" id="myTab" role="tablist">
                 <li className="nav-item" role="presentation">
-                <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">BCA</button>
+                <button className="nav-link instruksi active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">BCA</button>
                 </li>
                 <li className="nav-item" role="presentation">
-                <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">BNI</button>
+                <button className="nav-link instruksi" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">BNI</button>
                 </li>
                 <li className="nav-item" role="presentation">
-                <button className="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Mandiri</button>
+                <button className="nav-link instruksi" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Mandiri</button>
                 </li>
             </ul>
             <div className="tab-content" id="myTabContent">

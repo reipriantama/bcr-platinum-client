@@ -18,6 +18,7 @@
     "bootstrap-icons": "^1.10.3",
     "date-fns": "^2.30.0",
     "file-saver": "^2.0.5",
+    "file-server": "^2.2.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
