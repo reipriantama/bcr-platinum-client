@@ -5,13 +5,27 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './index.scss'
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 
 const NavbarComponent = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+
+    useEffect(() => {
+      setIsAuthenticated(!!localStorage.getItem("token"));
+    });
+
+    const handleLogout = () => {
+        sessionStorage.clear();
+        localStorage.clear();
+        setIsAuthenticated(false);
+    };
+
+
     return (
         <>
         <Navbar expand="lg" className="navbar-main">
@@ -34,7 +48,12 @@ const NavbarComponent = () => {
                                   <Nav.Link href="/#whyus" className='why'>Why Us</Nav.Link>
                                   <Nav.Link href="/#testimonial">Testimonial</Nav.Link>
                                   <Nav.Link href="/#faq">FAQ</Nav.Link>
-                                  <Link to="/sign-up"> <button type="button" class="btn btn-success reg">Register</button></Link>
+                                  {
+                                    isAuthenticated ? <button type="button" class="btn btn-success reg" onClick={handleLogout}>Logout</button> :
+                                    <Link to="/sign-up"> <button type="button" class="btn btn-success reg">Register</button></Link>
+
+                                  }
+                                  
                                 </Nav>
                           </Navbar.Collapse>
                         </Offcanvas.Body>
