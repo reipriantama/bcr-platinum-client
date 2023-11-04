@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,16 +7,44 @@ import style from "./index.module.css";
 
 
 const Transfer = () => {
-    // const location = useLocation();
-    // const bankName = useSelector((state) => state.storePembayaran.chosenBankName);
     const newOrder = JSON.parse(sessionStorage.getItem("newOrder"));
     const [selectedBank] = useState(Number(sessionStorage.getItem("selectedBank")));
     let [totalPrice, setTotalPrice] = useState(newOrder.total_price);
     let [formattedTotalPrice, setFormattedTotalPrice] = useState(null);
-    // const totalPrice = useSelector((state) => state.storePembayaran.totalPrice);
-    // const theChosenBank = location.state?.chosenBank || [];
-    // const totalPrice = location.state?.formattedTotalPrice || [];
     let [theBank, setTheBank] = useState(null);
+    const [isCopied, setIsCopied] = useState(false);
+    const [isCopied2, setIsCopied2] = useState(false);
+    const textInputRef = useRef();
+    const textInputRef2 = useRef();
+
+
+    const copyText = () => {
+        const text = textInputRef.current.textContent;
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            setIsCopied(true);
+            setTimeout(() => {
+              setIsCopied(false);
+            }, 2000); // Pop-up "Copied!" akan hilang setelah 2 detik
+          })
+          .catch((err) => {
+            console.error('Something went wrong when copying to clipboard', err);
+          });
+      };
+
+      const copyText2 = () => {
+        const text = textInputRef2.current.textContent;
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            setIsCopied2(true);
+            setTimeout(() => {
+              setIsCopied2(false);
+            }, 2000); // Pop-up "Copied!" akan hilang setelah 2 detik
+          })
+          .catch((err) => {
+            console.error('Something went wrong when copying to clipboard', err);
+          });
+      };
 
     useEffect(() => {
        switch(selectedBank) {
@@ -64,10 +92,11 @@ const Transfer = () => {
             </div>
             <div className={`d-flex flex-lg-row flex-xl-row w-100 ${style.item_container_1}`}>
                 <div>
-                    <span className={``}>12345678</span>
+                    <span ref={textInputRef} className={``}>12345678</span>
                 </div>
                 <div className={`d-flex justify-content-end align-items-end w-100`}>
-                    <img src={copypaste} />
+                    <img src={copypaste} style={{cursor: "pointer"}} onClick={copyText}/>
+                    {isCopied && <div className={`${style.copy_popup}`}>Copied!</div>}
                 </div>
             </div>
             <div className={``}>
@@ -75,20 +104,14 @@ const Transfer = () => {
             </div>
             <div className={`d-flex flex-lg-row flex-xl-row w-100 ${style.item_container_1}`}>
                 <div className="w-50">
-                    <span className={`fw-bold`}>Rp. {formattedTotalPrice}</span>
+                    <span ref={textInputRef2} className={`fw-bold`}>Rp. {formattedTotalPrice}</span>
                 </div>
                 <div className={`d-flex justify-content-end align-items-end w-100`}>
-                    <img src={copypaste} />
+                    <img src={copypaste} style={{cursor: "pointer"}} onClick={copyText2} />
+                    {isCopied2 && <div className={`${style.copy_popup2}`}>Copied!</div>}
                 </div>
             </div>
             
-            {/* <div className={``}>
-                <span>Total Bayar</span>
-            </div>
-            <div className={``}>
-                <span>Rp. {formattedTotalPrice}</span>
-            </div> */}
-
         </div>
     );
 };
