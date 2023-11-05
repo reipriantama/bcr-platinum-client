@@ -15,7 +15,9 @@ import { Link } from 'react-router-dom';
 const Pembayaran = () => {
     let [selectedBank, setSelectedBank] = useState(true);
     let [chosenBank, setChosenBank] = useState(null);
+
     let [carID] = useState(parseInt(sessionStorage.getItem("carID")));
+  
     return(
         <>
         <NavbarComponent />
