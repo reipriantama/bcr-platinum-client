@@ -157,17 +157,18 @@ const FormSignUp = () => {
             <div className="d-flex justify-content-center align-items-center">
               <p className={` fw-bold`}>
                 Already have an account?{" "}
-                <Link to="/sign-in">
+                {/* <Link to="/sign-in"> */}
                   <span
-                    className=""
+                    className={`${style.btn_style}`}
                     style={{
                       color: "#0D28A6",
-                      borderBottom: "1px solid #0D28A6",
+                      borderBottom: "1px solid #0D28A6"
                     }}
+                    onClick={navigateToSignInPage}
                   >
                     Sign In here
                   </span>
-                </Link>
+                {/* </Link> */}
               </p>
             </div>
           </form>
