@@ -1,5 +1,5 @@
-import React from 'react'
-import { Accordion } from 'react-bootstrap'
+import React from "react";
+import { Accordion } from "react-bootstrap";
 
 function FaqAccordion({AccBody, AccHeader}) {
   return (
@@ -11,7 +11,7 @@ function FaqAccordion({AccBody, AccHeader}) {
       </Accordion.Body>
     </Accordion.Item>
   </Accordion>
-  )
+  );
 }
 
-export default FaqAccordion
+export default FaqAccordion;

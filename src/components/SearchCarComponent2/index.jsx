@@ -1,10 +1,10 @@
-import React from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
-import './index.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import {  useNavigate } from "react-router-dom";
+import "./index.css";
+import { Link } from "react-router-dom";
 
 function SearchCarComponent() {
     const [selectedCar, setSelectedCar] = useState({
@@ -53,11 +53,11 @@ function SearchCarComponent() {
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
         e.preventDefault();
-    }
+    };
     const navigate = useNavigate();
 
     const goToSearch = (id) => 
-        navigate(`/result/${id}`)
+        navigate(`/result/${id}`);
 
    
 
@@ -70,11 +70,11 @@ function SearchCarComponent() {
             <div className="row">
                 <div className="col">
                 <label>Nama Mobil</label>
-                <input type="string" className="form-control" id="inputEmail4" placeholder="Ketik nama/tipe mobil" onChange={(e) => {handleSetName(e);}} style={{color:'grey'}} disabled/>
+                <input type="string" className="form-control" id="inputEmail4" placeholder="Ketik nama/tipe mobil" onChange={(e) => {handleSetName(e);}} style={{color:"grey"}} disabled/>
                 </div>
                 <div className="col">
                     <label for="inputCategory">Kategori</label>
-                        <select id="inputCategory" className="form-select" onChange={(e) => { handleSetCategory(e); }} style={{color:'grey'}} disabled>
+                        <select id="inputCategory" className="form-select" onChange={(e) => { handleSetCategory(e); }} style={{color:"grey"}} disabled>
                             <option selected value='default'>Masukan Kapasitas Mobil</option>
                             <option value='small'>2 - 4 Orang</option>
                             <option value='medium'>4 - 6 Orang</option>
@@ -83,7 +83,7 @@ function SearchCarComponent() {
                 </div>
                 <div className="col">
                     <label for="inputPrice">Harga</label>
-                    <select id="inputPrice" className="form-select" onChange={(e) => { handleSetPrice(e); }} style={{color:'grey'}} disabled>
+                    <select id="inputPrice" className="form-select" onChange={(e) => { handleSetPrice(e); }} style={{color:"grey"}} disabled>
                             <option selected value='default'>Masukan Harga Sewa per Hari</option>
                             <option value="small">&lt; Rp. 400.000</option>
                             <option value="medium">Rp.400.000 - Rp. 600.000</option>
@@ -95,7 +95,7 @@ function SearchCarComponent() {
                         <div className="col">
                             <label for="inputState">Status</label>
                             <select id="inputState" className="form-select" 
-                            onChange={(e) => { handleSetStatus(e); }} style={{color:'grey'}} disabled>
+                            onChange={(e) => { handleSetStatus(e); }} style={{color:"grey"}} disabled>
                             <option selected value='default'>Pilih Status</option>
                             <option value='true'>Disewakan</option>
                             <option value='false'>Tidak Disewa</option>
@@ -109,8 +109,8 @@ function SearchCarComponent() {
         </div>
         {/* </div> */}
         </>
-      )
+      );
     }
   
-  export default SearchCarComponent
+  export default SearchCarComponent;
 

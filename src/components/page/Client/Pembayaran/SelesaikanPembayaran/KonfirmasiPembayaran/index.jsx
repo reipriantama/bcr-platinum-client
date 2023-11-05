@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateKonfirmasi, updateTimerNow } from "../../../../../../store/SlicePembayaran";
-// import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
-import { Link } from 'react-router-dom';
-// import { set } from "lodash";
+import { Link } from "react-router-dom";
 import api from "../../../../../../api";
 import image1 from "../../../../../img/default_frame.png";
 
@@ -26,9 +24,6 @@ const KonfirmasiPembayaran = () => {
 
     const [timeLeft, setTimeLeft] = useState(targetTime - new Date().getTime());
 
-    // const uploadImage = (image) => {
-
-    // };
 
     useEffect(() => {
         setConfirmState(confirm);
@@ -71,9 +66,9 @@ const KonfirmasiPembayaran = () => {
             const response = await api.uploadImage(orderId, body);
 
             sessionStorage.setItem("orderConfirmation", JSON.stringify(response.data));
-            console.log("hasil PUT", response);
+            
         } catch(error) {
-            console.log(error);
+            
         }
     };
 
@@ -99,16 +94,16 @@ const KonfirmasiPembayaran = () => {
     return(
         <div className={`${confirmState && style.container_display}`}>
             <div className={`d-flex flex-lg-column flex-xl-column card p-4 gap-2 w-100 col ${style.container_size_1}`}>
-                <div className={`d-flex flex-lg-row flex-xl-row `}>
-                    <div className={`w-100`}>
+                <div className={"d-flex flex-lg-row flex-xl-row "}>
+                    <div className={"w-100"}>
                         <h6>Konfirmasi Pembayaran</h6>
                     </div>
-                    <div className={`d-flex flex-lg-row flex-xl-row w-50 justify-content-end align-items-end`}>
+                    <div className={"d-flex flex-lg-row flex-xl-row w-50 justify-content-end align-items-end"}>
                             <span className={`${style.item_style_1}`}>{minutes}</span>:
                             <span className={`${style.item_style_1}`}>{seconds}</span>
                     </div>
                 </div>
-                <div className={`d-flex flex-lg-column flex-xl-column gap-3`}>
+                <div className={"d-flex flex-lg-column flex-xl-column gap-3"}>
                     <div className="mb-3">
                         <p>Terima kasih telah melakukan konfirmasi pembayaran.
                             Pembayaranmu akan segera kamu cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi</p>
@@ -120,7 +115,7 @@ const KonfirmasiPembayaran = () => {
                     <div>
                         <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
                     </div>
-                    <div className={`d-flex flex-lg-column flex-xl-column`}>
+                    <div className={"d-flex flex-lg-column flex-xl-column"}>
                         <div className="image-preview">
                              {image ? (
                             <div className="d-flex flex-lg-column flex-xl-column justify-content-center align-items-center gap-4">

@@ -1,30 +1,30 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
 function Playground() {
   let data = [{
-    brand: 'toyota',
-    carName: 'agya'
+    brand: "toyota",
+    carName: "agya"
   },
   {
-    brand: 'daihatsu',
-    carName: 'xenia'
+    brand: "daihatsu",
+    carName: "xenia"
   },
   {
-    brand: 'honda',
-    carName: 'brio'
+    brand: "honda",
+    carName: "brio"
   },
-]
+];
 
   const [list, setList] = useState([]);
 
   const handleGetToyota = () => {
     const newData = data.filter((item) => {
-      return item.brand === 'toyota'
+      return item.brand === "toyota";
     });
     setList(newData);
-    console.log(newData);
-  }
+    
+  };
   return (
     <>
     <div>
@@ -40,7 +40,7 @@ function Playground() {
         null}
     </div>
     </>
-  )
+  );
 }
 
-export default Playground
+export default Playground;

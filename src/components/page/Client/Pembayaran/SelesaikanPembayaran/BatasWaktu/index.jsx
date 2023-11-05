@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { format, add } from "date-fns";
-import { id } from 'date-fns/locale';
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 
@@ -46,15 +44,15 @@ const BatasWaktu = () => {
 
     return (
         <div className={`d-flex flex-lg-row flex-xl-row card col-md-7 ${style.container_space_1} ${style.container_size_1}`}>
-            <div className={`d-flex flex-lg-column flex-xl-column gap-3 justify-content-start w-100`}>
-                <div className={``}>
+            <div className={"d-flex flex-lg-column flex-xl-column gap-3 justify-content-start w-100"}>
+                <div className={""}>
                     <h6>Selesaikan Pembayaran Sebelum</h6>
                 </div>
-                <div className={``}> 
+                <div className={""}> 
                     <span>{formattedDate}</span>
                 </div>
             </div>
-            <div className={`d-flex justify-content-end align-items-center w-100`}>
+            <div className={"d-flex justify-content-end align-items-center w-100"}>
                 <span className={`${style.item_style_1}`}>{hours}</span>
                 <span className="ms-1 me-1">:</span>
                 <span className={`${style.item_style_1}`}>{minutes}</span>

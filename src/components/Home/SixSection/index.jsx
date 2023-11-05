@@ -1,7 +1,7 @@
-import React from 'react'
-import FaqAccordion from '../../FAQAccordionComponent'
-import './index.css'
-import { SixSectionData } from '../../../data/Homepage'
+import React from "react";
+import FaqAccordion from "../../FAQAccordionComponent";
+import "./index.css";
+import { SixSectionData } from "../../../data/Homepage";
 
 function SixSection() {
   return (
@@ -24,7 +24,7 @@ function SixSection() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default SixSection
+export default SixSection;

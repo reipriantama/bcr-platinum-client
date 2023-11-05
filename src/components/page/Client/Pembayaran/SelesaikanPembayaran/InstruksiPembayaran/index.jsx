@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './index.module.css';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./index.module.css";
 
 const InstruksiPembayaran = () => {
     return(

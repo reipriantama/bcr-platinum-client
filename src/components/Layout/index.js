@@ -1,7 +1,7 @@
-import React from 'react'
-import Home from '../Home'
-import NavbarComponent from '../NavbarComponent'
-import './index.scss'
+import React from "react";
+import Home from "../Home";
+import NavbarComponent from "../NavbarComponent";
+import "./index.scss";
 
 const Layout = () => {
   return (
@@ -11,7 +11,7 @@ const Layout = () => {
       <Home />
     </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

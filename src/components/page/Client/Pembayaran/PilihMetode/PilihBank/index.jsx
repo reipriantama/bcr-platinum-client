@@ -8,9 +8,6 @@ import  style from "./index.module.css";
 const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
     const dispatch = useDispatch();
 
-    
-
-    let [selectedBank, setSelectedBank] = useState(null);
 
     let [bankChecked, setBankChecked] = useState({
         bcaChecked: false,
@@ -32,7 +29,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                     bcaChecked: true,
                     bniChecked: false,
                     mandiriChecked: false
-                })
+                });
             }
             else if(number == 2) {
                 setBankChecked({
@@ -40,7 +37,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                     bcaChecked: false,
                     bniChecked: true,
                     mandiriChecked: false
-                })
+                });
             }
             else if(number == 3) {
                 setBankChecked({
@@ -48,7 +45,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                     bcaChecked: false,
                     bniChecked: false,
                     mandiriChecked: true
-                })
+                });
             }
 
             dispatch(updateSelectedBank(false));
@@ -147,13 +144,13 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
     return(
         
             <div className={`d-flex flex-lg-column flex-xl-column card gap-4 col-md-7 ${style.container_space_1}`}>
-                <div className={``}>
+                <div className={""}>
                     <h6>Pilih Bank Transfer</h6>
                 </div>
-                <div className={`w-100`}>
+                <div className={"w-100"}>
                     <p>Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
                 </div>
-                <div className={`d-flex flex-lg-column flex-xl-column `}>  
+                <div className={"d-flex flex-lg-column flex-xl-column "}>  
                     <div className={`d-flex flex-lg-row flex-xl-row ps-3 pt-4 pb-4 rounded-3 ${style.container_style_1}`} onClick={() =>{handleBCAChecked();}}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start ${style.container_size_2 }`}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-center fw-bold ${style.btn_style_1}` }>
@@ -167,7 +164,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                         </div>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start ${style.container_size_4 }`}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start fw-bold ${style.btn_style_2}` }>
-                                <span className={bankChecked.bcaChecked ?`${style.checked_style_1}`: ``}></span>
+                                <span className={bankChecked.bcaChecked ?`${style.checked_style_1}`: ""}></span>
                         </div>
                         </div>
                     </div>
@@ -185,7 +182,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                         </div>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start ${style.container_size_4 }`}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start fw-bold ${style.btn_style_2}` }>
-                                <span className={bankChecked.bniChecked ?`${style.checked_style_1}`: ``}></span>
+                                <span className={bankChecked.bniChecked ?`${style.checked_style_1}`: ""}></span>
                         </div>
                         </div>
                     </div>
@@ -202,7 +199,7 @@ const PilihBank = ({/*setSelectedBank,*/ setChosenBank}) => {
                         </div>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start ${style.container_size_4 }`}>
                         <div className={`d-flex flex-lg-row flex-xl-row justify-content-start fw-bold ${style.btn_style_2}` }>
-                                <span className={bankChecked.mandiriChecked ?`${style.checked_style_1}`: ``}></span>
+                                <span className={bankChecked.mandiriChecked ?`${style.checked_style_1}`: ""}></span>
                         </div>
                         </div>
                     </div>

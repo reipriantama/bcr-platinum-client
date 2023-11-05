@@ -14,7 +14,7 @@ const DetailPesanan = () => {
 
     const convertDate = (date) => {
         const dateObject = new Date(date);
-        const formattedDate = format(dateObject, 'd MMM yyyy', { locale: localeID });
+        const formattedDate = format(dateObject, "d MMM yyyy", { locale: localeID });
         return formattedDate;
     };
 
@@ -34,8 +34,6 @@ const DetailPesanan = () => {
         axios
         .get(api)
         .then((res) => {
-            console.log(res);
-            console.log("hasil data:", res.data);
             setData(res.data);
             setNameCar(res.data.name);
 
@@ -51,6 +49,7 @@ const DetailPesanan = () => {
                 setCategoryCar("6 - 8 Orang");
             }
         })
+        // eslint-disable-next-line no-console
         .catch((err) => console.log(err));
 
    };

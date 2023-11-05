@@ -3,30 +3,26 @@ import Transfer from "./Transfer";
 import Konfirmasi from "./Konfirmasi";
 import KonfirmasiPembayaran from "./KonfirmasiPembayaran";
 import InstruksiPembayaran from "./InstruksiPembayaran";
-import Hero from '../../../../Home/Hero';
+import Hero from "../../../../Home/Hero";
 import NavbarComponent from "../../../../NavbarComponent";
-import Footer from '../../../../Home/Footer';
-import satup from '../../../../../data/Group 13.png';
-import duap from '../../../../../data/Group 20.png';
-import tigap from '../../../../../data/Group 18.png';
-import linep from '../../../../../data/Rectangle 36.png';
-import backp from '../../../../../data/fi_arrow-left.png';
-import { useDispatch, useSelector } from "react-redux";
-import { updateKonfirmasi } from "../../../../../store/SlicePembayaran";
+import Footer from "../../../../Home/Footer";
+import satup from "../../../../../data/Group 13.png";
+import duap from "../../../../../data/Group 20.png";
+import tigap from "../../../../../data/Group 18.png";
+import linep from "../../../../../data/Rectangle 36.png";
+import backp from "../../../../../data/fi_arrow-left.png";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { json } from "react-router-dom";
+
 
 const SelesaikanPembayaran = () => {
     const status = useSelector((state) => state.storePembayaran.konfirmasi);
     const timerState = useSelector((state) => state.storePembayaran.timerNow);
 
-    const [confirm, setConfirm] = useState(status);
     const [newOrder, setNewOrder] = useState(JSON.parse(sessionStorage.getItem("newOrder")));
 
     useEffect(() => {
-        // console.log("vcvcvc", confirm);
-
         sessionStorage.setItem("confirm", status);
     }, [status]);
 

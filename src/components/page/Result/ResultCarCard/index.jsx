@@ -1,12 +1,11 @@
-import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import React from 'react'
-import './index.css'
-import { DateRangePicker } from 'rsuite';
-import api from '../../../../api';
+import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import {  useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import "./index.css";
+import { DateRangePicker } from "rsuite";
+import api from "../../../../api";
 
 function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname, carresultprice}) {
   const { id } = useParams();
@@ -20,7 +19,6 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
 
     const range = end.getTime() - start.getTime();
     const realRange = range / (1000 * 3600 * 24);
-    console.log("waktu", realRange);
     return realRange;
 };
 
@@ -30,8 +28,6 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
         sessionStorage.setItem("startDate", dateArray[0]);
         sessionStorage.setItem("endDate", dateArray[1]);
         setCanOrder(true);
-        console.log("Mulai:", dateArray[0]);
-        console.log("Akhir:", dateArray[1]);
       }
       else {
         setCanOrder(false);
@@ -48,9 +44,9 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
        });
 
        sessionStorage.setItem("newOrder", JSON.stringify(response.data));
-       console.log("createorder", response);
 
     } catch(error) {
+        // eslint-disable-next-line no-console
         console.log("createorder", error);
     }
   };
@@ -92,7 +88,7 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
           </div>
       </div>
     </>
-  )
+  );
 }
 
-export default ResultCarCard
+export default ResultCarCard;
