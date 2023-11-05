@@ -1,5 +1,5 @@
-import ceklis from '../../../../../data/success.png';
-import "./index.css"
+import ceklis from "../../../../../data/success.png";
+import "./index.css";
 
 
 const Berhasil = () => {
@@ -15,7 +15,7 @@ const Berhasil = () => {
             </div>
         </div>
         </>
-    )
-}
+    );
+};
 
 export default Berhasil;

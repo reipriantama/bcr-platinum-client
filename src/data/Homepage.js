@@ -14,7 +14,7 @@ export const SecondSection = [
     {
         point : "Layanan Airport Transfer / Drop In Out"
     },
-]
+];
 
 export const ThirdSection = [
     {
@@ -37,7 +37,7 @@ export const ThirdSection = [
         HighTagline : "Sopir Professional",
         SecondTagline : "Sopir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu"
     },
-]
+];
 
 export const FourthSection = [
     {
@@ -58,7 +58,7 @@ export const FourthSection = [
         comment : "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”",
         nameloc : "Rahma 32, Bromo"
     },
-]
+];
 
 export const SixSectionData = [
     {
@@ -81,23 +81,23 @@ export const SixSectionData = [
         firstTagline : "Bagaimana jika terjadi kecelakaan",
         secondTagline : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales volutpat nisi sit amet faucibus. Proin tellus tellus, volutpat a hendrerit eget, cursus porttitor felis. Donec vulputate tincidunt tellus, nec consequat lectus viverra et. Curabitur consequat gravida odio, id mollis."
     }
-]
+];
 
 export const TestimonialSectionData = [
     {
-        personImage : 'img/Testi/person/testi_one.png',
+        personImage : "img/Testi/person/testi_one.png",
         ratingCount: 4, 
-        descriptionText: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”', 
+        descriptionText: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”", 
         nametester: "Jhon Dee",
-        agetester: '32',
-        locationtester: 'Bromo'
+        agetester: "32",
+        locationtester: "Bromo"
     },
     {
-        personImage : 'img/Testi/person/testi_two.png',
+        personImage : "img/Testi/person/testi_two.png",
         ratingCount: 5, 
-        descriptionText: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”', 
+        descriptionText: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”", 
         nametester: "Rahmanisa Rizqi",
-        agetester: '20',
-        locationtester: 'Parit Demang'
+        agetester: "20",
+        locationtester: "Parit Demang"
     }
-]
+];

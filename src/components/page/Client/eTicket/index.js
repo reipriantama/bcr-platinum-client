@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Hero from '../../../Home/Hero';
+import Hero from "../../../Home/Hero";
 import NavbarComponent from "../../../NavbarComponent";
-import Footer from '../../../Home/Footer';
-import Berhasil from '../eTicket/pembayaranBerhasil'
-import Invoice from '../eTicket/invoice';
-import { Link } from 'react-router-dom';
-import check from '../../../../data/Group 13.png';
-import back from '../../../../data/fi_arrow-left.png';
-import line from '../../../../data/Rectangle 36.png';
-import number from '../../../../data/Group 19.png';
+import Footer from "../../../Home/Footer";
+import Berhasil from "../eTicket/pembayaranBerhasil";
+import Invoice from "../eTicket/invoice";
+import { Link } from "react-router-dom";
+import check from "../../../../data/Group 13.png";
+import back from "../../../../data/fi_arrow-left.png";
+import line from "../../../../data/Rectangle 36.png";
+import number from "../../../../data/Group 19.png";
 
 
 

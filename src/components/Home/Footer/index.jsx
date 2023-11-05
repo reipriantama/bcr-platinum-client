@@ -1,6 +1,6 @@
 import React from "react";
 import "../Footer/index.scss";
-import Nav from 'react-bootstrap/Nav';
+import Nav from "react-bootstrap/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons'
 import {

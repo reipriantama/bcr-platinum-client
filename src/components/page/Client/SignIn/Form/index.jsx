@@ -1,11 +1,11 @@
-import { useState} from 'react';
-import { useNavigate } from 'react-router';
+import { useState} from "react";
+import { useNavigate } from "react-router";
 import api from "../../../../../api";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 import logo from "../../../../img/Logo_1.png";
 import close from "../../../../img/btn-close.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 
@@ -55,7 +55,6 @@ const FormSignIn = () => {
             // Navigasi ke halaman Landing Page
             navigateToLandingPage();
         } catch (error) {
-            console.log("errornya: ", error);
             if(error.response.data.message === "Email not found.") {
                 setErrorMessage("Email tidak ditemukan.");
             }
@@ -75,7 +74,7 @@ const FormSignIn = () => {
 
     return (
         <div className={`${style.container_size_1} ${style.flex_gap_1}  d-flex flex-column flex-shrink-0  justify-content-center align-items-center`}>
-            <div className={`d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100`}>
+            <div className={"d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100"}>
                 <Link to="/"><img className={`${style.btn_close_size}`} src={close} /></Link>
             </div>
             <div className={`d-flex flex-column gap-4 ${style.flex_size_1} ${style.flex_position_1}`}>    

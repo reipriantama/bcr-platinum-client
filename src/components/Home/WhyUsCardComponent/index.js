@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 // import ThumbsUp from '../img/Icons/icon_thumbs.png'
-import './index.scss'
+import "./index.scss";
 
 function WhyUsCard({cardIcon, cardTitle, cardText}) {
   return (
@@ -13,7 +13,7 @@ function WhyUsCard({cardIcon, cardTitle, cardText}) {
         </div>
     </div>
     </>
-  )
+  );
 }
 
-export default WhyUsCard
+export default WhyUsCard;

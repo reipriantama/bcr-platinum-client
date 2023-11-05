@@ -22,9 +22,9 @@ function Result() {
     axios
       .get(api)
       .then((res) => {
-        console.log(res);
         setData(res.data);
       })
+      // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function AccordionItem({ title, children }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ function AccordionItem({ title, children }) {
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {title}
-                    <span className={isOpen ? 'arrow-up' : 'arrow-down'}></span>
+                    <span className={isOpen ? "arrow-up" : "arrow-down"}></span>
                 </button>
             </h2>
             {isOpen && <div className="accordion-body">{children}</div>}

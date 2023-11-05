@@ -31,10 +31,10 @@ const Konfirmasi = () => {
     return(
         <div className={`${!confirmState && style.container_display }`}>
             <div className={`d-flex flex-lg-column flex-xl-column card p-4 col ${style.container_size_1}`}>
-                <div className={``} style={{marginBottom:30}}>
+                <div className={""} style={{marginBottom:30}}>
                     <h6>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</h6>
                 </div>
-                <div className={``}>
+                <div className={""}>
                     <button className="w-100 pt-2 pb-2 fw-bold" style={{backgroundColor: "#5CB85F", color: "#FFF", fontSize: "1rem"}} onClick={()=>{setTime(); setKonfirmasi();}}>Konfirmasi Pembayaran</button>
                 </div>
             </div>

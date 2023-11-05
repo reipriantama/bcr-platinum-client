@@ -56,8 +56,6 @@ const FormSignUp = () => {
           role: "Customer",
         });
 
-        console.log("response: ", response);
-
         // Navigasi ke halaman Sign In
         navigateToSignInPage();
       }
@@ -82,9 +80,9 @@ const FormSignUp = () => {
     <div
       className={`${style.container_size_1}  d-flex flex-column flex-shrink-0  justify-content-center align-items-center`}
     >
-      <div className={`d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100`}>
+      <div className={"d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100"}>
         <Link to="/">
-          <img className={``} src={close} alt="close button image" />
+          <img className={""} src={close} alt="close button image" />
         </Link>
       </div>
       <div
@@ -147,7 +145,7 @@ const FormSignUp = () => {
             <div className="mt-4 mb-4">
               <button
                 type="button"
-                className={` btn btn-primary w-100 fw-bold rounded-1`}
+                className={" btn btn-primary w-100 fw-bold rounded-1"}
                 style={{ backgroundColor: "#0D28A6" }}
                 onClick={signUpProcess}
               >
@@ -155,7 +153,7 @@ const FormSignUp = () => {
               </button>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <p className={` fw-bold`}>
+              <p className={" fw-bold"}>
                 Already have an account?{" "}
                 {/* <Link to="/sign-in"> */}
                   <span

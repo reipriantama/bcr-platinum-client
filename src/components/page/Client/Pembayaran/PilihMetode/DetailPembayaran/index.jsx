@@ -6,11 +6,8 @@ import { updateKonfirmasi } from "../../../../../../store/SlicePembayaran";
 import { format, add } from "date-fns";
 import { id as localeID } from "date-fns/locale";
 import axios from "axios";
-import api from "../../../../../../api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  style from "./index.module.css";
-import { update } from "lodash";
-
 
 
 
@@ -40,8 +37,6 @@ const DetailPembayaran = () => {
         axios
         .get(api)
         .then((res) => {
-            console.log(res);
-            console.log("hasil data:", res.data);
             setData(res.data);
             setItemPrice(res.data.price);
             
@@ -58,6 +53,7 @@ const DetailPembayaran = () => {
                 setCategoryCar("6 - 8 Orang");
             }
         })
+        // eslint-disable-next-line no-console
         .catch((err) => console.log(err));
 
    };
@@ -68,6 +64,7 @@ const DetailPembayaran = () => {
             setTotalPrice(detailedOrder.total_price);
         
         }catch(error) {
+            // eslint-disable-next-line no-console
             console.log("otalprice", error);
         }
         
@@ -106,13 +103,13 @@ const DetailPembayaran = () => {
 
    useEffect(() => {
         if(totalPrice) {
-            setFormattedTotalPrice(totalPrice.toLocaleString('id-ID'));
+            setFormattedTotalPrice(totalPrice.toLocaleString("id-ID"));
         }
         
         if(itemPrice) {
-            setFormattedItemPrice(itemPrice.toLocaleString('id-ID'));
+            setFormattedItemPrice(itemPrice.toLocaleString("id-ID"));
         }
-        console.log("TOOOTTAL", formattedTotalPrice);
+        
 
    }, [totalPrice, itemPrice]);
 
@@ -137,18 +134,18 @@ const DetailPembayaran = () => {
    };
 
     return(
-        <div className={`d-flex flex-lg-column flex-xl-column card p-4 gap-4 col`}>
-            <div className={``}>
+        <div className={"d-flex flex-lg-column flex-xl-column card p-4 gap-4 col"}>
+            <div className={""}>
                 <h6>{data.name}</h6>
             </div>
-            <div className={``}>
+            <div className={""}>
                 <span className={`${style.content_1}`} id="passanger1">{categoryCar}</span>
             </div>
             <div className={`d-flex flex-lg-row flex-xl-row ${style.item_space_1}`}>
                 <div className={`${style.item_size_1}`}>
                    <span className={`${style.item_style_1}`}>Total</span>
                 </div>
-                <div className={`d-flex justify-content-end w-50`}>
+                <div className={"d-flex justify-content-end w-50"}>
                     <span>Rp. {formattedTotalPrice}</span>
                 </div>
             </div>
@@ -156,7 +153,7 @@ const DetailPembayaran = () => {
                 <div>
                     <h6>Harga</h6>
                 </div>
-                <div className={`d-flex flex-lg-row flex-xl-row`}>
+                <div className={"d-flex flex-lg-row flex-xl-row"}>
                     <div className={`${style.item_size_2}`}>
                         <ul>
                             <li>Sewa Mobil Rp. {formattedItemPrice} x {resultDays} Hari</li>
@@ -168,10 +165,10 @@ const DetailPembayaran = () => {
 
                 </div>
                 
-                <div className={``}>
+                <div className={""}>
                     <h6>Biaya Lainnya</h6>
                 </div>
-                <div className={`d-flex flex-lg-row flex-xl-row`}>
+                <div className={"d-flex flex-lg-row flex-xl-row"}>
                     <div className={`${style.item_size_3}`}>
                         <ul className={`${style.list_style_1}`} style={{listStyleType: "disc"}}>
                             <li>Pajak</li>
@@ -193,8 +190,8 @@ const DetailPembayaran = () => {
                 <div>
                     <h6>Belum Termasuk</h6>
                 </div>
-                <div className={`d-flex flex-lg-row flex-xl-row`}>   
-                    <div className={``}>
+                <div className={"d-flex flex-lg-row flex-xl-row"}>   
+                    <div className={""}>
                         <ul>
                             <li>Bensin</li>
                             <li>Tol dan Parkir</li>
@@ -202,15 +199,15 @@ const DetailPembayaran = () => {
                     </div>
                 </div>
             </div>
-            <div className={`d-flex flex-lg-row flex-xl-row`}>
+            <div className={"d-flex flex-lg-row flex-xl-row"}>
                 <div className={`fw-bold ${style.item_size_2}`}>
                     <span>Total</span>
                 </div>
-                <div className={`fw-bold`}>
+                <div className={"fw-bold"}>
                     <span>Rp. {formattedTotalPrice}</span>
                 </div>
             </div>
-            <div className={`w-100 fw-bold`}>
+            <div className={"w-100 fw-bold"}>
                 <button className={`w-100 pt-2 pb-2 ${selectedBank ? style.btn_style_2 : style.btn_style_1}`} style={{backgroundColor: "#5CB85F", color: "#FFF"}} onClick={() => {goToSelesaikanPembayaran(); deadlineTime(); setConfirmation();}} disabled={selectedBank}>Bayar</button>
             </div>
         </div>

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 // import FindCarComponent from '../../FindCarComponent'
-import Footer from '../../Home/Footer'
-import Hero from '../../Home/Hero'
-import NavbarComponent from '../../NavbarComponent'
-import SearchCarComponent from '../../SearchCarComponent'
-import './index.css'
+import Footer from "../../Home/Footer";
+import Hero from "../../Home/Hero";
+import NavbarComponent from "../../NavbarComponent";
+import SearchCarComponent from "../../SearchCarComponent";
+import "./index.css";
 
 
 function Search() {
@@ -16,7 +16,7 @@ function Search() {
     <SearchCarComponent />
     <Footer/>
     </>
-  )
+  );
 }
 
-export default Search
+export default Search;

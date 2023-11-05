@@ -2,15 +2,15 @@ import { useState } from "react";
 import DetailPesanan from "./DetailPesanan";
 import PilihBank from "./PilihBank";
 import DetailPembayaran from "./DetailPembayaran";
-import Hero from '../../../../Home/Hero';
+import Hero from "../../../../Home/Hero";
 import NavbarComponent from "../../../../NavbarComponent";
-import Footer from '../../../../Home/Footer';
-import satu from '../../../../../data/Group 16.png';
-import dua from '../../../../../data/Group 17.png';
-import tiga from '../../../../../data/Group 18.png';
-import line from '../../../../../data/Rectangle 36.png';
-import back from '../../../../../data/fi_arrow-left.png';
-import { Link } from 'react-router-dom';
+import Footer from "../../../../Home/Footer";
+import satu from "../../../../../data/Group 16.png";
+import dua from "../../../../../data/Group 17.png";
+import tiga from "../../../../../data/Group 18.png";
+import line from "../../../../../data/Rectangle 36.png";
+import back from "../../../../../data/fi_arrow-left.png";
+import { Link } from "react-router-dom";
 
 const Pembayaran = () => {
     let [selectedBank, setSelectedBank] = useState(true);

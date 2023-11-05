@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import MerC from '../../img/img_car.png';
-import { Link, useNavigate } from 'react-router-dom';
-import './index.css';
+import React, { useState } from "react";
+import MerC from "../../img/img_car.png";
+import { Link, useNavigate } from "react-router-dom";
+import "./index.css";
 import style from "./index1.module.css";
 // import { use } from 'chai';
 
@@ -41,7 +41,7 @@ function Hero({displayButton, displayText, padTop}) {
      </div>
     }
     
-    <section className="block about-block" style={{paddingBottom:2 ,backgroundColor:'#F1F3FF', justifyContent:'center'}}>
+    <section className="block about-block" style={{paddingBottom:2 ,backgroundColor:"#F1F3FF", justifyContent:"center"}}>
     <div className="container">
         <div className="row first" style={{paddingTop: padTop}}>
           <div className="col-sm-6">
@@ -61,7 +61,7 @@ function Hero({displayButton, displayText, padTop}) {
       </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

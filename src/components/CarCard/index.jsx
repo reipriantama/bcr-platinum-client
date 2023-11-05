@@ -1,5 +1,5 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import "./index.css";
 
 function CarCard({carname, carimage, carprice, cardetail}) {
 
@@ -18,7 +18,7 @@ function CarCard({carname, carimage, carprice, cardetail}) {
           <button type="button" class="btn btn-success select-car" onClick={cardetail}>Pilih Mobil</button>
       </div>
     </>
-  )
+  );
 }
 
-export default CarCard
+export default CarCard;

@@ -1,9 +1,9 @@
-import React from 'react'
-import WhyUsCard from '../WhyUsCardComponent'
-import './index.css'
+import React from "react";
+import WhyUsCard from "../WhyUsCardComponent";
+import "./index.css";
 
 //import icon
-import { ThirdSection } from '../../../data/Homepage'
+import { ThirdSection } from "../../../data/Homepage";
 
 function Third() {
   return (
@@ -32,7 +32,7 @@ function Third() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Third
+export default Third;

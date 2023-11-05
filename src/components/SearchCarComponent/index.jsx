@@ -1,11 +1,11 @@
-import React from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
-import './index.css';
+import React from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import {  useNavigate } from "react-router-dom";
+import "./index.css";
 import style from "./index1.module.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function SearchCarComponent() {
     const [selectedCar, setSelectedCar] = useState({
@@ -56,18 +56,18 @@ function SearchCarComponent() {
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
         e.preventDefault();
-    }
+    };
     const navigate = useNavigate();
 
     const goToSearch = (id) => 
-        navigate(`/result/${id}`)
+        navigate(`/result/${id}`);
 
    
 
     return (
         <>
-        <div className={`container `}>
-        <div className={`card search `} >
+        <div className={"container "}>
+        <div className={"card search "} >
         <div className="card-body">
         <form onSubmit={(e) => onSubmit(e)}>
             <div className="row">
@@ -116,8 +116,8 @@ function SearchCarComponent() {
         </div>
         </div>
         </>
-      )
+      );
     }
   
-  export default SearchCarComponent
+  export default SearchCarComponent;
 

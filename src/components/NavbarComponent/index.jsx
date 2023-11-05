@@ -1,12 +1,12 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
-import './index.scss'
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link, useNavigate } from "react-router-dom";
+import "./index.scss";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import { useState, useEffect } from "react";
+import Col from "react-bootstrap/Col";
 
 const NavbarComponent = () => {
     const [show, setShow] = useState(false);
@@ -35,7 +35,7 @@ const NavbarComponent = () => {
         <Navbar expand="lg" className="navbar-main">
             <Container>
               <Col sm={8}>
-              <Link style={{ textDecoration: 'none' }} to={'/'}>
+              <Link style={{ textDecoration: "none" }} to={"/"}>
               <div className="blue-box"></div>
               </Link>
               </Col>
@@ -66,7 +66,7 @@ const NavbarComponent = () => {
             </Container>
         </Navbar>
         </>
-    )
-}
+    );
+};
 
-export default NavbarComponent
+export default NavbarComponent;

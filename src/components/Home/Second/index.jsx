@@ -1,10 +1,10 @@
-import React from 'react'
-import './index.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-import serviceBla from '../../img/img_service.png'
-import { SecondSection } from '../../../data/Homepage'
-import check from '../../../data/checkicon.png'
+import React from "react";
+import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import serviceBla from "../../img/img_service.png";
+import { SecondSection } from "../../../data/Homepage";
+import check from "../../../data/checkicon.png";
 
 function Second() {
 
@@ -36,7 +36,7 @@ function Second() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Second
+export default Second;

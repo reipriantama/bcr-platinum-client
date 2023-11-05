@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react'
-import {  useNavigate } from 'react-router-dom';
-import CarCard from '../CarCard';
-import './index.css';
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import {  useNavigate } from "react-router-dom";
+import CarCard from "../CarCard";
+import "./index.css";
 
 
 function FindCarComponent() {
@@ -28,6 +28,7 @@ function FindCarComponent() {
         const api = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${name}&minPrice=${minPrice}&maxPrice=${maxPrice}&status=${status}&category=${category}`; //name=${name}&minPrice=${minPrice}&maxPrice=${maxPrice}&status=${status}&category=${category}
         axios.get(api).then(
             (res) => setData(res.data.cars))
+            // eslint-disable-next-line no-console
             .catch((err) => console.log(err));
     };
 
@@ -110,11 +111,11 @@ function FindCarComponent() {
     const onSubmit = (e) => {
         // function untuk tidak melakukan reload, untuk nnti pengelolaan data pada saat hit API
         e.preventDefault();
-    }
+    };
     const navigate = useNavigate();
 
     const goToSearch = (id) => 
-        navigate(`/result/${id}`)
+        navigate(`/result/${id}`);
 
   return (
     <>
@@ -176,7 +177,7 @@ function FindCarComponent() {
         </div>
     </div>
     </>
-  )
+  );
 }
 
-export default FindCarComponent
+export default FindCarComponent;
