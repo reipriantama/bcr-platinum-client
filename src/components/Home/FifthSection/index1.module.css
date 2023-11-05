@@ -1,0 +1,27 @@
+.modal {
+    background-color: rgba(60, 60, 60, 0.6);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1000;
+    
+}
+
+.modal_container {
+    position: fixed; /* Fixed position */
+    top: 50%; /* Center the modal vertically */
+    left: 50%; /* Center the modal horizontally */
+    transform: translate(-50%, -50%); /* Apply a negative top and left margin to truly center the modal */
+    z-index: 2000; 
+}
+
+.popup {
+    background-color: #fff;
+    padding: 50px 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    
+}
