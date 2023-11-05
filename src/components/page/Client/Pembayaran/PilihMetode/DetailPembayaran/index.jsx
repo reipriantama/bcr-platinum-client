@@ -27,16 +27,8 @@ const DetailPembayaran = () => {
    sessionStorage.setItem("carID", id);
 
 
-    // const convertDate = (date) => {
-    //     const dateObject = new Date(date);
-    //     const formattedDate = format(dateObject, 'yyyy-MM-dd');
-    //     return formattedDate;
-    // };
-
    let [startDateRent] = useState(sessionStorage.getItem("startDate"));
    let [endDateRent] = useState(sessionStorage.getItem("endDate"));
-//    let [formattedStartDateRent] = useState(convertDate(startDateRent));
-//    let [formattedEndDateRent] = useState(convertDate(endDateRent));
   
    
    const dispatch = useDispatch();
@@ -52,8 +44,7 @@ const DetailPembayaran = () => {
             console.log("hasil data:", res.data);
             setData(res.data);
             setItemPrice(res.data.price);
-            // setFormattedTotalPrice((countDays(receivedDates[0], receivedDates[1]) * itemPrice).toLocaleString('id-ID'));
-            // dispatch(updateTotalPrice((countDays(receivedDates[0], receivedDates[1]) * itemPrice).toLocaleString('id-ID')));
+            
 
             let category = res.data.category;
 
@@ -86,29 +77,9 @@ const DetailPembayaran = () => {
     getDetailedOrder();
    });
 
-//    const getDetailedOrder = async () => {
-//        try {
-//             const response = await api.createOrder({
-//                 start_rent_at: formattedStartDateRent,
-//                 finish_rent_at: formattedEndDateRent,
-//                 car_id: id
-//             }); 
-
-//             setTotalPrice(response.data.total_price);
-//             console.log("order", response);
-//             sessionStorage.setItem("totalPrice", response.data.total_price);
-//             // setFormattedTotalPrice(response);
-//             console.log("totalprice", response.data.total_price);
-//             console.log("tgggl", startDateRent);
-//             console.log("asil", response);
-
-//        } catch(err) {
-//             console.log(err);
-//        }
-//    };
 
    const location = useLocation();
-   //const receivedDates = location.state?.dates || [];
+  
 
    const countDays = (startDate, endDate) => {
         const start = new Date(startDate);

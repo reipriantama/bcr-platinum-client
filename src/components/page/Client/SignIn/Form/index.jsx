@@ -67,6 +67,10 @@ const FormSignIn = () => {
         }
     };
 
+    const navigateToSignUpPage = () => {
+        navigateTo("/sign-up");
+      };
+
 
 
     return (
@@ -100,10 +104,10 @@ const FormSignIn = () => {
                             <input type="password" className="form-control rounded-1" id="inputPassword1" value={inputCustomer.password} onChange={handleInputPassword} placeholder="6+ karakter"></input>
                         </div>
                         <div className="mt-4 mb-4">
-                            <button type="button" className={`${style.font_size_1} btn btn-primary w-100 fw-bold rounded-1`} style={{backgroundColor: "#0D28A6"}} onClick={signInProcess}>Sign In</button>
+                            <button type="button" className={`${style.font_size_2} btn btn-primary w-100 fw-bold rounded-1`} style={{backgroundColor: "#0D28A6"}} onClick={signInProcess}>Sign In</button>
                         </div>
                     <div className="d-flex justify-content-center align-items-center" >
-                            <p className={`${style.font_size_1} fw-bold`}>Don't have an account? <Link to="/sign-up"><span className="" style={{color: "#0D28A6", borderBottom: "1px solid #0D28A6"}}>Sign Up for free</span></Link></p>
+                            <p className={`${style.font_size_1} fw-bold`}>Don't have an account? <span className={`${style.btn_style}`} style={{color: "#0D28A6", borderBottom: "1px solid #0D28A6"}} onClick={navigateToSignUpPage}>Sign Up for free</span></p>
                         </div>
                     </form>
                     
