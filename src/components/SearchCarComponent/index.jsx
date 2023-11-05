@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import './index.css';
+import style from "./index1.module.css";
 import { Link } from 'react-router-dom';
 
 function SearchCarComponent() {
@@ -15,6 +16,8 @@ function SearchCarComponent() {
         maxPrice: "",
         status: "",
     });
+
+    const [displayModal, setDisplayModal] = useState(false);
 
     const handleSetName = (e) => {
         setSelectedCar({ ...selectedCar, name: e.target.value});
@@ -63,8 +66,8 @@ function SearchCarComponent() {
 
     return (
         <>
-        <div className="container">
-        <div className="card search" >
+        <div className={`container `}>
+        <div className={`card search `} >
         <div className="card-body">
         <form onSubmit={(e) => onSubmit(e)}>
             <div className="row">

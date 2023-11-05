@@ -1,5 +1,5 @@
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -11,13 +11,32 @@ import api from '../../../../api';
 function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname, carresultprice}) {
   const { id } = useParams();
   const [dateOrder, setDateOrder] = useState(null);
+  const [canOrder, setCanOrder] = useState(false);
+
+
+  const countDays = (startDate, endDate) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const range = end.getTime() - start.getTime();
+    const realRange = range / (1000 * 3600 * 24);
+    console.log("waktu", realRange);
+    return realRange;
+};
 
   const handleDateChange = (dateArray) => {
-      setDateOrder(dateArray);
-      sessionStorage.setItem("startDate", dateArray[0]);
-      sessionStorage.setItem("endDate", dateArray[1]);
-      console.log("Mulai:", dateArray[0]);
-      console.log("Akhir:", dateArray[1]);
+      if ( countDays(dateArray[0], dateArray[1]) < 8) {
+        setDateOrder(dateArray);
+        sessionStorage.setItem("startDate", dateArray[0]);
+        sessionStorage.setItem("endDate", dateArray[1]);
+        setCanOrder(true);
+        console.log("Mulai:", dateArray[0]);
+        console.log("Akhir:", dateArray[1]);
+      }
+      else {
+        setCanOrder(false);
+      }
+      
   };
 
   const createNewOrder = async () => {
@@ -63,7 +82,13 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
                 <div className="amount-price">Total</div>
                 <div className="amount-price">Rp. {carresultprice}</div>
             </div>
-            <button type="button" class="btn btn-success pembayaran" onClick={() =>{createNewOrder(); goToPembayaran(); sessionCheckedBank();}} block>Lanjutkan Pembayaran</button>
+            {
+              canOrder ?
+              <button type="button" class="btn btn-success pembayaran" onClick={() =>{createNewOrder(); goToPembayaran(); sessionCheckedBank();}} block>Lanjutkan Pembayaran</button> 
+              :
+              <button type="button" class="btn btn-success pembayaran" block disabled>Lanjutkan Pembayaran</button> 
+            }
+            
           </div>
       </div>
     </>
