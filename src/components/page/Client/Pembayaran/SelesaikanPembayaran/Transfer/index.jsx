@@ -25,7 +25,7 @@ const Transfer = () => {
             setIsCopied(true);
             setTimeout(() => {
               setIsCopied(false);
-            }, 2000); // Pop-up "Copied!" akan hilang setelah 2 detik
+            }, 600); // Pop-up "Copied!" akan hilang setelah 2 detik
           })
           .catch((err) => {
             console.error('Something went wrong when copying to clipboard', err);
@@ -39,7 +39,7 @@ const Transfer = () => {
             setIsCopied2(true);
             setTimeout(() => {
               setIsCopied2(false);
-            }, 2000); // Pop-up "Copied!" akan hilang setelah 2 detik
+            }, 600); // Pop-up "Copied!" akan hilang setelah 2 detik
           })
           .catch((err) => {
             console.error('Something went wrong when copying to clipboard', err);

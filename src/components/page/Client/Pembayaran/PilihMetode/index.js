@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 const Pembayaran = () => {
     let [selectedBank, setSelectedBank] = useState(true);
     let [chosenBank, setChosenBank] = useState(null);
+    let [carID] = useState(parseInt(sessionStorage.getItem("carID")));
     return(
         <>
         <NavbarComponent />
@@ -23,7 +24,7 @@ const Pembayaran = () => {
             <div className="col">
                     <div className="row">
                     <div className="col">
-                            <span><Link to="/result" className='col-md-2'><img src={back} style={{marginRight:10}}/></Link>Pembayaran</span>
+                            <span><Link to={`/result/${carID}`} className='col-md-2'><img src={back} style={{marginRight:10}}/></Link>Pembayaran</span>
                         </div>
                         <div className="col">
                             <div className="row">
