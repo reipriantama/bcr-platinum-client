@@ -48,7 +48,7 @@ function ResultCarCard({idcar, imagecarresult, categorycarresult, carresultname,
 
   return (
     <>
-    <div class="card car result">
+    <div class="card result col">
       <div className="carimage">
       <img src={imagecarresult} class="card-img-top" alt="car" />
       </div>

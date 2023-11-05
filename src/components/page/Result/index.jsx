@@ -37,8 +37,8 @@ function Result() {
     <>
     <NavbarComponent />
     <Hero displayButton={"none"} displayText={"none"} padTop={170}/>
-    <SearchCarComponent2 />
     <div className="container list_1" style={{marginBottom: 200}}>
+    <SearchCarComponent2 />
         <div className="row result">
           <div className="col-8">
             <div className="colwrapper">
@@ -86,7 +86,7 @@ function Result() {
               </ul>
             </div>
           </div>
-          <div className="col-4">
+          {/* <div className="col"> */}
             <ResultCarCard
               idcar={id}
               carresultname={data?.name}
@@ -94,7 +94,7 @@ function Result() {
               imagecarresult={data?.image}
               carresultprice={data?.price}
             />
-          </div>
+          {/* </div> */}
         </div>
       </div>
       <Footer />

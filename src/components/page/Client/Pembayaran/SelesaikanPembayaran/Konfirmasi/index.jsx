@@ -25,7 +25,7 @@ const Konfirmasi = () => {
 
     useEffect(() => {
         setConfirmState(confirm);
-        console.log("ppppp", confirm);
+        //console.log("ppppp", confirm);
     }, [confirm]);
 
     return(

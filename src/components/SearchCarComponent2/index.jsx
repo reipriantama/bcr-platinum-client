@@ -63,8 +63,8 @@ function SearchCarComponent() {
 
     return (
         <>
-        <div className="container">
-        <div className="card search" >
+        {/* <div className="container"> */}
+        <div className="card search2" >
         <div className="card-body">
         <form onSubmit={(e) => onSubmit(e)}>
             <div className="row">
@@ -101,17 +101,13 @@ function SearchCarComponent() {
                             <option value='false'>Tidak Disewa</option>
                         </select>
                         </div>
-                        <div className="col">
-                        {/* <label></label> */}
-                        <Link to="/choose"> <button type="button" class="btn btn-success choose" style={{marginTop: 40}}>Cari Mobil</button></Link>
-                        </div>
                     </div>
                 </div>
             </div>
             </form>
         </div>
         </div>
-        </div>
+        {/* </div> */}
         </>
       )
     }
