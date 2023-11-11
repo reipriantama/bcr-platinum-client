@@ -2,6 +2,7 @@ import ceklis from "../../../../../data/success.png";
 import "./index.css";
 
 
+
 const Berhasil = () => {
     return(
         <>
