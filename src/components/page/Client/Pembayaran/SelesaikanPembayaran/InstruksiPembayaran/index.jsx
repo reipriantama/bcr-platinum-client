@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./index.module.css";
+import style from "./index.module.css";
 
 const InstruksiPembayaran = () => {
     return(
@@ -22,37 +23,37 @@ const InstruksiPembayaran = () => {
             </ul>
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <ul style={{color: "#8A8A8A"}}>
-                        <li>Masukan kartu ATM, lalu PIN</li>
-                        <li>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek BCA Virtual Accout"</li>
-                        <li>Masukan nomor BCA Virtual Account: 70020+Order ID</li>
-                        <li style={{listStyle: "none"}}>Contoh:</li>
-                        <li style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
-                        <li>Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
-                        <li>Ambil dan simpan bukti transaksi tersebut</li>
+                    <ul className={`${style.order_style}`} style={{color: "#8A8A8A", marginTop: "25px"}}>
+                        <li className={`${style.order_style}`}>Masukan kartu ATM, lalu PIN</li>
+                        <li className={`${style.order_style}`}>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek BCA Virtual Accout"</li>
+                        <li className={`${style.order_style}`}>Masukan nomor BCA Virtual Account: 70020+Order ID</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>Contoh:</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
+                        <li className={`${style.order_style}`} >Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
+                        <li className={`${style.order_style}`}>Ambil dan simpan bukti transaksi tersebut</li>
                     </ul>
                 </div>
                 <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <ul style={{color: "#8A8A8A"}}>
-                        <li>Masukan kartu ATM, lalu PIN</li>
-                        <li>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek BCA Virtual Accout"</li>
-                        <li>Masukan nomor BCA Virtual Account: 70020+Order ID</li>
-                        <li style={{listStyle: "none"}}>Contoh:</li>
-                        <li style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
-                        <li>Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
-                        <li>Ambil dan simpan bukti transaksi tersebut</li>
+                <ul className={`${style.order_style}`} style={{color: "#8A8A8A", marginTop: "25px"}}>
+                        <li className={`${style.order_style}`}>Masukan kartu ATM, lalu PIN</li>
+                        <li className={`${style.order_style}`}>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek BNI Virtual Accout"</li>
+                        <li className={`${style.order_style}`}>Masukan nomor BNI Virtual Account: 70020+Order ID</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>Contoh:</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
+                        <li className={`${style.order_style}`} >Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
+                        <li className={`${style.order_style}`}>Ambil dan simpan bukti transaksi tersebut</li>
                     </ul>
                 </div>
                 <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <ul style={{color: "#8A8A8A"}}>
-                            <li>Masukan kartu ATM, lalu PIN</li>
-                            <li>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek BCA Virtual Accout"</li>
-                            <li>Masukan nomor BCA Virtual Account: 70020+Order ID</li>
-                            <li style={{listStyle: "none"}}>Contoh:</li>
-                            <li style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
-                            <li>Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
-                            <li>Ambil dan simpan bukti transaksi tersebut</li>
-                        </ul>
+                     <ul className={`${style.order_style}`} style={{color: "#8A8A8A", marginTop: "25px"}}>
+                        <li className={`${style.order_style}`}>Masukan kartu ATM, lalu PIN</li>
+                        <li className={`${style.order_style}`}>Pilih menu "Transaksi Lainnya" - "Transfer" - "Ke Rek Mandiri Virtual Accout"</li>
+                        <li className={`${style.order_style}`}>Masukan nomor Mandiri Virtual Account: 70020+Order ID</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>Contoh:</li>
+                        <li className={`${style.order_style}`} style={{listStyle: "none"}}>No. Peserta: 12345678 maka ditulis 7002012345678</li>
+                        <li className={`${style.order_style}`} >Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk menyelesaikan transaksi</li>
+                        <li className={`${style.order_style}`}>Ambil dan simpan bukti transaksi tersebut</li>
+                    </ul>
                 </div>
             </div>
             </div>

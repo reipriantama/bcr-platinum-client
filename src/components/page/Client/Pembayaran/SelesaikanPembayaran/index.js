@@ -13,6 +13,7 @@ import linep from "../../../../../data/Rectangle 36.png";
 import backp from "../../../../../data/fi_arrow-left.png";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -21,6 +22,8 @@ const SelesaikanPembayaran = () => {
     const timerState = useSelector((state) => state.storePembayaran.timerNow);
 
     const [newOrder, setNewOrder] = useState(JSON.parse(sessionStorage.getItem("newOrder")));
+
+    const [idCar] = useState(sessionStorage.getItem("carID"));
 
     useEffect(() => {
         sessionStorage.setItem("confirm", status);
@@ -41,7 +44,7 @@ const SelesaikanPembayaran = () => {
             <div className="container" style={{marginBottom:200, marginTop:-60}}>
                     <div className="row" style={{marginBottom:30}}>
                         <div className="col">
-                            <span><img src={backp} style={{marginRight:10}}/>Pembayaran</span>
+                            <span><Link to={`/pembayaran/${idCar}`}><img src={backp} style={{marginRight:10, cursor: "pointer"}}/></Link>Pembayaran</span>
                             <span>Order ID : {newOrder.id ? newOrder.id : ""}</span>
                         </div>
                         <div className="col">
