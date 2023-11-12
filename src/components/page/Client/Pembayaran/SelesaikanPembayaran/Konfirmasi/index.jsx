@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateKonfirmasi, updateTimerNow } from "../../../../../../store/SlicePembayaran";
 import { useLocation } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 
 const Konfirmasi = () => {
@@ -35,7 +35,7 @@ const Konfirmasi = () => {
                     <h6>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</h6>
                 </div>
                 <div className={""}>
-                    <button className="w-100 pt-2 pb-2 fw-bold" style={{backgroundColor: "#5CB85F", color: "#FFF", fontSize: "1rem"}} onClick={()=>{setTime(); setKonfirmasi();}}>Konfirmasi Pembayaran</button>
+                    <button data-testid="button-konfirmasi" className="w-100 pt-2 pb-2 fw-bold" style={{backgroundColor: "#5CB85F", color: "#FFF", fontSize: "1rem"}} onClick={()=>{setTime(); setKonfirmasi();}}>Konfirmasi Pembayaran</button>
                 </div>
             </div>
          </div>

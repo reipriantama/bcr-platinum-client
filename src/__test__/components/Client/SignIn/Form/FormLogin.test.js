@@ -1,23 +1,72 @@
-// Import dependencies yang diperlukan
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import FormSignIn from '../../../../../components/page/Client/SignIn/Form/index';
+import renderer from "react-test-renderer";
+import { describe, expect, test } from "@jest/globals";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 
-// Mock useNavigate
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => jest.fn(),
-}));
+import {
+  rawRenderWithProviders,
+  renderWithProviders,
+} from "../../../../../mocks/redux";
+import { mockLocalStorage } from "../../../../../mocks/localStorage";
+import Login from "../../../../../components/page/Client/SignIn/Form";
 
-// Test navigasi ke landing page
-test('navigates to landing page on successful sign in', async () => {
-  // Implementasi test
-  // ...
+describe("Login", () => {
+  const { setItemMock } = mockLocalStorage();
+
+  test("Login component should match with snapshot", () => {
+    const component = renderer
+      .create(rawRenderWithProviders(<Login />))
+      .toJSON();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  test("Alert should be visible when loginAdmin failed", async () => {
+    renderWithProviders(<Login />);
+
+    const emailInput = screen.getByTestId("email-input");
+    const passwordInput = screen.getByTestId("password-input");
+    const loginButton = screen.getByTestId("signin-input");
+
+    fireEvent.change(emailInput, {
+      target: {
+        value: "test@test.id",
+      },
+    });
+    fireEvent.change(passwordInput, {
+      target: {
+        value: "123456",
+      },
+    });
+    fireEvent.click(loginButton);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("alert-signin")).toBeVisible();
+    });
+  });
+
+  test("token in localStorage should match with expected value", async () => {
+    renderWithProviders(<Login />);
+
+    const emailInput = screen.getByTestId("email-input");
+    const passwordInput = screen.getByTestId("password-input");
+    const loginButton = screen.getByTestId("signin-input");
+
+    fireEvent.change(emailInput, {
+      target: {
+        value: "admin@bcr.io",
+      },
+    });
+    fireEvent.change(passwordInput, {
+      target: {
+        value: "123456",
+      },
+    });
+    fireEvent.click(loginButton);
+
+    await waitFor(() => {
+      expect(setItemMock).toHaveBeenCalledTimes(3);
+    });
+
+    expect(setItemMock).toHaveBeenCalledTimes(3);
+  });
 });
-
-// Test navigasi ke halaman pendaftaran
-test('navigates to sign up page on link click', async () => {
-  // Implementasi test
-  // ...
-});
-
