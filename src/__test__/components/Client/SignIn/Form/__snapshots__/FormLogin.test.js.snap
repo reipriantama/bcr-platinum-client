@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Login component should match with snapshot 1`] = `
+<div
+  className="container_size_1 flex_gap_1  d-flex flex-column flex-shrink-0  justify-content-center align-items-center"
+>
+  <div
+    className="d-flex justify-content-end p-3 p-md-4 p-xl-3 w-100"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        className="btn_close_size"
+        src="btn-close.png"
+      />
+    </a>
+  </div>
+  <div
+    className="d-flex flex-column gap-4 flex_size_1 flex_position_1"
+  >
+    <div
+      className="d-flex flex-column gap-4"
+    >
+      <div>
+        <img
+          src="Logo_1.png"
+        />
+      </div>
+      <div>
+        <h4
+          className="fw-bold"
+        >
+          Welcome Back!
+        </h4>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            for="inputEmail1"
+          >
+            Email
+          </label>
+          <input
+            className="form-control rounded-1"
+            data-testid="email-input"
+            id="inputEmail1"
+            onChange={[Function]}
+            placeholder="Contoh: johndee@gmail.com"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            for="inputPassword1"
+          >
+            Password
+          </label>
+          <input
+            className="form-control rounded-1"
+            data-testid="password-input"
+            id="inputPassword1"
+            onChange={[Function]}
+            placeholder="6+ karakter"
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          className="mt-4 mb-4"
+        >
+          <button
+            className="font_size_2 btn btn-primary w-100 fw-bold rounded-1"
+            data-testid="signin-input"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#0D28A6",
+              }
+            }
+            type="button"
+          >
+            Sign In
+          </button>
+        </div>
+        <div
+          className="d-flex justify-content-center align-items-center"
+        >
+          <p
+            className="font_size_1 fw-bold"
+          >
+            Don't have an account?
+             
+            <span
+              className="btn_style"
+              onClick={[Function]}
+              style={
+                Object {
+                  "borderBottom": "1px solid #0D28A6",
+                  "color": "#0D28A6",
+                }
+              }
+            >
+              Sign Up for free
+            </span>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

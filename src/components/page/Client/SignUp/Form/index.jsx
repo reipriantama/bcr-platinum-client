@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import api from "../../../../../api";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
 import logo from "../../../../img/Logo_1.png";
 import close from "../../../../img/btn-close.png";
@@ -154,18 +154,18 @@ const FormSignUp = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center">
               <p className={" fw-bold"}>
-                Already have an account?{" "}
-                {/* <Link to="/sign-in"> */}
-                  <span
-                    className={`${style.btn_style}`}
-                    style={{
-                      color: "#0D28A6",
-                      borderBottom: "1px solid #0D28A6"
-                    }}
-                    onClick={navigateToSignInPage}
-                  >
-                    Sign In here
-                  </span>
+                Already have an account? {/* <Link to="/sign-in"> */}
+                <span
+                  data-testid="signin-link"
+                  className={`${style.btn_style}`}
+                  style={{
+                    color: "#0D28A6",
+                    borderBottom: "1px solid #0D28A6",
+                  }}
+                  onClick={navigateToSignInPage}
+                >
+                  Sign In here
+                </span>
                 {/* </Link> */}
               </p>
             </div>
