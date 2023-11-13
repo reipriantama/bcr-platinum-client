@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import api from "../../../../../api";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./index.module.css";
+import CryptoJS from 'crypto-js';
 import logo from "../../../../img/Logo_1.png";
 import close from "../../../../img/btn-close.png";
 import { Link } from "react-router-dom";
@@ -35,15 +35,21 @@ const FormSignIn = () => {
     //console.log("berhasil");
   };
 
+  const secretKey = '123az2278';
+
+  const encryptData = (data) => {
+    return CryptoJS.AES.encrypt(data, secretKey).toString();
+  };
+
   // Fungsi untuk menjalankan proses Sign in
   const signInProcess = async () => {
     try {
       const response = await api.loginAdmin({
         email: inputCustomer.email,
         password: inputCustomer.password,
-      });
-
-      localStorage.setItem("token", response.data.access_token);
+      }); 
+      console.log("hasil enkripsi:", response.data.access_token);
+      localStorage.setItem("token", encryptData(response.data.access_token));
       setErrorMessage("");
 
       // Navigasi ke halaman Landing Page

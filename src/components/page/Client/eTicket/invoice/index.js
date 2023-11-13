@@ -24,7 +24,7 @@ const Invoice = () => {
     useEffect(() => {
         setSlip(newOrder.slip);  
         //console.log("link", slip);
-    }, []);
+    }, [newOrder]);
 
 
     return(
